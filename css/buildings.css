@@ -1,0 +1,18 @@
+.building {
+    position: absolute;
+    z-index: 10;
+    image-rendering: initial;
+}
+
+.building td {
+    width: 200px;
+    height: 200px;
+    font-size: 0;
+}
+
+#lenoir {
+    left: calc(48 * 50px);
+    top: calc(14 * 50px);
+    width: 600px;
+    height: 800px;
+}

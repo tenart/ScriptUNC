@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ScriptUNC</title>
+        <link href="css/reset.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="css/buildings.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:600,700" rel="stylesheet">
+    </head>
+    <body>
+        <!--<div id="banner"></div>-->
+        <div id="debug" class="gui">
+            <p>Debug Mode</p>
+            <p class="cat">rameses object</p>
+            <p id="collision_state">isColliding: -</p> 
+            <p id="moving">isMoving: -</p>  
+            <p id="onScreen">onScreen: -</p>
+            <p id="direction">direction: -</p>   
+            <p id="pxX">pixel X: -</p>   
+            <p id="pxY">pixel Y: -</p>   
+            <p id="blockX">block X: -</p>   
+            <p id="blockY">block Y: -</p>
+            <p class="cat">cursor object</p>
+            <p id="cControl">control: -</p>
+            <p id="cpX">pixel X: -</p>
+            <p id="cpY">pixel Y: -</p>
+            <p id="cbX">block X: -</p>
+            <p id="cbY">block Y: -</p>
+        </div>
+        <div id="minimap" class="gui">
+            <div id="coords">
+            X: 0 | Y: 0</div>
+            <img id="minimap_buildings" src="img/collision_map.png">
+            <div id="minimap_pointer"></div>
+        </div>
+        <div id="buttons" class="gui">
+            <button id="y">Y</button>
+            <button id="x">X</button>
+            <button id="b">B</button>
+            <button id="a">A</button>
+        </div>
+        <!--
+        <div id="welcome" class="gui">
+            <img src="img/georam.png">
+            <h1>Welcome to ScriptUNC!</h1>
+            <p>To start playing, open the JavaScript console from your browser's inspector and type:</p>
+            <p class="code">$("#welcome").hide()</p>
+        </div>
+        <div id="buttons_tip" class="tooltip gui">
+            <h1>Buttons!</h1>
+            <p>Theses buttons are completely programmable. Try:</p>
+            <pre class="code">$("#b").click(function() { 
+     rameses.move(1); 
+})</pre>
+        </div>
+        <div id="rameses_tip" class="tooltip gui">
+            <h1>Rameses!</h1>
+            <p>Rameses is an object and can be moved with:</p>
+            <pre class="code">rameses.move(deltaX, deltaY);</pre>
+        </div>
+        <div id="tip_tip" class="tooltip gui">
+            <h1>Tooltips!</h1>
+            <p>Theses boxes contain helpful information to get you started. to hide or show them try the following:</p>
+            <pre class="code">$(".tooltip").hide();
+$(".tooltip").show();</pre>
+        </div>
+        -->
+        <div id="game_wrap">
+            <div id="stage1">
+                
+                <div id="x_dir" class="direction"></div>
+                <div id="y_dir" class="direction"></div>
+                
+                <div id="rameses"></div>
+                <div id="rameses_pointer"></div>
+                <div id="rameses_shadow"></div>
+                <div id="rameses_sprite" class=""></div>
+                
+                <img id="ground_detail" class="overlay" src="img/ground_detail.png">
+                <img id="occlusion" class="overlay" src="img/occlusion.png">
+                <img id="shadow_overlay" class="overlay" src="img/shadows.png">
+                <img id="trees" class="overlay" src="img/trees.png">
+                <img id="building_overlay" class="overlay" src="img/building_overlay.png">
+                <table id="lenoir" class="building">
+                    <tr>
+                        <td><img src="img/lenoir_slices/lenoir_01.png"></td>
+                        <td><img src="img/lenoir_slices/lenoir_02.png"></td>
+                        <td><img src="img/lenoir_slices/lenoir_03.png"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/lenoir_slices/lenoir_04.png"></td>
+                        <td><img src="img/lenoir_slices/lenoir_05.png"></td>
+                        <td><img src="img/lenoir_slices/lenoir_06.png"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/lenoir_slices/lenoir_07.png"></td>
+                        <td><img src="img/lenoir_slices/lenoir_08.png"></td>
+                        <td><img src="img/lenoir_slices/lenoir_09.png"></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/lenoir_slices/lenoir_10.png"></td>
+                        <td><img src="img/lenoir_slices/lenoir_11.png"></td>
+                        <td><img src="img/lenoir_slices/lenoir_12.png"></td>
+                    </tr>
+                </table>
+            </div>        
+        </div>
+        <img id="collision" src="img/collision_map.png">
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.2/howler.core.min.js"></script>
+    <script src="js/jquery.visible.min.js"></script>
+    <script src="js/game.js"></script>
+</html>

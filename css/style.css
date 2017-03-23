@@ -1,0 +1,386 @@
+body {
+    background: #f2f2f2;
+    overflow: hidden;
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+    image-resolution: 72;
+}
+
+pre {
+    -webkit-user-select: initial; /* Safari */
+     -khtml-user-select: initial; /* Konqueror HTML */
+       -moz-user-select: initial; /* Firefox */
+        -ms-user-select: initial; /* Internet Explorer/Edge */
+            user-select: initial; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+* {
+    outline: none;
+}
+
+#banner {
+    width: 120px;
+    height: 120px;
+    background: url(../img/logo.png) 0 0 / 120px 120px;
+    position: absolute;
+    left: 20px;
+    z-index: 20;
+}
+
+.gui {
+    z-index: 20;
+}
+
+#collision {
+    opacity: 0;
+}
+
+#debug {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.26);
+    color: white;
+    font-family: monospace;
+    top: 5px;
+    left: 5px;
+    border-left: 3px solid white;
+}
+
+#debug p.cat {
+    color: black;
+    background: white;
+    border-bottom: none;
+}
+
+#debug p {
+    padding: 5px 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.19);
+}
+
+#welcome {
+    width: 600px;
+    height: 200px;
+    background: white;
+    position: absolute;
+    top: calc(50% - 100px);
+    left: calc(50% - 300px);
+    border: 1px solid #d4d4d4;
+    border-radius: 3px;
+    font-family: 'Josefin Slab', sans-serif;
+    color: gray;
+    text-align: center;
+    box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.7);
+    z-index: 21;
+    display: none;
+}
+
+#welcome h1 {
+    font-size: 20px;
+    margin: 40px 20px 20px 20px;
+    color: #7bafd4;
+}
+
+#welcome p {
+    width: 400px;
+    display: block;
+    margin: 20px auto;
+}
+
+#welcome p {
+    width: 400px;
+    display: block;
+    margin: 20px auto;
+}
+
+.code {
+    font-family: 'Anonymous Pro', monospace;
+    background: #f5f5f5;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+#welcome img {
+    position: absolute;
+    z-index: -1;
+    width: 100px;
+    left: -30px;
+    top: -20px;
+    transform: rotate(-10deg)
+}
+
+.tooltip {
+    width: 240px;
+    background: white;
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-radius: 3px;
+    font-family: 'Josefin Slab', sans-serif;
+    color: gray;
+    box-shadow: 0 0 100px 30px rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    display: none;
+}
+
+.tooltip h1 {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    color: #7bafd4;
+}
+
+.tooltip p {
+    font-size: 14px;
+}
+
+.tooltip pre {
+    font-size: 13px;
+    margin: 10px 0 0;
+}
+
+#tip_tip {
+    top: 10px;
+    left: calc(100% - 280px)
+}
+
+#buttons_tip {
+    top: calc(100% - 200px);
+    left: calc(50% - 380px)
+}
+
+#rameses_tip {
+    left: calc(50% - 135px);
+    top: calc(50% - 200px);
+}
+
+#game_wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+/*
+#console {
+    background: red;
+    width: 1060px;
+    height: 15px;
+    position: absolute;
+    top: 555px;
+    left: 10px;
+    background: #414141;
+    border-radius: 2px;
+    color: white;
+    font-family: 'Anonymous Pro', monospace;
+    padding: 10px;
+}
+*/
+
+#stage1 {
+    width: 4800px;
+    height: 2800px;
+    background: url(../img/grid.png) 0 0 / 50px 50px, url(../img/brick_texture.png) 0 0 / 150px, url(../img/red_texture.png);
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.22), 0 0 0 10px #f2f2f2, 0 0 0 11px rgba(0, 0, 0, 0.1), 0 0 100px 0 rgba(0, 0, 0, 0.2);
+    image-rendering: pixelated;
+}
+
+.direction {
+    position: absolute;
+}
+
+#x_dir {
+    width: 100px;
+    height: 0px;
+    border-top: 4px dotted #d83838;
+    left: calc(52 * 50px + 20px);
+    top: calc(33 * 50px + 20px);
+}
+
+#y_dir {
+    border-left: 4px dotted #3030eb;
+    width: 0px;
+    height: 100px;
+    left: calc(52 * 50px + 20px);
+    top: calc(33 * 50px + 20px);
+}
+
+#rameses {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: calc(52 * 50px);
+    top: calc(33 * 50px);
+    transform: rotate(-90deg) scale(1.5);
+    z-index: 3;
+    
+}
+
+#rameses_pointer {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: calc(52 * 50px);
+    top: calc(33 * 50px);
+    background: url(../img/location_pointer.png) 50% 50% / 80% no-repeat;
+    image-rendering: initial;
+    transform: scale(1.5);
+}
+
+#rameses_sprite {
+    background: url(../img/rameses_run.png) 0 0 / 1250px 50px;
+    image-rendering: initial;
+    width: 50px;
+    height: 50px;
+    left: calc(52 * 50px);
+    top: calc(33 * 50px);
+    position: absolute;
+    z-index: 3;
+}
+
+#rameses_shadow {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background: url(../img/rameses_shadow.png) 0 0 / 100%;
+    z-index: 3;
+    left: calc(52px * 50 - 10px);
+    top: calc(32px * 50 - 10px);
+    opacity: 1;
+    image-rendering: initial;
+    opacity: 0.5;
+}
+
+.running {
+    background: url(../img/rameses_run.png) 0 0 / 1250px 50px;
+    animation: play 0.6s steps(25) infinite;
+}
+
+@keyframes play {
+   from { background-position:    0px; }
+     to { background-position: -1250px; }
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#ground_detail {
+    z-index: 2;
+    image-rendering: initial;
+    opacity: 0;
+}
+
+#building_overlay {
+    z-index: 10;
+    image-rendering: initial;
+}
+
+#shadow_overlay {
+    z-index: 7;
+    image-rendering: initial;
+}
+
+#trees {
+    z-index: 8;
+    image-rendering: initial;
+}
+
+#occlusion {
+    z-index: 9;
+    image-rendering: initial;
+}
+
+#minimap {
+    width: 200px;
+    height: 117px;
+    background: #ffffff;
+    border: 1px solid #d4d4d4;
+    border-radius: 3px;
+    position: absolute;
+    top: calc(100% - 119px - 20px);
+    left: calc(100% - 200px - 20px);
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.7);
+}
+
+#coords {
+    position: absolute;
+    top: -26px;
+    font-size: 15px;
+    font-family: sans-serif;
+    color: #fff;
+    text-align: center;
+    width: 200px;
+    padding: 5px 0;
+    text-shadow: 0 0 5px black;
+    font-family: 'Josefin Slab', sans-serif;
+}
+
+#minimap_buildings {
+    width: 200px;
+    image-rendering: pixelated;
+    opacity: 0.1;
+}
+
+#minimap_pointer {
+    background: #7bafd4;
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+    position: absolute;
+    box-shadow: 0 0 0 1px rgba(123, 175, 212, 0.51);
+    top: calc(32px * 2.083 - 1px);
+    left: calc(52px * 2.083 - 1px);
+}
+
+#buttons {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: calc(100% - 120px - 20px);
+    left: calc(50% - 60px);
+    font-size: 0;
+    
+}
+
+#buttons button {
+    width: 40px;
+    height: 40px;
+    background: white;
+    font-size: 16px;
+    position: absolute;
+    font-family: sans-serif;
+    border-radius: 100px;
+    color: gray;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.7);
+    font-family: 'Josefin Slab', sans-serif;
+}
+
+#buttons button:active {
+    background: #7bafd4;
+    color: white;
+    border: 1px solid #5b8aac;
+}
+
+#y {
+    left: calc(50% - 20px);
+}
+
+#a {
+    left: calc(50% - 20px);
+    top: calc(100% - 40px);
+}
+
+#x {
+    top: calc(50% - 20px);
+}
+
+#b {
+    top: calc(50% - 20px);
+    left: calc(100% - 40px);
+}

@@ -386,32 +386,21 @@ function update() {
  
 }
 
-var scripts = [], numberOfFiles = 1;
-
-function getScripts() {
-
-    for (var i = 0; i < numberOfFiles; i++){
-        scripts[i]=$("#result").load('../js/text_files/'+i + '.txt');
-    }
-}
-
-
-
-var scriptIndex = 0;
+var scripts = [], scriptIndex = 0, numberOfFiles = 1;
 
 function getNextScript() {
     var nextScript;   
-    if(scriptIndex < scripts.length){
+    if(scriptIndex < numberOfFiles){
         //nextScript = scripts[scriptIndex];
         // JSON.stringify(nextScript);
         nextScript = '../js/text_files/' +scriptIndex+ '.txt';
         scriptIndex++;
+        return nextScript;
     }
+    
     else{
-        alert("Congrats! you have completed scriptUNC!<br>");
+        alert("Congrats! you have completed scriptUNC!");
     }
-
-    return nextScript;
 }
 
     

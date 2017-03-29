@@ -374,12 +374,14 @@ function update() {
     // }
     
    
-    $("#consoleText").load('js/text_files/start.txt');
+    
 
     $("#console").on("keydown", function(e){
         if(e.which == 13){
-            alert("Good Job!");               
-            $("#consoleText").load(getNextScript());
+            alert("Good Job!");
+            $.get(getNextScript(), function(results){
+                $("#consoleText").html(results);
+            });      
         }
     });
     

@@ -374,14 +374,14 @@ function update() {
     // }
 
 $.get('js/text_files/start.txt', function(results){
-    $("#console").empty();
+    $("#consoleText").html("");
     $("#consoleText").html(results);
 });
 
 $("#console").on("keydown", function(e){
     if(e.which == 13){
         $.get(getNextScript(), function(results){
-         $("#console").empty();
+         $("#consoleText").html("");
          $("#consoleText").html(results);
         });
     }
@@ -402,7 +402,7 @@ function getNextScript() {
     else{
         alert("Congrats! you have completed scriptUNC!");
         scriptIndex = 0;
-        $("#console").empty();
+        $("#consoleText").html("");
     }
 }
 

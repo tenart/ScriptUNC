@@ -378,8 +378,8 @@ function update() {
 
     $("#console").on("keydown", function(e){
         if(e.which == 13){
-            alert("Good Job!");
-            $("#consoleText").html(JSON.stringify(getNextScript()));          
+            $("#consoleText").html($.get(getNextScript()));
+            return;
         }
     });
     

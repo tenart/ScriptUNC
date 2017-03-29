@@ -286,13 +286,13 @@ function update() {
     }
         
     // Checks for building collision
-    var pixelData = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY, 1, 1).data;
+//     var pixelData = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY, 1, 1).data;
     
-    if( pixelData[3] != 0 ) {
-        rameses.isColliding = true;
-    } else {
-        rameses.isColliding = false;
-    }
+//     if( pixelData[3] != 0 ) {
+//         rameses.isColliding = true;
+//     } else {
+//         rameses.isColliding = false;
+//     }
     
     if( rameses.isColliding ) {
         $("#rameses").stop(true,false);

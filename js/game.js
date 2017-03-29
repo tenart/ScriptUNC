@@ -376,14 +376,12 @@ function update() {
     document.getElementById("consoleText").innerHTML.load('../js/text_files/start.txt');
 
     $("#console").on("keydown", function(e){
-
         if(e.which == 13){
             alert("Good Job!");
             document.getElementById("consoleText").innerHTML = $.load(getNextScript());
         }
-
     });
- 
+    
 }
 
 var scripts = [], scriptIndex = 0, numberOfFiles = 1;

@@ -391,7 +391,7 @@ var scripts = [], numberOfFiles = 1;
 function getScripts() {
 
     for (var i = 0; i < numberOfFiles; i++){
-        scripts[i]=$("#result")load.('../js/text_files/'+i + '.txt');
+        scripts[i]=$("#result").load.('../js/text_files/'+i + '.txt');
     }
 }
 

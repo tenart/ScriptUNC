@@ -380,7 +380,8 @@ $.get('js/text_files/start.txt', function(results){
 $("#console").on("keydown", function(e){
     if(e.which == 13){
         $.get(getNextScript(), function(results){
-         $("#consoleText").html(results)
+         $("#consoleText").empty();
+         $("#consoleText").html(results);
         });
     }
 });
@@ -400,6 +401,7 @@ function getNextScript() {
     else{
         alert("Congrats! you have completed scriptUNC!");
         scriptIndex = 0;
+        $("#consoleText").empty();
     }
 }
 

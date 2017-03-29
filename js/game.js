@@ -374,21 +374,21 @@ function update() {
     // }
     
     $.get('js/text_files/start.txt', function(results) {
-        $("#consoleText").text(results);
+        $("#consoleText").innerHTML = results;
     });
 
     $("#console").on("keydown", function(e){
         if(e.which == 13){
             alert("Good Job!");       
             $.get(getNextScript(), function(results) {
-                $("#consoleText").text(results);
+                $("#consoleText").innerHTML = results;
             });
         }
     });
     
 }
 
-var scripts = [], scriptIndex = 0, numberOfFiles = 1;
+var scripts = [], scriptIndex = 0, numberOfFiles = 3;
 
 function getNextScript() {
     var nextScript;   

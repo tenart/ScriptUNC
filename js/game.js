@@ -400,9 +400,10 @@ function getNextScript() {
     }
     
     else{
-        alert("Congrats! you have completed scriptUNC!");
-        scriptIndex = 0;
         $("#consoleText").html("");
+        nextScript = "js/text_files/end.txt";
+        scriptIndex = 0;
+        return nextScript;
     }
 }
 

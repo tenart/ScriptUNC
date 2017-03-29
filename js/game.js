@@ -398,7 +398,7 @@ function getNextScript() {
         scriptIndex++;
         return nextScript;
     }
-    else if(script>numberOfFiles){
+    else if(scriptIndex>numberOfFiles){
         $("#consoleText").empty();
         nextScript = "js/text_files/start.txt";
         scriptIndex = 0;

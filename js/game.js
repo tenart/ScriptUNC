@@ -286,13 +286,13 @@ function update() {
     }
         
     // Checks for building collision
-    var pixelData = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY, 1, 1).data;
+    // var pixelData = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY, 1, 1).data;
     
-    if( pixelData[3] != 0 ) {
-        rameses.isColliding = true;
-    } else {
-        rameses.isColliding = false;
-    }
+    // if( pixelData[3] != 0 ) {
+    //     rameses.isColliding = true;
+    // } else {
+    //     rameses.isColliding = false;
+    // }
     
     if( rameses.isColliding ) {
         $("#rameses").stop(true,false);
@@ -362,6 +362,59 @@ function update() {
     $("#cpY").text("pixel Y: " + cursor.pY);
     $("#cbX").text("block X: " + cursor.bX);
     $("#cbY").text("block Y: " + cursor.bY);
+
+
+    // console.log = function(msg){
+    // $("#console").append("<div>" + msg + "</div>");
+    // }
+
+    // window.onerror = function(message, url, linenumber) {
+    //     console.log("JavaScript error: " + message + " on line " + 
+    //             linenumber + " for " + url);
+    // }
+
+    document.getElementById("consoleText").innerHTML = $.ajax("/text_files/start.txt");
+
+    $("#console").on("keydown", function(e){
+
+        if(e.which == 13){
+            alert("Good Job!");
+            document.getElementById("consoleText").innerHTML = getNextScript();
+        }
+
+    });
+ 
+}
+
+var done = 0, scripts = [], numberOfFiles = 2;
+
+function getHandler(idx) {
+
+    return function(data) {
+        scripts[idx] = data;
+        done++;
+        if (done === numberOfFiles) {
+            // tell your other part all files are loaded
+        }
+    }
+}
+
+for (var i = 0; i < numberOfFiles; i++) {
+    $.ajax("/text_files/"+i + ".txt").done(getHandler(i));
+}
+
+var scriptIndex = 0;
+function getNextScript() {
+    var nextScript;   
+    if(scriptIndex < scripts.length){
+        nextScript = scripts[scriptIndex];
+        scriptIndex++;
+    }
+    else{
+        nextScript = "Congrats! you have completed scriptUNC!"
+    }
+
+    return nextScript;
 }
     
     

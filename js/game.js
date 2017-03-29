@@ -379,11 +379,9 @@ $.get('js/text_files/start.txt', function(results){
 });
 
 $("#console").on("keydown", function(e){
-    if(e.which == 13){
-        $.get(getNextScript(), function(results){
+    if(e.which == 13){ 
          $("#consoleText").empty();
-         $("#consoleText").html(results);
-        });
+         $("#consoleText").html($.get(getNextScript()));
     }
 });
 

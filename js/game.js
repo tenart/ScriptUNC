@@ -376,13 +376,21 @@ function update() {
    
     
 
-    $("#console").on("keydown", function(e){
-        if(e.which == 13){
-            document.getElementById("#consoleText").innerHTML = $.get(getNextScript());
-        }
-    });
+//     $("#console").on("keydown", function(e){
+//         if(e.which == 13){
+//             document.getElementById("#consoleText").innerHTML = $.get(getNextScript());
+//         }
+//     });
     
 }
+
+$("#console").on("keydown", function(e){
+    if(e.which == 13){
+        $.get(getNextScript(), function(results){
+         $("#consoleText").html(results)
+        });
+    }
+});
 
 var scripts = [], scriptIndex = 0, numberOfFiles = 4;
 

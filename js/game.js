@@ -379,7 +379,7 @@ function update() {
 
         if(e.which == 13){
             alert("Good Job!");
-            document.getElementById("consoleText").innerHTML.load(getNextScript());
+            document.getElementById("consoleText").innerHTML = $.load(getNextScript());
         }
 
     });

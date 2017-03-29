@@ -373,7 +373,7 @@ function update() {
     //             linenumber + " for " + url);
     // }
 
-    document.getElementById("consoleText").innerHTML = $.ajax("/js/text_files/start.txt");
+    document.getElementById("consoleText").innerHTML = $.ajax("../js/text_files/start.txt");
 
     $("#console").on("keydown", function(e){
 
@@ -400,7 +400,7 @@ function getHandler(idx) {
 }
 
 for (var i = 0; i < numberOfFiles; i++) {
-    $.ajax("/js/text_files/"+i + ".txt").done(getHandler(i));
+    $.ajax("../js/text_files/"+i + ".txt").done(getHandler(i));
 }
 
 var scriptIndex = 0;

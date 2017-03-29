@@ -372,13 +372,17 @@ function update() {
     //     console.log("JavaScript error: " + message + " on line " + 
     //             linenumber + " for " + url);
     // }
-
-    $("#consoleText").text($.get('../js/text_files/start.txt'));
+    
+    $.get('../js/text_files/start.txt', function(results) {
+        $("#consoleText").text(results);
+    });
 
     $("#console").on("keydown", function(e){
         if(e.which == 13){
-            alert("Good Job!");
-            $("#consoleText").text($.get(getNextScript()));
+            alert("Good Job!");       
+            $.get(getNextScript(), function(results) {
+                $("#consoleText").text(results);
+            });
         }
     });
     

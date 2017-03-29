@@ -374,14 +374,14 @@ function update() {
     // }
 
 $.get('js/text_files/start.txt', function(results){
-    $("#consoleText").html("");
+    $("#consoleText").empty();
     $("#consoleText").html(results);
 });
 
 $("#console").on("keydown", function(e){
     if(e.which == 13){
         $.get(getNextScript(), function(results){
-         $("#consoleText").html("");
+         $("#consoleText").empty();
          $("#consoleText").html(results);
         });
     }
@@ -400,7 +400,7 @@ function getNextScript() {
     }
     
     else{
-        $("#consoleText").html("");
+        $("#consoleText").empty();
         nextScript = "js/text_files/end.txt";
         scriptIndex = 0;
         return nextScript;

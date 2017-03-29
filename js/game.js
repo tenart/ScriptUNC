@@ -398,11 +398,17 @@ function getNextScript() {
         scriptIndex++;
         return nextScript;
     }
+    else if(script>numberOfFiles){
+        $("#consoleText").empty();
+        nextScript = "js/text_files/start.txt";
+        scriptIndex = 0;
+        return nextScript;
+    }
     
     else{
         $("#consoleText").empty();
         nextScript = "js/text_files/end.txt";
-        scriptIndex = 0;
+        scriptIndex = numberOfFiles * 2;
         return nextScript;
     }
 }

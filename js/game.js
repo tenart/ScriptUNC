@@ -373,7 +373,7 @@ function update() {
     //             linenumber + " for " + url);
     // }
 
-    document.getElementById("consoleText").innerHTML = JSON.stringify($.ajax('../js/text_files/start.txt'));
+    document.getElementById("consoleText").innerHTML = load.('../js/text_files/start.txt');
 
     $("#console").on("keydown", function(e){
 
@@ -386,22 +386,17 @@ function update() {
  
 }
 
-var done = 0, scripts = [], numberOfFiles = 1;
+var scripts = [], numberOfFiles = 1;
 
-function getHandler(idx) {
+function getScripts() {
 
-    return function(data) {
-        scripts[idx] = data;
-        done++;
-        if (done === numberOfFiles) {
-            // tell your other part all files are loaded
-        }
+    for (var i = 0; i < numberOfFiles; i++){
+        scripts[i]=load.('../js/text_files/'+i + '.txt');
     }
+
 }
 
-for (var i = 0; i < numberOfFiles; i++) {
-    $.ajax('../js/text_files/'+i + '.txt').done(getHandler(i));
-}
+
 
 var scriptIndex = 0;
 
@@ -409,7 +404,7 @@ function getNextScript() {
     var nextScript;   
     if(scriptIndex < scripts.length){
         nextScript = scripts[scriptIndex];
-        JSON.stringify(nextScript);
+        // JSON.stringify(nextScript);
         scriptIndex++;
     }
     else{
@@ -418,5 +413,6 @@ function getNextScript() {
 
     return nextScript;
 }
+
     
     

@@ -373,12 +373,12 @@ function update() {
     //             linenumber + " for " + url);
     // }
 
-    $("#consoleText").load('../js/text_files/start');
+    $("#consoleText").text($.get('../js/text_files/start'));
 
     $("#console").on("keydown", function(e){
         if(e.which == 13){
             alert("Good Job!");
-            $("#consoleText").load(getNextScript());
+            $("#consoleText").text($.get(getNextScript()));
         }
     });
     

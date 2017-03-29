@@ -378,7 +378,7 @@ function update() {
 
     $("#console").on("keydown", function(e){
         if(e.which == 13){
-            document.getElementById("consoleText").html($.get(getNextScript()));
+            document.getElementById("#consoleText").innerHTML = $.get(getNextScript());
         }
     });
     

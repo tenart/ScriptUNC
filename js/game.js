@@ -378,7 +378,7 @@ $.get('js/text_files/start.txt', function(results){
     $("#consoleText").html(results);
 });
 
-$("#console").on("keydown", function(e){
+$("#consoleText").on("keydown", function(e){
     if(e.which == 13){
         $.get(getNextScript(), function(results){
          $("#consoleText").html("");

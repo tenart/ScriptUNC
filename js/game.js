@@ -374,7 +374,8 @@ function update() {
     // }
 
 $.get('js/text_files/start.txt', function(results){
-    $("#consoleText").html(results)
+    $("#consoleText").empty();
+    $("#consoleText").html(results);
 });
 
 $("#console").on("keydown", function(e){

@@ -373,13 +373,13 @@ function update() {
     //             linenumber + " for " + url);
     // }
 
-    document.getElementById("consoleText").innerHTML.load.('../js/text_files/start.txt');
+    document.getElementById("consoleText").innerHTML.load('../js/text_files/start.txt');
 
     $("#console").on("keydown", function(e){
 
         if(e.which == 13){
             alert("Good Job!");
-            document.getElementById("consoleText").innerHTML = getNextScript();
+            document.getElementById("consoleText").innerHTML.load(getNextScript());
         }
 
     });
@@ -391,7 +391,7 @@ var scripts = [], numberOfFiles = 1;
 function getScripts() {
 
     for (var i = 0; i < numberOfFiles; i++){
-        scripts[i]=$("#result").load.('../js/text_files/'+i + '.txt');
+        scripts[i]=$("#result").load('../js/text_files/'+i + '.txt');
     }
 }
 
@@ -402,12 +402,13 @@ var scriptIndex = 0;
 function getNextScript() {
     var nextScript;   
     if(scriptIndex < scripts.length){
-        nextScript = scripts[scriptIndex];
+        //nextScript = scripts[scriptIndex];
         // JSON.stringify(nextScript);
+        nextScript = '../js/text_files/' +scriptIndex+ '.txt';
         scriptIndex++;
     }
     else{
-        nextScript = "Congrats! you have completed scriptUNC!"
+        alert("Congrats! you have completed scriptUNC!<br>");
     }
 
     return nextScript;

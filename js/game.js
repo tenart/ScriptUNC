@@ -373,7 +373,7 @@ function update() {
     //             linenumber + " for " + url);
     // }
 
-    $("#consoleText").text($.get('../js/text_files/start'));
+    $("#consoleText").text($.get('../js/text_files/start.txt'));
 
     $("#console").on("keydown", function(e){
         if(e.which == 13){
@@ -391,7 +391,7 @@ function getNextScript() {
     if(scriptIndex < numberOfFiles){
         //nextScript = scripts[scriptIndex];
         // JSON.stringify(nextScript);
-        nextScript = '../js/text_files/' +scriptIndex;
+        nextScript = '../js/text_files/' +scriptIndex+".txt";
         scriptIndex++;
         return nextScript;
     }

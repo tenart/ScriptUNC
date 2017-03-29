@@ -361,10 +361,10 @@ function update() {
     $("#cpX").text("pixel X: " + cursor.pX);
     $("#cpY").text("pixel Y: " + cursor.pY);
     $("#cbX").text("block X: " + cursor.bX);
-    $("#cbY").text("block Y: " + cursor.bY);
+    $("#cbY").text("block Y: " + cursor.bY);   
+}
 
-
-    // console.log = function(msg){
+// console.log = function(msg){
     // $("#console").append("<div>" + msg + "</div>");
     // }
 
@@ -372,17 +372,10 @@ function update() {
     //     console.log("JavaScript error: " + message + " on line " + 
     //             linenumber + " for " + url);
     // }
-    
-   
-    
 
-//     $("#console").on("keydown", function(e){
-//         if(e.which == 13){
-//             document.getElementById("#consoleText").innerHTML = $.get(getNextScript());
-//         }
-//     });
-    
-}
+$.get('js/text_files/start.txt', function(results){
+    $("#consoleText").html(results)
+});
 
 $("#console").on("keydown", function(e){
     if(e.which == 13){

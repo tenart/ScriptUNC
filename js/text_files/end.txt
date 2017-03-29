@@ -1,2 +1,2 @@
 Congrats! you have completed scriptUNC!<br>
-Please reload the page to play again!<br>
+Please reload the page or press enter to play again!<br>

@@ -399,6 +399,7 @@ function getNextScript() {
     
     else{
         alert("Congrats! you have completed scriptUNC!");
+        scriptIndex = 0;
     }
 }
 

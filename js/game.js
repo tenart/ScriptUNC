@@ -404,6 +404,7 @@ for (var i = 0; i < numberOfFiles; i++) {
 }
 
 var scriptIndex = 0;
+
 function getNextScript() {
     var nextScript;   
     if(scriptIndex < scripts.length){

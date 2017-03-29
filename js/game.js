@@ -379,9 +379,7 @@ function update() {
     $("#console").on("keydown", function(e){
         if(e.which == 13){
             alert("Good Job!");
-            $.get(getNextScript(), function(results){
-                $("#consoleText").html(results);
-            });      
+            $("#consoleText").html(getNextScript());          
         }
     });
     

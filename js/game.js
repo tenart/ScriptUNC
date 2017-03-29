@@ -387,7 +387,7 @@ function update() {
     
 }
 
-var scripts = [], scriptIndex = 0, numberOfFiles = 3;
+var scripts = [], scriptIndex = 0, numberOfFiles = 4;
 
 function getNextScript() {
     var nextScript;   

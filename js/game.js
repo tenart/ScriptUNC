@@ -373,9 +373,8 @@ function update() {
     //             linenumber + " for " + url);
     // }
     
-    $.get('js/text_files/start.txt', function(results) {
-        $("#consoleText").html(results);
-    });
+   
+    $("#consoleText").html($.get('js/text_files/start.txt'));
 
     $("#console").on("keydown", function(e){
         if(e.which == 13){

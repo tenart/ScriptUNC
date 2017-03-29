@@ -373,12 +373,12 @@ function update() {
     //             linenumber + " for " + url);
     // }
 
-    document.getElementById("consoleText").innerHTML= $.load('../js/text_files/start.txt');
+    $("#consoleText").load('../js/text_files/start.txt');
 
     $("#console").on("keydown", function(e){
         if(e.which == 13){
             alert("Good Job!");
-            document.getElementById("consoleText").innerHTML = $.load(getNextScript());
+            $("#consoleText").load(getNextScript());
         }
     });
     

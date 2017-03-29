@@ -373,7 +373,7 @@ function update() {
     //             linenumber + " for " + url);
     // }
 
-    document.getElementById("consoleText").innerHTML = load.('../js/text_files/start.txt');
+    document.getElementById("consoleText").innerHTML.load.('../js/text_files/start.txt');
 
     $("#console").on("keydown", function(e){
 
@@ -391,9 +391,8 @@ var scripts = [], numberOfFiles = 1;
 function getScripts() {
 
     for (var i = 0; i < numberOfFiles; i++){
-        scripts[i]=load.('../js/text_files/'+i + '.txt');
+        scripts[i]=$("#result")load.('../js/text_files/'+i + '.txt');
     }
-
 }
 
 

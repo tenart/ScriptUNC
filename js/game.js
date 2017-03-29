@@ -373,7 +373,7 @@ function update() {
     //             linenumber + " for " + url);
     // }
 
-    document.getElementById("consoleText").innerHTML = $.ajax('../js/text_files/start.txt');
+    document.getElementById("consoleText").innerHTML = JSON.stringify($.ajax('../js/text_files/start.txt'));
 
     $("#console").on("keydown", function(e){
 
@@ -386,7 +386,7 @@ function update() {
  
 }
 
-var done = 0, scripts = [], numberOfFiles = 2;
+var done = 0, scripts = [], numberOfFiles = 1;
 
 function getHandler(idx) {
 
@@ -409,6 +409,7 @@ function getNextScript() {
     var nextScript;   
     if(scriptIndex < scripts.length){
         nextScript = scripts[scriptIndex];
+        JSON.stringify(nextScript);
         scriptIndex++;
     }
     else{

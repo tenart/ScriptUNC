@@ -407,8 +407,7 @@ pre {
     z-index: 20;
 }
 #consoleText {
-    line-height: 1.5;
+    line-height: 1.25;
     padding-left: 3%;
-    display: inline-block;
 }
 

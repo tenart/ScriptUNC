@@ -387,8 +387,9 @@ pre {
 }
 
 #console {
-    float:center;
     top: 80%;
+    left: 2.5%;
+    right: 2.5%;
     overflow-x: auto;
     overflow-y: auto;
     border: solid;
@@ -399,7 +400,7 @@ pre {
     font-family: "Lucida Console";
     color: rgba(0,255,0, .85);
     text-shadow: -1px 1px limegreen;
-    width: 100%;
+    width: 95%;
     height: 20%;
     text-align: left;
     padding-left: 2.5%;

@@ -302,7 +302,7 @@ pre {
     border: 1px solid #d4d4d4;
     border-radius: 3px;
     position: absolute;
-    top: calc(100% - 119px - 20px);
+    bottom: calc(100% - 119px - 20px);
     left: calc(100% - 200px - 20px);
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.7);
 }
@@ -344,6 +344,7 @@ pre {
     top: calc(100% - 120px - 20px);
     left: calc(50% - 60px);
     font-size: 0;
+    visibility: hidden;
     
 }
 
@@ -384,21 +385,32 @@ pre {
     top: calc(50% - 20px);
     left: calc(100% - 40px);
 }
-
-#console_wrap {
-    width: 500px;
-    height: 200px;
-    background: white;
-    position: absolute;
-}
-
 #console {
-    width: 100%;
-    height: calc(100% - 20px);
+    top: 80%;
+    left: 2.5%;
+    right: 2.5%;
+    overflow-x: auto;
+    overflow-y: auto;
+    border: solid;
+    border-radius: 25px;
+    border-width: thin;
+    border-color: rgba(0,255,0, .85);
+    background-color: rgba(0,0,0,.85);
+    font-family: "Lucida Console";
+    color: rgba(0,255,0, .85);
+    text-shadow: -1px 1px limegreen;
+    width: 95%;
+    height: 20%;
+    text-align: left;
+    position: absolute;
+    z-index: 20;
+}
+#consolePrompt {
+    margin-left: 5%;
+}
+#consoleText {
+    line-height: 1.25;
+    padding-left: 7.25%;
 }
 
-#console_wrap button {
-    height: 20px;
-    background: green;
-    width: 200px;
-}
+

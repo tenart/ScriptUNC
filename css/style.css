@@ -407,10 +407,11 @@ pre {
     z-index: 20;
 }
 #consolePrompt {
-    margin-left: 2.5%;
+    margin-left: 5%;
 }
 #consoleText {
     line-height: 1.25;
-    margin-left: 3%;
+    margin-left: 7.25%;
+    padding-left: 7.25%;
 }
 

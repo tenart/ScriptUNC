@@ -408,13 +408,6 @@ pre {
 }
 #consoleText {
     padding-left: 2.5%;
+    overflow-x: initial;
 }
-#consoleName {
-    position: absolute;
-    top: -26px;
-    padding-left: 2.5%;
-    font-size: 15px;
-    text-align: center;
-    width: 200px;
-    padding: 5px 0;  
-}
+

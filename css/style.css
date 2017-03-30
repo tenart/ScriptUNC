@@ -385,7 +385,6 @@ pre {
     top: calc(50% - 20px);
     left: calc(100% - 40px);
 }
-
 #console {
     top: 80%;
     left: 2.5%;
@@ -413,4 +412,5 @@ pre {
     line-height: 1.25;
     padding-left: 7.25%;
 }
+
 

@@ -139,9 +139,11 @@ $("#debug").draggable({
 // Creates out of view HTML canvas with collision map to detect collision with buildings
 var img = document.getElementById('collision');
 var canvas = document.createElement('canvas');
-canvas.width = img.width;
-canvas.height = img.height;
-canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
+$(function() {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
+})
 
 // Converts pixel coordinates to block coordinates specifically for Rameses (50x50)
 function pxToBlock(px) {
@@ -193,6 +195,14 @@ function center(object, callBack) {
 $("#minimap").click(function() {
     center(rameses, function() {followRam = true});
 })
+
+$("#submit").click(function() {
+    console.log.apply(this, alert("yo") );
+})
+
+
+
+
 
 // Center Rameses on screen on startup
 center(rameses);

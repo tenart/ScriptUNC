@@ -79,21 +79,21 @@ var cursor = {
 
 // Declaring sound assets
 var bgMusic = new Howl({
-    src: ['../sound/fightsong.wav'],
+    src: ['sound/fightsong.wav'],
     autoplay: false,
     loop: true,
     volume: 0.5,
 });
 
 var gallop = new Howl({
-    src: ['../sound/gallop.mp3'],
+    src: ['sound/gallop.mp3'],
     autoplay: true,
     loop: true,
     volume: 0,
 });
 
 var thump = new Howl({
-    src: ['../sound/thump.mp3'],
+    src: ['sound/thump.mp3'],
     autoplay: false,
     loop: false,
     volume: 4,
@@ -296,13 +296,13 @@ function update() {
     }
         
     // Checks for building collision
-//     var pixelData = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY, 1, 1).data;
+    var pixelData = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY, 1, 1).data;
     
-//     if( pixelData[3] != 0 ) {
-//         rameses.isColliding = true;
-//     } else {
-//         rameses.isColliding = false;
-//     }
+    if( pixelData[3] != 0 ) {
+        rameses.isColliding = true;
+    } else {
+        rameses.isColliding = false;
+    }
     
     if( rameses.isColliding ) {
         $("#rameses").stop(true,false);
@@ -371,55 +371,7 @@ function update() {
     $("#cpX").text("pixel X: " + cursor.pX);
     $("#cpY").text("pixel Y: " + cursor.pY);
     $("#cbX").text("block X: " + cursor.bX);
-    $("#cbY").text("block Y: " + cursor.bY);   
+    $("#cbY").text("block Y: " + cursor.bY);
 }
-
-// console.log = function(msg){
-    // $("#console").append("<div>" + msg + "</div>");
-    // }
-
-    // window.onerror = function(message, url, linenumber) {
-    //     console.log("JavaScript error: " + message + " on line " + 
-    //             linenumber + " for " + url);
-    // }
-
-$.get('js/text_files/start.txt', function(results){
-    $("#consoleText").empty();
-    $("#consoleText").html(results);
-});
-
-$("#consolePrompt").on("click", function(){
-     $("#consoleText").empty();
-     $.get(getNextScript(), function(results){
-         $("#consoleText").html(results);
-     });   
-});
-
-var scripts = [], scriptIndex = 0, numberOfFiles = 4;
-
-function getNextScript() {
-    var nextScript;   
-    if(scriptIndex < numberOfFiles){
-        //nextScript = scripts[scriptIndex];
-        // JSON.stringify(nextScript);
-        nextScript = 'js/text_files/'+scriptIndex+".txt";
-        scriptIndex++;
-        return nextScript;
-    }
-    else if(scriptIndex>numberOfFiles){
-        $("#consoleText").empty();
-        nextScript = "js/text_files/start.txt";
-        scriptIndex = 0;
-        return nextScript;
-    }
-    
-    else{
-        $("#consoleText").empty();
-        nextScript = "js/text_files/end.txt";
-        scriptIndex = numberOfFiles * 2;
-        return nextScript;
-    }
-}
-
     
     

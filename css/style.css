@@ -384,3 +384,21 @@ pre {
     top: calc(50% - 20px);
     left: calc(100% - 40px);
 }
+
+#console_wrap {
+    width: 500px;
+    height: 200px;
+    background: white;
+    position: absolute;
+}
+
+#console {
+    width: 100%;
+    height: calc(100% - 20px);
+}
+
+#console_wrap button {
+    height: 20px;
+    background: green;
+    width: 200px;
+}

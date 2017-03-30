@@ -408,6 +408,6 @@ pre {
 }
 #consoleText {
     padding-left: 2.5%;
-    overflow-x: initial;
+    overflow-x: hidden;
 }
 

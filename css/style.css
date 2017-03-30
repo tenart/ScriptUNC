@@ -389,8 +389,8 @@ pre {
 #console {
     float:center;
     top: 80%;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
     border: solid;
     border-radius: 25px;
     border-width: thin;

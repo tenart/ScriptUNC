@@ -378,13 +378,11 @@ $.get('js/text_files/start.txt', function(results){
     $("#consoleText").html(results);
 });
 
-$("#console").on("keydown", function(e){
-    if(e.which == 13){ 
-         $("#consoleText").empty();
-         $.get(getNextScript(), function(results){
-             $("#consoleText").html(results);
-         });   
-    }
+$("#consolePrompt").on("click", function(){
+     $("#consoleText").empty();
+     $.get(getNextScript(), function(results){
+         $("#consoleText").html(results);
+     });   
 });
 
 var scripts = [], scriptIndex = 0, numberOfFiles = 4;

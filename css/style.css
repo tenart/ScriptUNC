@@ -341,8 +341,6 @@ pre {
     top: 80%;
     left: 2.5%;
     right: 2.5%;
-    overflow-x: auto;
-    overflow-y: auto;
     border: solid;
     border-radius: 25px;
     border-width: thin;
@@ -356,9 +354,6 @@ pre {
     text-align: left;
     position: absolute;
     z-index: 20;
-}
-
-#console #button {
     overflow: visible;
 }
 
@@ -372,8 +367,7 @@ pre {
     text-align: center;
     padding: 5px 0;
     text-shadow: 0 0 5px black;
-    font-family: 'Josefin Slab', sans-serif;
-  
+    font-family: 'Josefin Slab', sans-serif; 
 } 
 
 #button button {
@@ -398,6 +392,8 @@ pre {
 #consoleText {
     line-height: 1.25;
     padding-left: 7.25%;
+    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
 }
-
 

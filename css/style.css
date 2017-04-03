@@ -376,30 +376,17 @@ pre {
     position: absolute;
     font-family: sans-serif;
     border-radius: 100px;
-    color: gray;
+    color: grey;
     border: 1px solid #d4d4d4;
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.7);
     font-family: 'Josefin Slab', sans-serif;
 }
 
-#buttons button:active {
+#button button:active {
     background: #7bafd4;
     color: white;
     border: 1px solid #5b8aac;
 }
-
-#console > button {
-    padding-left: 5%;
-    padding-top: 2.5%;
-    color: white;
-    
-}
-
-#parse {
-    padding-left: 7.5%;
-    
-}
-
 
 #consoleText {
     line-height: 1.25;

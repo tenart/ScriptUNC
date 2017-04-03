@@ -383,6 +383,11 @@ pre {
     font-family: 'Josefin Slab', sans-serif;
 }
 
+#button button:hover{
+    background-color: grey;
+    color: white;
+}
+
 #button button:active {
     background: #7bafd4;
     color: white;

@@ -456,7 +456,4 @@ var initFunc = function(interpreter, scope) {
       interpreter.createNativeFunction(wrapper));   
 };
 
-var myInterpreter = new Interpreter(myCode, initFunc);
-
-    
-    
+//var myInterpreter = new Interpreter(myCode, initFunc);

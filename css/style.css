@@ -358,6 +358,10 @@ pre {
     z-index: 20;
 }
 
+#console #button {
+    overflow: visible;
+}
+
 #button {
     width: 350px;
     height: 60px;

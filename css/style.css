@@ -412,6 +412,11 @@ pre {
     
 }
 
+#parse {
+    padding-left: 7.5%;
+    
+}
+
 
 #consoleText {
     line-height: 1.25;

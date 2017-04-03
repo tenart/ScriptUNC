@@ -395,7 +395,7 @@ $("#consolePrompt").on("click", function(){
      });   
 });
 
-var scripts = [], scriptIndex = 0, numberOfFiles = 4;
+var scriptIndex = 0, numberOfFiles = 4;
 
 function getNextScript() {
     var nextScript;   
@@ -420,6 +420,17 @@ function getNextScript() {
         return nextScript;
     }
 }
+
+var myCode = 'var a=1; for(var i=0;i<4;i++){a*=i;} a;';
+var myInterpreter = new Interpreter(myCode);
+
+function nextStep() {
+    if (myInterpreter.step()) {
+        window.setTimeout(nextStep, 0);
+    }
+}
+
+// nextStep();
 
     
     

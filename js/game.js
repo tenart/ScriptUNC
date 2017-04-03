@@ -388,6 +388,8 @@ $.get('js/text_files/start.txt', function(results){
     $("#consoleText").html(results);
 });
 
+var myInterpreter = new Interpreter(myCode);
+
 $("#consolePrompt").on("click", function(){
      $("#consoleText").empty();
      $.get(getNextScript(), function(results){
@@ -421,8 +423,17 @@ function getNextScript() {
     }
 }
 
-var myCode = 'var a=1; for(var i=0;i<4;i++){a*=i;} a;';
-var myInterpreter = new Interpreter(myCode);
+// var myCode = 'var a=1; for(var i=0;i<4;i++){a*=i;} a;';
+// var myInterpreter = new Interpreter(myCode);
+
+$("#step").on("click", function(){
+    nextStep();
+});
+
+$("#run").on("click", function(){
+    myInterpreter.run();
+    alert(myInterpreter.value);
+});
 
 function nextStep() {
     if (myInterpreter.step()) {
@@ -430,7 +441,22 @@ function nextStep() {
     }
 }
 
-// nextStep();
+var myCode = 'alert(url);';
+
+var initFunc = function(interpreter, scope) {
+  interpreter.setProperty(scope, 'url',
+      interpreter.createPrimitive(location.toString()));
+
+  var wrapper = function(text) {
+    text = text ? text.toString() : '';
+    return interpreter.createPrimitive(alert(text));
+  };
+    
+  interpreter.setProperty(scope, 'alert',
+      interpreter.createNativeFunction(wrapper));   
+};
+
+var myInterpreter = new Interpreter(myCode, initFunc);
 
     
     

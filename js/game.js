@@ -388,9 +388,9 @@ $.get('js/text_files/start.txt', function(results){
     $("#consoleText").html(results);
 });
 
-var myInterpreter = new Interpreter(myCode);
+//var myInterpreter = new Interpreter(myCode);
 
-$("#consolePrompt").on("click", function(){
+$("#next").on("click", function(){
      $("#consoleText").empty();
      $.get(getNextScript(), function(results){
          $("#consoleText").html(results);

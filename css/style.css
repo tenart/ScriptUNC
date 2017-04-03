@@ -340,12 +340,10 @@ pre {
 #buttons {
     width: 120px;
     height: 120px;
-    position: absolute;
+/*     position: absolute; */
     top: calc(100% - 120px - 20px);
     left: calc(50% - 60px);
-    font-size: 0;
-    visibility: hidden;
-    
+    font-size: 0;    
 }
 
 #buttons button {

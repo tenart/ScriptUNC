@@ -359,12 +359,22 @@ pre {
 }
 
 #button {
-    width: 350px;
+/*     width: 350px;
     height: 60px;
     position: absolute;
     top: 70%;
     left: 10%;
-    font-size: 0;
+    font-size: 0; */
+    position: absolute;
+    top: -26px;
+    font-size: 15px;
+    font-family: sans-serif;
+    color: #fff;
+    text-align: center;
+    width: 200px;
+    padding: 5px 0;
+    text-shadow: 0 0 5px black;
+    font-family: 'Josefin Slab', sans-serif;
   
 } 
 

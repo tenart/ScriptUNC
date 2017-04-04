@@ -421,7 +421,7 @@ var console;
 
 $("#parse").on("click", function(){
     var code = document.getElementById("consoleText").textContent;
-    $.get("/js/game.txt", function(results){
+    $.get("/js/rameses.txt", function(results){
         code = results + code;
     });
         

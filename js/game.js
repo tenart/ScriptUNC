@@ -378,13 +378,14 @@ var console;
 
 $.get('js/text_files/start.txt', function(results){
     $("#consoleText").empty();
+    $("#consoleText").html(results);
     console = new Interpreter(results, initFunc);
-    $("#consoleText").html(console);
 });
 
 $("#next").on("click", function(){
      $("#consoleText").empty();
      $.get(getNextScript(), function(results){
+         $("#consoleText").html(results);
          document.getElementById("step").disabled = true;
          document.getElementById("step").className = "disabled";
          document.getElementById("run").disabled = true;
@@ -392,8 +393,11 @@ $("#next").on("click", function(){
          document.getElementById("next").disabled = true;
          document.getElementById("next").className = "disabled";
          console = new Interpreter(results, initFunc);
-         $("#consoleText").html(console);
      });   
+});
+
+$('#consoleText').bind("DOMSubtreeModified",function(e){
+  alert(e);
 });
 
 var scriptIndex = 0, numberOfFiles = 4;
@@ -443,7 +447,7 @@ $("#step").on("click", function(){
 
 $("#run").on("click", function(){
     console.run();
-    alert(myInterpreter.value);
+    alert(console.value);
     document.getElementById("next").disabled = false;
     document.getElementById("next").className = "";
 });

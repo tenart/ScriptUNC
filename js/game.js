@@ -397,7 +397,7 @@ $("#next").on("click", function(){
 });
 
 $('#consoleText').bind("DOMSubtreeModified",function(e){
-  alert(e);
+  alert(document.getElementById("consoleText").textContent);
 });
 
 var scriptIndex = 0, numberOfFiles = 4;

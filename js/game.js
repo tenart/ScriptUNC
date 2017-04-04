@@ -374,26 +374,19 @@ function update() {
     $("#cbY").text("block Y: " + cursor.bY);   
 }
 
-// console.log = function(msg){
-    // $("#console").append("<div>" + msg + "</div>");
-    // }
-
-    // window.onerror = function(message, url, linenumber) {
-    //     console.log("JavaScript error: " + message + " on line " + 
-    //             linenumber + " for " + url);
-    // }
+var console;
 
 $.get('js/text_files/start.txt', function(results){
     $("#consoleText").empty();
-    $("#consoleText").html(results);
+    console = new Interpreter(results);
+    $("#consoleText").html(console);
 });
-
-//var myInterpreter = new Interpreter(myCode);
 
 $("#next").on("click", function(){
      $("#consoleText").empty();
      $.get(getNextScript(), function(results){
-         $("#consoleText").html(results);
+         console = new Interpreter(results);
+         $("#consoleText").html(console);
      });   
 });
 
@@ -423,25 +416,20 @@ function getNextScript() {
     }
 }
 
-// var myCode = 'var a=1; for(var i=0;i<4;i++){a*=i;} a;';
-// var myInterpreter = new Interpreter(myCode);
-
-$("#step").on("click", function(){
+$("#parse").on("click", function(){
     nextStep();
 });
 
-$("#run").on("click", function(){
-    myInterpreter.run();
-    alert(myInterpreter.value);
-});
-
-function nextStep() {
-    if (myInterpreter.step()) {
+$("#step").on("click", function(){
+    if (console.step()) {
         window.setTimeout(nextStep, 0);
     }
-}
+});
 
-var myCode = 'alert(url);';
+$("#run").on("click", function(){
+    console.run();
+    alert(myInterpreter.value);
+});
 
 var initFunc = function(interpreter, scope) {
   interpreter.setProperty(scope, 'url',

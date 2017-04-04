@@ -374,33 +374,23 @@ function update() {
     $("#cbY").text("block Y: " + cursor.bY);   
 }
 
-var console;
 
 $.get('js/text_files/start.txt', function(results){
     $("#consoleText").empty();
-    $("#consoleText").text(results);
-    results = document.getElementById("consoleText").textContent;
-    console = new Interpreter(results, initFunc);
+    $("#consoleText").html(results);
 });
 
 $("#next").on("click", function(){
      $("#consoleText").empty();
      $.get(getNextScript(), function(results){
-         $("#consoleText").text(results);
+         $("#consoleText").html(results);
          document.getElementById("step").disabled = true;
          document.getElementById("step").className = "disabled";
          document.getElementById("run").disabled = true;
          document.getElementById("run").className = "disabled";
          document.getElementById("next").disabled = true;
          document.getElementById("next").className = "disabled";
-         results = document.getElementById("consoleText").textContent;
-         console = new Interpreter(results, initFunc);
      });   
-});
-
-$('#consoleText').bind("DOMSubtreeModified",function(){
-    var results = document.getElementById("consoleText").textContent;
-    console = new Interpreter(results, initFunc);
 });
 
 var scriptIndex = 0, numberOfFiles = 4;
@@ -429,14 +419,18 @@ function getNextScript() {
     }
 }
 
+var console;
+
 $("#parse").on("click", function(){
-    if(console.parse()){
+    var code = document.getElementById("consoleText").textContent;
+    console = new Interpreter(code, initFunc);
+    if(console){
         document.getElementById("step").disabled = false;
         document.getElementById("step").className = "";
         document.getElementById("run").disabled = false;
-        document.getElementById("run").className = "";
-        
+        document.getElementById("run").className = "";   
     }
+    
     else{
         alert("error found during parse! Check your code and try again!");
     }

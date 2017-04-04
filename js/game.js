@@ -421,17 +421,17 @@ var console;
 
 $("#parse").on("click", function(){
     var code = document.getElementById("consoleText").textContent;
-    code = "$.getScript('/js/game.js', function(){" +code+"});";
-    console = new Interpreter(code, initFunc);
+    code = "$.getScript('/js/game.js', function(){" +code+ "});";
+    console = new Interpreter(code);
     if(console){
         document.getElementById("step").disabled = false;
         document.getElementById("step").className = "";
         document.getElementById("run").disabled = false;
         document.getElementById("run").className = "";   
     }
-    
+
     else{
-        alert("error found during parse! Check your code and try again!");
+        alert("Error found during parse! Check your code and try again!");
     }
 });
 
@@ -465,17 +465,17 @@ $("#next").on("click", function(){
      });   
 });
 
-var initFunc = function(interpreter, scope) {
-  interpreter.setProperty(scope, 'url',
-      interpreter.createPrimitive(location.toString()));
+// var initFunc = function(interpreter, scope) {
+//   interpreter.setProperty(scope, 'url',
+//       interpreter.createPrimitive(location.toString()));
 
-  var wrapper = function(text) {
-    text = text ? text.toString() : '';
-    return interpreter.createPrimitive(alert(text));
-  };
+//   var wrapper = function(text) {
+//     text = text ? text.toString() : '';
+//     return interpreter.createPrimitive(alert(text));
+//   };
     
-  interpreter.setProperty(scope, 'alert',
-      interpreter.createNativeFunction(wrapper));   
-};
+//   interpreter.setProperty(scope, 'alert',
+//       interpreter.createNativeFunction(wrapper));   
+// };
 
 //var myInterpreter = new Interpreter(myCode, initFunc);

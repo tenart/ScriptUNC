@@ -396,8 +396,9 @@ $("#next").on("click", function(){
      });   
 });
 
-$('#consoleText').bind("DOMSubtreeModified",function(e){
-  alert(document.getElementById("consoleText").textContent);
+$('#consoleText').bind("DOMSubtreeModified",function(){
+    var results = document.getElementById("consoleText").textContent;
+    console = new Interpreter(results, initFunc);
 });
 
 var scriptIndex = 0, numberOfFiles = 4;

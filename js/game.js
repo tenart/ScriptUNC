@@ -378,7 +378,7 @@ var console;
 
 $.get('js/text_files/start.txt', function(results){
     $("#consoleText").empty();
-    $("#consoleText").text(results);
+    $("#consoleText").html(results);
     results = document.getElementById("consoleText").textContent;
     console = new Interpreter(results, initFunc);
 });
@@ -386,7 +386,7 @@ $.get('js/text_files/start.txt', function(results){
 $("#next").on("click", function(){
      $("#consoleText").empty();
      $.get(getNextScript(), function(results){
-         $("#consoleText").text(results);
+         $("#consoleText").html(results);
          document.getElementById("step").disabled = true;
          document.getElementById("step").className = "disabled";
          document.getElementById("run").disabled = true;

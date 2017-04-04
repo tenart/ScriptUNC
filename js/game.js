@@ -378,14 +378,17 @@ var console;
 
 $.get('js/text_files/start.txt', function(results){
     $("#consoleText").empty();
-    console = new Interpreter(results);
+    console = new Interpreter(results, initFunc);
     $("#consoleText").html(console);
 });
 
 $("#next").on("click", function(){
      $("#consoleText").empty();
      $.get(getNextScript(), function(results){
-         console = new Interpreter(results);
+         $("#step").disabled = true;
+         $("#run").disabled = true;
+         $("#next").disabled = true;
+         console = new Interpreter(results, initFunc);
          $("#consoleText").html(console);
      });   
 });
@@ -417,7 +420,14 @@ function getNextScript() {
 }
 
 $("#parse").on("click", function(){
-    nextStep();
+    if(console.parse()){
+        $("#step").disabled = false;
+        $("#run").disabled = false;
+        
+    }
+    else{
+        alert("error found during parse! Check your code and try again!");
+    }
 });
 
 $("#step").on("click", function(){
@@ -429,6 +439,7 @@ $("#step").on("click", function(){
 $("#run").on("click", function(){
     console.run();
     alert(myInterpreter.value);
+    $("#next").disabled = false;
 });
 
 var initFunc = function(interpreter, scope) {

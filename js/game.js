@@ -380,17 +380,14 @@ $.get('js/text_files/start.txt', function(results){
     $("#consoleText").html(results);
 });
 
-$("#next").on("click", function(){
-     $("#consoleText").empty();
-     $.get(getNextScript(), function(results){
-         $("#consoleText").html(results);
-         document.getElementById("step").disabled = true;
-         document.getElementById("step").className = "disabled";
-         document.getElementById("run").disabled = true;
-         document.getElementById("run").className = "disabled";
-         document.getElementById("next").disabled = true;
-         document.getElementById("next").className = "disabled";
-     });   
+$("#consoleText").on("DOMSubtreeModified" function(){
+        document.getElementById("step").disabled = true;
+        document.getElementById("step").className = "disabled";
+        document.getElementById("run").disabled = true;
+        document.getElementById("run").className = "disabled";
+        document.getElementById("next").disabled = true;
+        document.getElementById("next").className = "disabled"; 
+    
 });
 
 var scriptIndex = 0, numberOfFiles = 4;
@@ -451,6 +448,19 @@ $("#run").on("click", function(){
     alert(console.value);
     document.getElementById("next").disabled = false;
     document.getElementById("next").className = "";
+});
+
+$("#next").on("click", function(){
+     $("#consoleText").empty();
+     $.get(getNextScript(), function(results){
+         $("#consoleText").html(results);
+         document.getElementById("step").disabled = true;
+         document.getElementById("step").className = "disabled";
+         document.getElementById("run").disabled = true;
+         document.getElementById("run").className = "disabled";
+         document.getElementById("next").disabled = true;
+         document.getElementById("next").className = "disabled";
+     });   
 });
 
 var initFunc = function(interpreter, scope) {

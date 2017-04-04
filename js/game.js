@@ -437,10 +437,14 @@ $("#parse").on("click", function(){
 });
 
 $("#step").on("click", function(){
+    nextStep();
+});
+
+function nextStep() {
     if (console.step()) {
         window.setTimeout(nextStep, 0);
     }
-});
+}
 
 $("#run").on("click", function(){
     console.run();

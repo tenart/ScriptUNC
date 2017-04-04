@@ -379,6 +379,7 @@ var console;
 $.get('js/text_files/start.txt', function(results){
     $("#consoleText").empty();
     $("#consoleText").html(results);
+    results = document.getElementById("consoleText").textContent;
     console = new Interpreter(results, initFunc);
 });
 
@@ -392,6 +393,7 @@ $("#next").on("click", function(){
          document.getElementById("run").className = "disabled";
          document.getElementById("next").disabled = true;
          document.getElementById("next").className = "disabled";
+         results = document.getElementById("consoleText").textContent;
          console = new Interpreter(results, initFunc);
      });   
 });

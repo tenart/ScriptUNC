@@ -380,7 +380,8 @@ $.get('js/text_files/start.txt', function(results){
     $("#consoleText").html(results);
 });
 
-$("#consoleText").on("DOMSubtreeModified" function(){
+$("#consoleText").on("DOMSubtreeModified", function(){
+    
         document.getElementById("step").disabled = true;
         document.getElementById("step").className = "disabled";
         document.getElementById("run").disabled = true;

@@ -51,7 +51,12 @@
                 <button id="next" class="disabled" disabled>Next Lesson</button>
             </div>
 <!--             <p id = "consolePrompt" contenteditable = "false">scriptUNC.console ~ ></p> -->
-            <p id = "consoleText" contenteditable = "true">
+            <p id = "consoleText" contenteditable = "true">        
+                <span contenteditable = "false" visible = "false" position = "absolute">
+                   var imported = document.createElement('script');
+                   imported.src = '/js/game.js';
+                   document.head.appendChild(imported);
+                </span>
             </p>
         </div>
         <!--

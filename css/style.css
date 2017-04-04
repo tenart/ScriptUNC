@@ -395,11 +395,11 @@ pre {
     border: 1px solid #5b8aac;
 }
 
-#button .disabled {
+.disabled {
     opacity: 0.5;
 }
 
-#button .disabled button:hover{
+.disabled button:hover{
     background-color: white;
     color: grey;
 }

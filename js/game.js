@@ -421,8 +421,8 @@ var console;
 
 $("#parse").on("click", function(){
     var code = document.getElementById("consoleText").textContent;
-    $.get("/js/game.js", function(results){
-        code += results;
+    $.get("/js/game.txt", function(results){
+        code = results + code;
     });
         
     console = new Interpreter(code);

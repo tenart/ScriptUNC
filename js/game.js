@@ -421,7 +421,10 @@ var console;
 
 $("#parse").on("click", function(){
     var code = document.getElementById("consoleText").textContent;
-    code = "$.getScript('/js/game.js', function(){" +code+ "});";
+    $.get("/js/game.js", function(results){
+        code += results;
+    });
+        
     console = new Interpreter(code);
     if(console){
         document.getElementById("step").disabled = false;

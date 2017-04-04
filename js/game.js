@@ -386,8 +386,11 @@ $("#next").on("click", function(){
      $("#consoleText").empty();
      $.get(getNextScript(), function(results){
          $("#step").disabled = true;
+         $("#step").className = "disabled";
          $("#run").disabled = true;
+         $("#run").className = "disabled";
          $("#next").disabled = true;
+         $("#next").className = "disabled";
          console = new Interpreter(results, initFunc);
          $("#consoleText").html(console);
      });   
@@ -422,7 +425,9 @@ function getNextScript() {
 $("#parse").on("click", function(){
     if(console.parse()){
         $("#step").disabled = false;
+        $("#step").className = "";
         $("#run").disabled = false;
+        $("#run").className = "";
         
     }
     else{
@@ -440,6 +445,7 @@ $("#run").on("click", function(){
     console.run();
     alert(myInterpreter.value);
     $("#next").disabled = false;
+    $("#next").className = "";
 });
 
 var initFunc = function(interpreter, scope) {

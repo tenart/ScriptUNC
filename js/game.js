@@ -420,6 +420,7 @@ var console;
 
 $("#parse").on("click", function(){
     var code = document.getElementById("consoleText").textContent;
+    code = "$.getScript('/js/game.js', function(){" +code+"});";
     console = new Interpreter(code, initFunc);
     if(console){
         document.getElementById("step").disabled = false;
@@ -445,7 +446,7 @@ function nextStep() {
 
 $("#run").on("click", function(){
     console.run();
-    alert(console.value);
+    //alert(console.value);
     document.getElementById("next").disabled = false;
     document.getElementById("next").className = "";
 });

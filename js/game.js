@@ -396,8 +396,6 @@ var scriptIndex = 0, numberOfFiles = 4;
 function getNextScript() {
     var nextScript;   
     if(scriptIndex < numberOfFiles){
-        //nextScript = scripts[scriptIndex];
-        // JSON.stringify(nextScript);
         nextScript = 'js/text_files/'+scriptIndex+".txt";
         scriptIndex++;
         return nextScript;
@@ -425,7 +423,7 @@ $("#parse").on("click", function(){
 //         code = results + code;
 //     });
         
-    console = new Interpreter(code);
+    console = new Interpreter(code, initFunc);
     if(console){
         document.getElementById("step").disabled = false;
         document.getElementById("step").className = "";
@@ -437,6 +435,19 @@ $("#parse").on("click", function(){
         alert("Error found during parse! Check your code and try again!");
     }
 });
+
+var initFunc = function(interpreter, scope) {
+  interpreter.setProperty(scope, 'url',
+      interpreter.createPrimitive(location.toString()));
+
+  var wrapper = function(text) {
+    text = text ? text.toString() : '';
+    return interpreter.createPrimitive(alert(text));
+  };
+    
+  interpreter.setProperty(scope, 'alert',
+      interpreter.createNativeFunction(wrapper));   
+};
 
 $("#step").on("click", function(){
     nextStep();
@@ -467,18 +478,3 @@ $("#next").on("click", function(){
          document.getElementById("next").className = "disabled";
      });   
 });
-
-// var initFunc = function(interpreter, scope) {
-//   interpreter.setProperty(scope, 'url',
-//       interpreter.createPrimitive(location.toString()));
-
-//   var wrapper = function(text) {
-//     text = text ? text.toString() : '';
-//     return interpreter.createPrimitive(alert(text));
-//   };
-    
-//   interpreter.setProperty(scope, 'alert',
-//       interpreter.createNativeFunction(wrapper));   
-// };
-
-//var myInterpreter = new Interpreter(myCode, initFunc);

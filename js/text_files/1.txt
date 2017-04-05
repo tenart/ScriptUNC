@@ -1,12 +1,12 @@
 var result = [];<br>
 function fibonacci(n, output) {<br>
-&emsp;var a = 1, b = 1, sum;<br>
-&emsp;&emsp;for (var i = 0; i < n; i++) {<br>
-&emsp;&emsp;&emsp;output.push(a);<br>
-&emsp;&emsp;&emsp;sum = a + b;<br>
-&emsp;&emsp;&emsp;a = b;<br>
-&emsp;&emsp;&emsp;b = sum;<br>
+&emsp;&emsp;var a = 1, b = 1, sum;<br>
+&emsp;&emsp;&emsp;&emsp;for (var i = 0; i < n; i++) {<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;output.push(a);<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sum = a + b;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;a = b;<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;b = sum;<br>
+&emsp;&emsp;&emsp;&emsp;}<br>
 &emsp;&emsp;}<br>
-&emsp;}<br>
 fibonacci(16, result);<br>
 alert(result.join(', '));<br>

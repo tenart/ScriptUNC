@@ -447,9 +447,13 @@ var initFunc = function(interpreter, scope) {
     
   interpreter.setProperty(scope, 'alert',
       interpreter.createNativeFunction(wrapper));
+   
+  var wrapper = function(x,y) {
+    return interpreter.createPrimitive(rameses.move(x,y));
+  };
     
   interpreter.setProperty(scope, 'rameses.move', 
-      interpreter.createNativeFunction(rameses.move));
+      interpreter.createPrimitive(move));
 };
 
 $("#step").on("click", function(){

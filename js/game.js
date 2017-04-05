@@ -421,9 +421,9 @@ var console;
 
 $("#parse").on("click", function(){
     var code = document.getElementById("consoleText").textContent;
-    $.get("js/text_files/rameses.txt", function(results){
-        code = results + code;
-    });
+//     $.get("js/text_files/rameses.txt", function(results){
+//         code = results + code;
+//     });
         
     console = new Interpreter(code);
     if(console){

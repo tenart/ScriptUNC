@@ -440,22 +440,16 @@ var initFunc = function(interpreter, scope) {
   interpreter.setProperty(scope, 'url',
       interpreter.createPrimitive(location.toString()));
 
-//   var wrapper = function(text) {
-//     text = text ? text.toString() : '';
-//     return interpreter.createPrimitive(alert(text));
-//   };
+  var wrapper = function(text) {
+    text = text ? text.toString() : '';
+    return interpreter.createPrimitive(alert(text));
+  };
     
-//   interpreter.setProperty(scope, 'alert',
-//       interpreter.createNativeFunction(wrapper));
-    
-    
-  var move = function(x,y){
-       return interpreter.createPrimitive(rameses.move(x,y));
-      
-  }
+  interpreter.setProperty(scope, 'alert',
+      interpreter.createNativeFunction(wrapper));
     
   interpreter.setProperty(scope, 'rameses.move', 
-      interpreter.createNativeFunction(move));
+      interpreter.createNativeFunction(rameses.move));
 };
 
 $("#step").on("click", function(){

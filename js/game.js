@@ -386,8 +386,8 @@ $("#consoleText").on("DOMSubtreeModified", function(){
         document.getElementById("step").className = "disabled";
         document.getElementById("run").disabled = true;
         document.getElementById("run").className = "disabled";
-        document.getElementById("next").disabled = true;
-        document.getElementById("next").className = "disabled"; 
+//         document.getElementById("next").disabled = true;
+//         document.getElementById("next").className = "disabled"; 
     
 });
 
@@ -471,8 +471,8 @@ function nextStep() {
 $("#run").on("click", function(){
     console.run();
     //alert(console.value);
-    document.getElementById("next").disabled = false;
-    document.getElementById("next").className = "";
+//     document.getElementById("next").disabled = false;
+//     document.getElementById("next").className = "";
 });
 
 $("#next").on("click", function(){
@@ -483,7 +483,7 @@ $("#next").on("click", function(){
          document.getElementById("step").className = "disabled";
          document.getElementById("run").disabled = true;
          document.getElementById("run").className = "disabled";
-         document.getElementById("next").disabled = true;
-         document.getElementById("next").className = "disabled";
+//          document.getElementById("next").disabled = true;
+//          document.getElementById("next").className = "disabled";
      });   
 });

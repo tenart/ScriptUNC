@@ -440,13 +440,13 @@ var initFunc = function(interpreter, scope) {
   interpreter.setProperty(scope, 'url',
       interpreter.createPrimitive(location.toString()));
 
-  var wrapper = function(text) {
-    text = text ? text.toString() : '';
-    return interpreter.createPrimitive(alert(text));
-  };
+//   var wrapper = function(text) {
+//     text = text ? text.toString() : '';
+//     return interpreter.createPrimitive(alert(text));
+//   };
     
-  interpreter.setProperty(scope, 'alert',
-      interpreter.createNativeFunction(wrapper));
+//   interpreter.setProperty(scope, 'alert',
+//       interpreter.createNativeFunction(wrapper));
     
     
   var move = function(x,y){

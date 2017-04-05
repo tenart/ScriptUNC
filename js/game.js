@@ -79,21 +79,21 @@ var cursor = {
 
 // Declaring sound assets
 var bgMusic = new Howl({
-    src: ['../sound/fightsong.wav'],
+    src: ['sound/fightsong.wav'],
     autoplay: false,
     loop: true,
     volume: 0.5,
 });
 
 var gallop = new Howl({
-    src: ['../sound/gallop.mp3'],
+    src: ['sound/gallop.mp3'],
     autoplay: true,
     loop: true,
     volume: 0,
 });
 
 var thump = new Howl({
-    src: ['../sound/thump.mp3'],
+    src: ['sound/thump.mp3'],
     autoplay: false,
     loop: false,
     volume: 4,

@@ -371,7 +371,118 @@ function update() {
     $("#cpX").text("pixel X: " + cursor.pX);
     $("#cpY").text("pixel Y: " + cursor.pY);
     $("#cbX").text("block X: " + cursor.bX);
-    $("#cbY").text("block Y: " + cursor.bY);
+    $("#cbY").text("block Y: " + cursor.bY);       
+}
+
+
+$.get('js/text_files/start.txt', function(results){
+    $("#consoleText").empty();
+    $("#consoleText").html(results);
+});
+
+$("#consoleText").on("DOMSubtreeModified", function(){
+    
+        document.getElementById("step").disabled = true;
+        document.getElementById("step").className = "disabled";
+        document.getElementById("run").disabled = true;
+        document.getElementById("run").className = "disabled";
+//         document.getElementById("next").disabled = true;
+//         document.getElementById("next").className = "disabled"; 
+    
+});
+
+var scriptIndex = 0, numberOfFiles = 4;
+
+function getNextScript() {
+    var nextScript;   
+    if(scriptIndex < numberOfFiles){
+        nextScript = 'js/text_files/'+scriptIndex+".txt";
+        scriptIndex++;
+        return nextScript;
+    }
+    else if(scriptIndex>numberOfFiles){
+        $("#consoleText").empty();
+        nextScript = "js/text_files/start.txt";
+        scriptIndex = 0;
+        return nextScript;
+    }
+    
+    else{
+        $("#consoleText").empty();
+        nextScript = "js/text_files/end.txt";
+        scriptIndex = numberOfFiles * 2;
+        return nextScript;
+    }
+}
+
+var console;
+
+$("#parse").on("click", function(){
+    var code = document.getElementById("consoleText").textContent;
+//     $.get("js/text_files/rameses.txt", function(results){
+//         code = results + code;
+//     });
+        
+    console = new Interpreter(code, initFunc);
+    if(console){
+        document.getElementById("step").disabled = false;
+        document.getElementById("step").className = "";
+        document.getElementById("run").disabled = false;
+        document.getElementById("run").className = "";   
+    }
+
+    else{
+        alert("Error found during parse! Check your code and try again!");
+    }
+});
+
+var initFunc = function(interpreter, scope) {
+  interpreter.setProperty(scope, 'url',
+      interpreter.createPrimitive(location.toString()));
+
+  var wrapper = function(text) {
+    text = text ? text.toString() : '';
+    return interpreter.createPrimitive(alert(text));
+  };
 }
     
+  interpreter.setProperty(scope, 'alert',
+      interpreter.createNativeFunction(wrapper));
+   
+  var wrapper = function(x,y) {
+    return interpreter.createPrimitive(rameses.move(x,y));
+  };
     
+  interpreter.setProperty(scope, 'rameses.move', 
+      interpreter.createPrimitive(move));
+};
+
+$("#step").on("click", function(){
+    nextStep();
+});
+
+function nextStep() {
+    if (console.step()) {
+        window.setTimeout(nextStep, 0);
+    }
+}
+
+$("#run").on("click", function(){
+    console.run();
+    //alert(console.value);
+//     document.getElementById("next").disabled = false;
+//     document.getElementById("next").className = "";
+});
+
+$("#next").on("click", function(){
+     $("#consoleText").empty();
+     $.get(getNextScript(), function(results){
+         $("#consoleText").html(results);
+         document.getElementById("step").disabled = true;
+         document.getElementById("step").className = "disabled";
+         document.getElementById("run").disabled = true;
+         document.getElementById("run").className = "disabled";
+//          document.getElementById("next").disabled = true;
+//          document.getElementById("next").className = "disabled";
+     });   
+});

@@ -36,16 +36,28 @@
             <img id="minimap_buildings" src="img/collision_map.png">
             <div id="minimap_pointer"></div>
         </div>
-        <div id="buttons" class="gui">
+<!--         <div id="buttons" class="gui">
             <button id="y">Y</button>
             <button id="x">X</button>
             <button id="b">B</button>
             <button id="a">A</button>
-        </div>
+        </div> -->
+                   
         <div id="console">
-            <span id = "consolePrompt" contenteditable = "false">scriptUNC.console ~ ></span>
-            <span id = "consoleText" contenteditable = "true">
-            </span>
+            <div id = "button">
+                <button id="parse">Parse</button>
+                <button id="step" class="disabled" disabled>Step</button>
+                <button id="run" class="disabled" disabled>Run Code</button>
+                <button id="next">Next Lesson</button>
+            </div>
+<!--             <p id = "consolePrompt" contenteditable = "false">scriptUNC.console ~ ></p> -->
+            <p id = "consoleText" contenteditable = "true">        
+<!--                 <span contenteditable = "false" visible = "false" position = "absolute">
+                   var imported = document.createElement('script');
+                   imported.src = '/js/game.js';
+                   document.head.appendChild(imported);
+                </span> -->
+            </p>
         </div>
         <!--
         <div id="welcome" class="gui">
@@ -120,4 +132,6 @@ $(".tooltip").show();</pre>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.2/howler.core.min.js"></script>
     <script src="js/jquery.visible.min.js"></script>
     <script src="js/game.js"></script>
+    <script src="js/acorn.js"></script>
+    <script src="js/interpreter.js"></script>
 </html>

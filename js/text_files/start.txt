@@ -5,5 +5,5 @@ To help you get started, here are a few controls:<br>
 - Click and drag anywhere to have control of the camera.<br>
 - Click on the mini map in the top left corner to recenter the screen on Rameses!<br>
 <br>
-Try exploring the map for a bit, and to continue, click on the prompt: <br>
-"scriptUNC.console ~ >" in the top left corner of the console. <br>
+Try exploring the map for a bit, and to continue, click on the prompt:<br>
+"scriptUNC.console ~ >" in the top left corner of the console.<br>

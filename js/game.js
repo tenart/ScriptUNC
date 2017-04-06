@@ -296,13 +296,13 @@ function update() {
     }
         
     // Checks for building collision
-//     var pixelData = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY, 1, 1).data;
+    var pixelData = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY, 1, 1).data;
     
-//     if( pixelData[3] != 0 ) {
-//         rameses.isColliding = true;
-//     } else {
-//         rameses.isColliding = false;
-//     }
+    if( pixelData[3] != 0 ) {
+        rameses.isColliding = true;
+    } else {
+        rameses.isColliding = false;
+    }
     
     if( rameses.isColliding ) {
         $("#rameses").stop(true,false);
@@ -371,7 +371,7 @@ function update() {
     $("#cpX").text("pixel X: " + cursor.pX);
     $("#cpY").text("pixel Y: " + cursor.pY);
     $("#cbX").text("block X: " + cursor.bX);
-    $("#cbY").text("block Y: " + cursor.bY);   
+    $("#cbY").text("block Y: " + cursor.bY);       
 }
 
 
@@ -444,6 +444,7 @@ var initFunc = function(interpreter, scope) {
     text = text ? text.toString() : '';
     return interpreter.createPrimitive(alert(text));
   };
+}
     
   interpreter.setProperty(scope, 'alert',
       interpreter.createNativeFunction(wrapper));

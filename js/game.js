@@ -444,7 +444,7 @@ var initFunc = function(interpreter, scope) {
     text = text ? text.toString() : '';
     return interpreter.createPrimitive(alert(text));
   };
-}
+
     
   interpreter.setProperty(scope, 'alert',
       interpreter.createNativeFunction(wrapper));

@@ -449,7 +449,7 @@ var initFunc = function(interpreter, scope) {
   interpreter.setProperty(scope, 'alert',
       interpreter.createNativeFunction(wrapper));
    
-  var wrapper = function(x,y) {
+  var move = function(x,y) {
     return interpreter.createPrimitive(rameses.move(x,y));
   };
     

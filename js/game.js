@@ -1,76 +1,5 @@
-// Defining Rameses object
-var rameses = {
-    name: "Rameses",
-    thought: "What a GDTBATH...",
-    direction: "E",
-    isColliding: false,
-    isMoving: false,
-    onScreen: true,
-    speed: 250,
-    pX: 2600,
-    pY: 1650,
-    bX: 52,
-    bY: 33,
-    move: function(x,y) {
-        if(isNaN(x) || isNaN(x)) {
-            throw new TypeError("move() only accepts legal numbers");
-        }
-
-        var moveX = x;
-        var moveY = y;
-        
-        var speed = this.speed;
-        
-        $("#rameses").stop(true,false);
-        $("#rameses").css("left", blockToPx(rameses.bX));
-        $("#rameses").css("top", blockToPx(rameses.bY));
-
-        if( moveX > 0 ) {
-            $("#rameses").css("transform", "rotate(-90deg) scale(1.5)");
-            rameses.direction = "E";
-        } else if( moveX < 0 ) {
-            $("#rameses").css("transform", "rotate(90deg) scale(1.5)");
-            rameses.direction = "W";
-        }
-
-        $("#rameses_sprite").addClass("running");
-
-        $("#rameses").animate({
-            left: "+=" + (moveX * 50),
-        }, speed * Math.abs(moveX), function() {
-
-            if( moveY > 0 ) {
-                $("#rameses").css("transform", "rotate(0deg) scale(1.5)");
-                rameses.direction = "S";
-            } else if( moveY < 0 ) {
-                $("#rameses").css("transform", "rotate(180deg) scale(1.5)");
-                rameses.direction = "N";
-            }
-
-            $("#rameses").animate({
-                top: "+=" + (moveY * 50),
-            }, speed * Math.abs(moveY), function() {
-                $("#rameses_sprite").removeClass("running");
-            })
-        })
-        return null;
-    },
-    moveRight: function(amount) {
-        this.move(amount);
-    },
-    moveLeft: function(amount) {
-        this.move(-1*amount);
-    },
-    moveUp: function(amount) {
-        this.move(0,-1*amount);
-    },
-    moveDown: function(amount) {
-        this.move(0,amount);
-    },
-}
-
 var cursor = {
-    control: true,
+    control: false,
     pX: 0,
     pY: 0,
     bX: 0,
@@ -99,30 +28,7 @@ var thump = new Howl({
     volume: 4,
 });
 
-// Test
-function speak(input) {
-    alert(input);
-}
-
-/*
-// Help players locate DOM elements by ID
-function locate(target) {
-    if(typeof(target) != "string") {
-        throw new TypeError("locate() only accepts string values");
-    }
-    var id = "#" + String(target);
-    $(id).addClass("highlight").delay(1000).queue(function(){
-        $(this).removeClass("highlight").dequeue();
-    });
-}
-*/
-
-// Shows which button is clicked in js console
-$("#buttons button").click(function() {
-    console.log( "Button '" + $(this).attr("id") + "' clicked" );
-})
-
-// Makes stage and debug pane draggable and disables follow cam when being dragged
+// GUI Draggables and window functionalities
 $("#stage1").draggable({
     delay: 10,
     start: function() {
@@ -133,8 +39,24 @@ $("#stage1").draggable({
 
 $("#debug").draggable({
     scroll: false,
-    containment: "#game_wrap"
+    //containment: "#game_wrap"
 });
+
+$("#lessons").draggable({
+    scroll: false,
+    //containment: "#game_wrap",
+    handle: "#lessonBar"
+});
+
+$("#editorWrap").draggable({
+    scroll: false,
+    //containment: "#game_wrap",
+    handle: "#editorBar"
+});
+
+$(".collapse").click(function() {
+    $(this).closest(".collapsible").toggleClass("collapsed");
+})
 
 // Creates out of view HTML canvas with collision map to detect collision with buildings
 var img = document.getElementById('collision');
@@ -164,6 +86,7 @@ function blockToPx(block) {
     return block*50;
 }
 
+// Updates cursor position for testing purposes
 $("#game_wrap").on( "mousemove", function( event ) {
     cursor.pX = event.pageX - parseInt( $("#stage1").offset().left );
     cursor.pY = event.pageY - parseInt( $("#stage1").offset().top );
@@ -171,6 +94,7 @@ $("#game_wrap").on( "mousemove", function( event ) {
     cursor.bY = pxToBlockFloor(cursor.pY);
 });
 
+// Move Rameses using cursor control for testing purposes
 $("#game_wrap").click(function() {
     if( cursor.control ) {
         rameses.move(cursor.bX - rameses.bX, cursor.bY - rameses.bY);
@@ -192,24 +116,19 @@ function center(object, callBack) {
     ) 
 }
 
+// Centers Rameses if minimap is clicked
 $("#minimap").click(function() {
     center(rameses, function() {followRam = true});
 })
-
-$("#submit").click(function() {
-    console.log.apply(this, alert("yo") );
-})
-
-
-
 
 
 // Center Rameses on screen on startup
 center(rameses);
 var followRam = true;
 
-// Game update loop
-setInterval(update, 33.33);
+
+// Game update loop, updates every 1/1000 of a second
+setInterval(update, 1);
 
 function update() {
     
@@ -351,10 +270,19 @@ function update() {
         }
     })
     
+    // Collapses windows
+    $(".collapsible").each(function() {
+        if( $(this).attr("class").indexOf("collapsed") >= 0 ) {
+            $(this).css("height", "30px");
+        } else {
+            $(this).css("height", "");
+        }
+    })
+    
     // Updates minimap
     $("#coords").text("X: " + rameses.bX + " | Y: " + rameses.bY);
     
-    $("#minimap_pointer").css("top", ((rameses.pY/50+1) * 2.083 - 2));
+    $("#minimap_pointer").css("top", ((rameses.pY/50+1) * 2.083 - 2)+30);
     $("#minimap_pointer").css("left", ((rameses.pX/50+1) * 2.083 - 2));
     
     // Displays debug data debug panel
@@ -373,116 +301,3 @@ function update() {
     $("#cbX").text("block X: " + cursor.bX);
     $("#cbY").text("block Y: " + cursor.bY);       
 }
-
-
-$.get('js/text_files/start.txt', function(results){
-    $("#consoleText").empty();
-    $("#consoleText").html(results);
-});
-
-$("#consoleText").on("DOMSubtreeModified", function(){
-    
-        document.getElementById("step").disabled = true;
-        document.getElementById("step").className = "disabled";
-        document.getElementById("run").disabled = true;
-        document.getElementById("run").className = "disabled";
-//         document.getElementById("next").disabled = true;
-//         document.getElementById("next").className = "disabled"; 
-    
-});
-
-var scriptIndex = 0, numberOfFiles = 4;
-
-function getNextScript() {
-    var nextScript;   
-    if(scriptIndex < numberOfFiles){
-        nextScript = 'js/text_files/'+scriptIndex+".txt";
-        scriptIndex++;
-        return nextScript;
-    }
-    else if(scriptIndex>numberOfFiles){
-        $("#consoleText").empty();
-        nextScript = "js/text_files/start.txt";
-        scriptIndex = 0;
-        return nextScript;
-    }
-    
-    else{
-        $("#consoleText").empty();
-        nextScript = "js/text_files/end.txt";
-        scriptIndex = numberOfFiles * 2;
-        return nextScript;
-    }
-}
-
-var console;
-
-$("#parse").on("click", function(){
-    var code = document.getElementById("consoleText").textContent;
-//     $.get("js/text_files/rameses.txt", function(results){
-//         code = results + code;
-//     });
-        
-    console = new Interpreter(code, initFunc);
-    if(console){
-        document.getElementById("step").disabled = false;
-        document.getElementById("step").className = "";
-        document.getElementById("run").disabled = false;
-        document.getElementById("run").className = "";   
-    }
-
-    else{
-        alert("Error found during parse! Check your code and try again!");
-    }
-});
-
-var initFunc = function(interpreter, scope) {
-  interpreter.setProperty(scope, 'url',
-      interpreter.createPrimitive(location.toString()));
-
-  var wrapper = function(text) {
-    text = text ? text.toString() : '';
-    return interpreter.createPrimitive(alert(text));
-  };
-
-    
-  interpreter.setProperty(scope, 'alert',
-      interpreter.createNativeFunction(wrapper));
-   
-  var move = function(x,y) {
-    return interpreter.createPrimitive(rameses.move(x,y));
-  };
-    
-  interpreter.setProperty(scope, 'rameses.move', 
-      interpreter.createPrimitive(move));
-};
-
-$("#step").on("click", function(){
-    nextStep();
-});
-
-function nextStep() {
-    if (console.step()) {
-        window.setTimeout(nextStep, 0);
-    }
-}
-
-$("#run").on("click", function(){
-    console.run();
-    //alert(console.value);
-//     document.getElementById("next").disabled = false;
-//     document.getElementById("next").className = "";
-});
-
-$("#next").on("click", function(){
-     $("#consoleText").empty();
-     $.get(getNextScript(), function(results){
-         $("#consoleText").html(results);
-         document.getElementById("step").disabled = true;
-         document.getElementById("step").className = "disabled";
-         document.getElementById("run").disabled = true;
-         document.getElementById("run").className = "disabled";
-//          document.getElementById("next").disabled = true;
-//          document.getElementById("next").className = "disabled";
-     });   
-});

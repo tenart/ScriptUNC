@@ -1,12 +1,43 @@
-var result = [];<br>
-function fibonacci(n, output) {<br>
-&emsp;&emsp;var a = 1, b = 1, sum;<br>
-&emsp;&emsp;&emsp;&emsp;for (var i = 0; i < n; i++) {<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;output.push(a);<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sum = a + b;<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;a = b;<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;b = sum;<br>
-&emsp;&emsp;&emsp;&emsp;}<br>
-&emsp;&emsp;}<br>
-fibonacci(16, result);<br>
-alert(result.join(', '));<br>
+Now it's time to learn some coding!
+<br>
+<br>
+If you haven't already, click on the minimap to recenter yourself on Rameses.
+<br>
+<br>
+The Rameses you see on the screen is a visual representation of a JavaScript object named <code>rameses</code>.
+<br>
+<br>
+Rameses has a few built in methods that you can use to move him around the map:
+<br>
+<br>
+<pre>
+rameses.moveUp();
+       .moveDown();
+       .moveLeft();
+       .moveRight();
+</pre>
+<br>
+These methods do what you expect them to, and each take one integer input as the distance in blocks you want Rameses to move. Rameses will stop all movement if he runs into a building or reaches the map's edges.
+<br>
+<br>
+Try to move Rameses around by using the above methods in the code editor!
+
+<!--
+
+THIS IS A COMMENT
+
+Since the game reads these text files as HTML, you can use HTML tags to format
+your lessons. Some things to remember:
+
+Use <br> tags for linebreaks. Use one to go down a line, use two for a clean
+paragraph break.
+
+Use <i class="fa fa-ICON"><i> for special icons. Look up font-awesome icons
+
+Use <code></code> for very short code-like items such as object and variable
+names.
+
+Use <pre></pre> for long blocks of code (See above for example). All whitespace
+and linebreaks are preserved within these tags;
+
+-->

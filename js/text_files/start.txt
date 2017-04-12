@@ -1,9 +1,19 @@
-Welcome to ScriptUNC!<br>
-In this game, you will learn how to program using Javascript!<br>
-To help you get started, here are a few controls:<br>
-- Click anywhere on screen to move to that position.<br>
-- Click and drag anywhere to have control of the camera.<br>
-- Click on the mini map in the top left corner to recenter the screen on Rameses!<br>
+Welcome to ScriptUNC!
 <br>
-Try exploring the map for a bit, and to continue, click on the prompt:<br>
-"scriptUNC.console ~ >" in the top left corner of the console.<br>
+<br>
+In this game, you will learn how to program using Javascript!
+<br>
+<br>
+To help you get more familiar with the game, here are a few tips:
+<br>
+<br>
+Click and drag anywhere to pan across the map.
+<br>
+<br>
+Click on the minimap in the top left corner to recenter the screen on Rameses!
+<br>
+<br>
+Click the <i class="fa fa-square-o"></i> buttons to collapse these windows and save space on the screen.
+<br>
+<br>
+Try exploring the map for a bit, and when you're ready to continue, click on the <i class="fa fa-chevron-right"></i> button to see the next lesson!

@@ -28,6 +28,12 @@ var thump = new Howl({
     volume: 4,
 });
 
+/*
+function takeLSD() {
+    $("#game_wrap *").css("animation","trip 2s infinite linear");
+}
+*/
+
 // GUI Draggables and window functionalities
 $("#stage1").draggable({
     delay: 10,
@@ -51,11 +57,47 @@ $("#lessons").draggable({
 $("#editorWrap").draggable({
     scroll: false,
     //containment: "#game_wrap",
-    handle: "#editorBar"
+    handle: "#editorBar",
+    start: function() {
+        $("#editorWrap").removeClass("docked");
+        $("#game_wrap").css("width", "calc(100%)");
+        editor.resize();
+        editor2.resize();
+    },
+    stop: function() {
+       if( collision( $("#editorWrap"), $("#sideDropZone") ) ) {
+           $("#editorWrap").addClass("docked");
+           $("#editorWrap").css({
+               "left": "calc(100% - 400px)",
+               "top": "0",
+           });
+           $("#game_wrap").css("width", "calc(100% - 400px)");
+           editor.resize();
+           editor2.resize();
+       }
+    }
 });
 
 $(".collapse").click(function() {
     $(this).closest(".collapsible").toggleClass("collapsed");
+})
+
+$("#tab1").click(function() {
+    $(this).addClass("activeTab");
+    $("#tab2").removeClass("activeTab");
+    $("#editor1").show();
+    $("#editor2").hide();
+    editor.resize();
+    editor2.resize();
+})
+
+$("#tab2").click(function() {
+    $(this).addClass("activeTab");
+    $("#tab1").removeClass("activeTab");
+    $("#editor2").show();
+    $("#editor1").hide();
+    editor.resize();
+    editor2.resize();
 })
 
 // Creates out of view HTML canvas with collision map to detect collision with buildings
@@ -126,6 +168,25 @@ $("#minimap").click(function() {
 center(rameses);
 var followRam = true;
 
+// Checks for window drop on dropzone
+
+function collision($div1, $div2) {
+    var x1 = $div1.offset().left;
+    var y1 = $div1.offset().top;
+    var h1 = $div1.outerHeight(true);
+    var w1 = $div1.outerWidth(true);
+    var b1 = y1 + h1 - 1;
+    var r1 = x1 + w1 - 1;
+    var x2 = $div2.offset().left;
+    var y2 = $div2.offset().top;
+    var h2 = $div2.outerHeight(true);
+    var w2 = $div2.outerWidth(true);
+    var b2 = y2 + h2 - 1;
+    var r2 = x2 + w2 - 1;
+
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+    return true;
+}
 
 // Game update loop, updates every 1/1000 of a second
 setInterval(update, 1);
@@ -189,6 +250,12 @@ function update() {
         $("#y_dir").hide();
     }
         
+    // Moves on-screen border clip to Rameses
+    $("#collision_border.overlay").css(
+        "-webkit-mask-position",
+        "calc(" + rameses.pX + "px - 225px) calc(" + rameses.pY + "px - 225px)"
+    )
+    
     // Checks for out of bound movements
     if( parseInt( $("#rameses").css("top") ) < 0 ) {
         $("#rameses").stop(true,false).css("top", 0);
@@ -223,7 +290,7 @@ function update() {
         rameses.isColliding = false;
     }
     
-    if( rameses.isColliding ) {
+    if( rameses.isColliding && rameses.collision) {
         $("#rameses").stop(true,false);
         $("#rameses_sprite").removeClass("running");
         thump.play();
@@ -270,14 +337,23 @@ function update() {
         }
     })
     
+    /*
     // Collapses windows
     $(".collapsible").each(function() {
         if( $(this).attr("class").indexOf("collapsed") >= 0 ) {
             $(this).css("height", "30px");
         } else {
-            $(this).css("height", "");
+            $(this).css("height", "initial");
         }
     })
+    */
+    
+    // Check for dock drop
+    if( collision( $("#editorWrap"), $("#sideDropZone") ) ) {
+        $("#sideDropZone").css("opacity", 1);
+    } else {
+        $("#sideDropZone").css("opacity", 0);
+    }
     
     // Updates minimap
     $("#coords").text("X: " + rameses.bX + " | Y: " + rameses.bY);

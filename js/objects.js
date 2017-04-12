@@ -4,6 +4,7 @@ var rameses = {
     thought: "What a GDTBATH...",
     direction: "E",
     isColliding: false,
+    collision: true,
     isMoving: false,
     onScreen: true,
     speed: 250,

@@ -13,48 +13,60 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
     </head>
     <body>
-        <div id="minimap" class="gui">
-            <div id="coords"  class="titleBar">
-            X: 0 | Y: 0</div>
-            <img id="minimap_buildings" src="img/collision_map.png">
-            <div id="minimap_pointer"></div>
-        </div>
-        <div id="lessons" class="gui collapsible">
-            <div id="lessonBar" class="titleBar">
-                <button class="toolButtons collapse"><i class="fa fa-square-o"></i></button>
-                <button class="lessonNav" id="next"><i class="fa fa-chevron-right"></i></button>
-                <button class="lessonNav" id="prev"><i class="fa fa-chevron-left"></i></button>
+        <div id="gui">
+            <div id="sideDropZone">
             </div>
-            <div id="consoleText">     
+            <div id="minimap" class="shadow">
+                <div id="coords"  class="titleBar">
+                X: 0 | Y: 0</div>
+                <img id="minimap_buildings" src="img/collision_map.png">
+                <div id="minimap_pointer"></div>
             </div>
-        </div>
-        <div id="editorWrap" class="gui collapsible">
-            <div id="editorBar" class="titleBar">
-                <button class="toolButtons collapse"><i class="fa fa-square-o"></i></button>
-                <button id="run"><i class="fa fa-code"></i></button>
+            <div id="lessons" class="collapsible shadow">
+                <div id="lessonBar" class="titleBar">
+                    <button class="toolButtons collapse"><i class="fa fa-square-o"></i></button>
+                    <button class="lessonNav" id="next"><i class="fa fa-chevron-right"></i></button>
+                    <button class="lessonNav" id="prev"><i class="fa fa-chevron-left"></i></button>
+                </div>
+                <div id="consoleText">     
+                </div>
             </div>
-<pre id="editor">
-// Type your code here!
-// Press the orange '&lt;/&gt;' button to run your code!
+            <div id="editorWrap" class="collapsible docked shadow">
+                <div id="editorBar" class="titleBar">
+                    <button class="toolButtons collapse"><i class="fa fa-square-o"></i></button>
+                    <button id="run"><i class="fa fa-play-circle"></i></button>
+                </div>
+                <div id="editorTabs">
+                    <div id="tab1" class="tab"><i class="fa fa-file-code-o"></i> myFunctions.js</div>
+                    <div id="tab2" class="tab activeTab"><i class="fa fa-file-code-o"></i> myScript.js</div>
+                </div>
+<pre id="editor1">
+// You can define your reusable functions here!
+// Press the orange button to run your code!
 </pre>
-        </div>
-        <div id="debug" class="gui">
-            <p>Debug Mode</p>
-            <p class="cat">rameses object</p>
-            <p id="collision_state">isColliding: -</p> 
-            <p id="moving">isMoving: -</p>  
-            <p id="onScreen">onScreen: -</p>
-            <p id="direction">direction: -</p>   
-            <p id="pxX">pixel X: -</p>   
-            <p id="pxY">pixel Y: -</p>   
-            <p id="blockX">block X: -</p>   
-            <p id="blockY">block Y: -</p>
-            <p class="cat">cursor object</p>
-            <p id="cControl">control: -</p>
-            <p id="cpX">pixel X: -</p>
-            <p id="cpY">pixel Y: -</p>
-            <p id="cbX">block X: -</p>
-            <p id="cbY">block Y: -</p>
+<pre id="editor2">
+// Type your code here!
+// Press the orange button to run your code!
+</pre>
+            </div>
+            <div id="debug" >
+                <p>Debug Mode</p>
+                <p class="cat">rameses object</p>
+                <p id="collision_state">isColliding: -</p> 
+                <p id="moving">isMoving: -</p>  
+                <p id="onScreen">onScreen: -</p>
+                <p id="direction">direction: -</p>   
+                <p id="pxX">pixel X: -</p>   
+                <p id="pxY">pixel Y: -</p>   
+                <p id="blockX">block X: -</p>   
+                <p id="blockY">block Y: -</p>
+                <p class="cat">cursor object</p>
+                <p id="cControl">control: -</p>
+                <p id="cpX">pixel X: -</p>
+                <p id="cpY">pixel Y: -</p>
+                <p id="cbX">block X: -</p>
+                <p id="cbY">block Y: -</p>
+            </div>
         </div>
         <div id="game_wrap">
             <div id="stage1">
@@ -72,28 +84,8 @@
                 <img id="shadow_overlay" class="overlay" src="img/shadows.png">
                 <img id="trees" class="overlay" src="img/trees.png">
                 <img id="building_overlay" class="overlay" src="img/building_overlay.png">
-                <table id="lenoir" class="building">
-                    <tr>
-                        <td><img src="img/lenoir_slices/lenoir_01.png"></td>
-                        <td><img src="img/lenoir_slices/lenoir_02.png"></td>
-                        <td><img src="img/lenoir_slices/lenoir_03.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="img/lenoir_slices/lenoir_04.png"></td>
-                        <td><img src="img/lenoir_slices/lenoir_05.png"></td>
-                        <td><img src="img/lenoir_slices/lenoir_06.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="img/lenoir_slices/lenoir_07.png"></td>
-                        <td><img src="img/lenoir_slices/lenoir_08.png"></td>
-                        <td><img src="img/lenoir_slices/lenoir_09.png"></td>
-                    </tr>
-                    <tr>
-                        <td><img src="img/lenoir_slices/lenoir_10.png"></td>
-                        <td><img src="img/lenoir_slices/lenoir_11.png"></td>
-                        <td><img src="img/lenoir_slices/lenoir_12.png"></td>
-                    </tr>
-                </table>
+                <img id="lenoir" src="img/lenoir.png" class="overlay">
+                <img id="collision_border" src="img/collision_border.png" class="overlay">
             </div>        
         </div>
         <img id="collision" src="img/collision_map.png">
@@ -105,12 +97,19 @@
     <script src="https://use.fontawesome.com/9b63243b9e.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
     <script>
-        var editor = ace.edit("editor");
+        var editor = ace.edit("editor1");
         editor.setTheme("ace/theme/tomorrow_night_eighties");
         editor.session.setMode("ace/mode/javascript");
         editor.renderer.setShowInvisibles(false);
         editor.renderer.setShowGutter(true);
         editor.setShowFoldWidgets(false);
+        
+        var editor2 = ace.edit("editor2");
+        editor2.setTheme("ace/theme/tomorrow_night_eighties");
+        editor2.session.setMode("ace/mode/javascript");
+        editor2.renderer.setShowInvisibles(false);
+        editor2.renderer.setShowGutter(true);
+        editor2.setShowFoldWidgets(false);
     </script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
     <script src="js/game.js"></script>

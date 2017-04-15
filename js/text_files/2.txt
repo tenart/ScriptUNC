@@ -1,12 +1,37 @@
-var result = [];<br>
-function fibonacci(n, output) {<br>
-&emsp;&emsp;var a = 1, b = 1, sum;<br>
-&emsp;&emsp;&emsp;&emsp;for (var i = 0; i < n; i++) {<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;output.push(a);<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sum = a + b;<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;a = b;<br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;b = sum;<br>
-&emsp;&emsp;&emsp;&emsp;}<br>
-&emsp;&emsp;}<br>
-fibonacci(16, result);<br>
-alert(result.join(', '));<br>
+<h1>Lesson Two: Data Types Part 1</h1>
+<br>
+There are serveral different data types that can be used in programming. They can be split into two different categories: Primitive and Non-Primitive (or Reference).
+<br><br>
+There are five different types of primitive data types in JavaScript. They are numbers, strings, booleans, null, and undefined. These are all just values you can assign to any variable. For example:
+<br>
+<br>
+<pre>
+1. 15 (number)
+2. "Rameses" (string)
+3. true or false (boolean)
+4. null
+5. undefined
+</pre>
+<br>
+To create a variable do the following:
+<br>
+<br>
+<pre>
+var myVariable = 40;
+</pre>
+<br>
+In the previous example, we assigned the value <code>40</code> which is a number to <code>myVariable</code>. Which means anytime <code>myVariable</code> is used it is equivalent to <code>40</code>.
+<br><br>
+Use <code>alert()</code> to display <code>myVariable</code> and see what happens. If you do not remember how to use <code>alert()</code> feel free to look back at lesson one.
+<br><br>
+The same process can be used to assign strings, booleans, null values, and undefined values. Here is an example:
+<br>
+<br>
+<pre>
+var aString = "Hello world";
+var aBoolean = true;
+var aNull = null;
+var undefinedValue;
+</pre>
+<br> 
+JavaScript does not require you to use the name of primitive data types when you are assigning them to variables, but this is not true for other programming languages. It's good to know about these primitive data types because they are pretty much the same in JS as in other programming languages.

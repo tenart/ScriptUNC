@@ -1,17 +1,9 @@
-var cursor = {
-    control: false,
-    pX: 0,
-    pY: 0,
-    bX: 0,
-    bY: 0
-}
-
 // Declaring sound assets
 var bgMusic = new Howl({
     src: ['sound/fightsong.wav'],
     autoplay: false,
-    loop: true,
-    volume: 0.5,
+    loop: false,
+    volume: 0.05,
 });
 
 var gallop = new Howl({
@@ -139,7 +131,9 @@ $("#game_wrap").on( "mousemove", function( event ) {
 // Move Rameses using cursor control for testing purposes
 $("#game_wrap").click(function() {
     if( cursor.control ) {
+        //$("#rameses").stop(true,false);
         rameses.move(cursor.bX - rameses.bX, cursor.bY - rameses.bY);
+        rameses.distanceLeft += Math.abs(cursor.bX - rameses.bX) + Math.abs(cursor.bY - rameses.bY);
     }
 })
 
@@ -156,6 +150,31 @@ function center(object, callBack) {
             top: (screenHeight/2 - object.pY - 25),
         }, 250, callBack
     ) 
+}
+
+// Triggers when Rameses collides with boundaries or obstagles
+function ramesesCollided() {
+    rameses.distanceLeft = 0;
+    clearTimeouts();
+    $("#rameses").stop(true,false);
+    $("#rameses_sprite").append("<div id='hit_mark'></div>");
+    setTimeout(function() {
+        $("#rameses_sprite").empty();
+    },1000)
+    thump.play();
+
+    if(rameses.direction == "W") {
+        $("#rameses").css( "left", blockToPx(rameses.bX+1) );
+    }
+    if(rameses.direction == "N") {
+        $("#rameses").css( "top", blockToPx(rameses.bY+1) );
+    }
+    if(rameses.direction == "S") {
+        $("#rameses").css( "top", blockToPx(rameses.bY-1) );
+    }
+    if(rameses.direction == "E") {
+        $("#rameses").css( "left", blockToPx(rameses.bX-1) );
+    }
 }
 
 // Centers Rameses if minimap is clicked
@@ -188,19 +207,32 @@ function collision($div1, $div2) {
     return true;
 }
 
+function clearTimeouts() {
+    for (var i = 0; i < movementDelays.length; i++) {
+        clearTimeout(movementDelays[i]);
+    }
+    movementDelays = [];
+}
+
 // Game update loop, updates every 1/1000 of a second
 setInterval(update, 1);
 
 function update() {
     
-    // Basic variables
+    // Basic variables updates
     screenHeight = $("#game_wrap").outerHeight();
     screenWidth = $("#game_wrap").outerWidth();
+    
     rameses.pX = parseInt($("#rameses").css("left"));
     rameses.pY = parseInt($("#rameses").css("top"));
     rameses.bX = pxToBlock(rameses.pX);
     rameses.bY = pxToBlock(rameses.pY);
     rameses.onScreen = $("#rameses").visible();
+    
+    render.offX = parseInt($("#stage1").css("left"));
+    render.offY = parseInt($("#stage1").css("top"));
+    render.height = screenHeight;
+    render.width = screenWidth;
     
     // Attaches graphics to Rameses
     $("#rameses_shadow").css("left", rameses.pX - 10);
@@ -258,27 +290,15 @@ function update() {
     
     // Checks for out of bound movements
     if( parseInt( $("#rameses").css("top") ) < 0 ) {
-        $("#rameses").stop(true,false).css("top", 0);
-        $("#rameses_sprite").removeClass("running");
-        //console.warn("Rameses reached upper y bounds");
-        thump.play();
+        ramesesCollided();
     } else if( (parseInt($("#rameses").css("top")) + 50) > $("#stage1").outerHeight() ) {
-        $("#rameses").stop(true,false).css("top", $("#stage1").outerHeight() - 50);
-        $("#rameses_sprite").removeClass("running");
-        //console.warn("Rameses reached lower y bounds");
-        thump.play();
+        ramesesCollided();
     }
 
     if( parseInt( $("#rameses").css("left") ) < 0 ) {
-        $("#rameses").stop(true,false).css("left", 0);
-        $("#rameses_sprite").removeClass("running");
-        //console.warn("Rameses reached left x bounds");
-        thump.play();
+        ramesesCollided();
     } else if( (parseInt($("#rameses").css("left")) + 50) > $("#stage1").outerWidth() ) {
-        $("#rameses").stop(true,false).css("left", $("#stage1").outerWidth() - 50);
-        $("#rameses_sprite").removeClass("running");
-        //console.warn("Rameses reached right x bounds");
-        thump.play();
+        ramesesCollided();
     }
         
     // Checks for building collision
@@ -291,23 +311,7 @@ function update() {
     }
     
     if( rameses.isColliding && rameses.collision) {
-        $("#rameses").stop(true,false);
-        $("#rameses_sprite").removeClass("running");
-        thump.play();
-        
-        if(rameses.direction == "W") {
-            $("#rameses").css( "left", blockToPx(rameses.bX+1) );
-        }
-        if(rameses.direction == "N") {
-            $("#rameses").css( "top", blockToPx(rameses.bY+1) );
-        }
-        if(rameses.direction == "S") {
-            $("#rameses").css( "top", blockToPx(rameses.bY-1) );
-        }
-        if(rameses.direction == "E") {
-            $("#rameses").css( "left", blockToPx(rameses.bX-1) );
-        }
-        
+        ramesesCollided();
         //console.warn("Rameses collided with a building");
     }
     
@@ -318,24 +322,30 @@ function update() {
         rameses.isMoving = false;
     }
     
+    if( rameses.distanceLeft > 0 ) {
+        if( $("#rameses_sprite").attr("class").indexOf("running") < 0 ) {
+            $("#rameses_sprite").addClass("running");
+        }
+    } else if( rameses.distanceLeft <= 0 ) {
+        $("#rameses_sprite").removeClass("running");
+    }
+    
+    if(rameses.direction == "E") {
+        $("#rameses").css("transform", "rotate(-90deg) scale(1.5)");
+    } else if(rameses.direction == "W") {
+        $("#rameses").css("transform", "rotate(90deg) scale(1.5)");
+    } else if(rameses.direction == "S") {
+        $("#rameses").css("transform", "rotate(0deg) scale(1.5)");
+    } else if(rameses.direction == "N") {
+        $("#rameses").css("transform", "rotate(180deg) scale(1.5)");
+    }
+    
     // Plays galloping sound effect
     if(rameses.isMoving) {
         gallop.volume(0.5);
     } else {
         gallop.volume(0);
     }
-    
-    $(".building td").each(function() {
-        if( $(this).visible(true) ) {
-            $(this).css("opacity", 1);
-        }
-    })
-    
-    $(".building td").each(function() {
-        if(! $(this).visible(true) ) {
-            $(this).css("opacity", 0);
-        }
-    })
     
     /*
     // Collapses windows
@@ -348,6 +358,10 @@ function update() {
     })
     */
     
+    var speechHeight = $("#speech_wrap").outerHeight();
+    $("#speech_wrap").css("left", rameses.pX);
+    $("#speech_wrap").css("top", rameses.pY - speechHeight - 20);
+    
     // Check for dock drop
     if( collision( $("#editorWrap"), $("#sideDropZone") ) ) {
         $("#sideDropZone").css("opacity", 1);
@@ -358,13 +372,41 @@ function update() {
     // Updates minimap
     $("#coords").text("X: " + rameses.bX + " | Y: " + rameses.bY);
     
-    $("#minimap_pointer").css("top", ((rameses.pY/50+1) * 2.083 - 2)+30);
-    $("#minimap_pointer").css("left", ((rameses.pX/50+1) * 2.083 - 2));
+    $("#minimap_pointer").css("top", ((rameses.pY/50+1) * 2.083 - 1)+30);
+    $("#minimap_pointer").css("left", ((rameses.pX/50+1) * 2.083 - 1));
+    
+    $("#view_area").css("left", pxToBlock(render.offX) * 2.083 *-1 );
+    $("#view_area").css("top", (pxToBlock(render.offY) * 2.083 *-1)+30 );
+    $("#view_area").css("width", pxToBlock(render.width) * 2.083 );
+    $("#view_area").css("height", pxToBlock(render.height) * 2.083 );
+    
+    var vaX = parseInt($("#view_area").css("left")) + $("#view_area").outerWidth()/2;
+    var vaY = parseInt($("#view_area").css("top")) + $("#view_area").outerHeight()/2;
+    
+    var mpX = parseInt($("#minimap_pointer").css("left")) + 1;
+    var mpY = parseInt($("#minimap_pointer").css("top")) + 1;
+    
+    var distanceLine = Math.sqrt(  Math.pow((mpX-vaX),2)+Math.pow((mpY-vaY),2)  );
+    var midX = (mpX + vaX)/2;
+    var midY = (mpY + vaY)/2;
+    var angleDeg = Math.atan2(mpY - vaY, mpX - vaX) * 180 / Math.PI;
+    
+    $("#line").css("width", distanceLine + "px");
+    $("#line").css("top", midY + "px");
+    $("#line").css("left", (midX - distanceLine/2) + "px");
+    $("#line").css("transform", "rotate(" + angleDeg + "deg)");
+    
+    if( followRam ) {
+        $("#line").hide();
+    } else {
+        $("#line").show();
+    }
     
     // Displays debug data debug panel
     $("#collision_state").text("isColliding: " + rameses.isColliding);
     $("#moving").text("isMoving: " + rameses.isMoving);
     $("#direction").text("direction: " + rameses.direction);
+    $("#distance").text("distanceLeft: " + rameses.distanceLeft);
     $("#pxX").text("pixel X: " + rameses.pX);
     $("#pxY").text("pixel Y: " + rameses.pY);
     $("#blockX").text("block X: " + rameses.bX);
@@ -375,5 +417,10 @@ function update() {
     $("#cpX").text("pixel X: " + cursor.pX);
     $("#cpY").text("pixel Y: " + cursor.pY);
     $("#cbX").text("block X: " + cursor.bX);
-    $("#cbY").text("block Y: " + cursor.bY);       
+    $("#cbY").text("block Y: " + cursor.bY);    
+    //---Viewport---//
+    $("#osX").text("offset X: " + render.offX);
+    $("#osY").text("offset Y: " + render.offY);
+    $("#h").text("height: " + render.height);
+    $("#w").text("width: " + render.width); 
 }

@@ -1,4 +1,5 @@
-// Defining Rameses object
+var movementDelays = [];
+
 var rameses = {
     name: "Rameses",
     thought: "What a GDTBATH...",
@@ -12,7 +13,9 @@ var rameses = {
     pY: 1650,
     bX: 52,
     bY: 33,
+    distanceLeft: 0,
     move: function(x,y) {
+        
         if(isNaN(x) || isNaN(x)) {
             throw new TypeError("move() only accepts legal numbers");
         }
@@ -20,52 +23,91 @@ var rameses = {
         var moveX = x;
         var moveY = y;
         
-        var speed = this.speed;
+        var thisDistance = Math.abs(x) + Math.abs(y);
         
-        $("#rameses").stop(true,false);
+        var speed = this.speed;
+                
+        //$("#rameses").stop(true,false);
         $("#rameses").css("left", blockToPx(rameses.bX));
         $("#rameses").css("top", blockToPx(rameses.bY));
 
         if( moveX > 0 ) {
-            $("#rameses").css("transform", "rotate(-90deg) scale(1.5)");
             rameses.direction = "E";
         } else if( moveX < 0 ) {
-            $("#rameses").css("transform", "rotate(90deg) scale(1.5)");
             rameses.direction = "W";
         }
 
-        $("#rameses_sprite").addClass("running");
 
         $("#rameses").animate({
             left: "+=" + (moveX * 50),
         }, speed * Math.abs(moveX), function() {
-
+            
             if( moveY > 0 ) {
-                $("#rameses").css("transform", "rotate(0deg) scale(1.5)");
                 rameses.direction = "S";
             } else if( moveY < 0 ) {
-                $("#rameses").css("transform", "rotate(180deg) scale(1.5)");
                 rameses.direction = "N";
             }
 
             $("#rameses").animate({
                 top: "+=" + (moveY * 50),
             }, speed * Math.abs(moveY), function() {
-                $("#rameses_sprite").removeClass("running");
+                rameses.distanceLeft -= thisDistance;
             })
         })
         return null;
     },
     moveRight: function(amount) {
-        this.move(amount);
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(amount);
+        movementDelays.push(setTimeout(function() {
+            rameses.move(amount,0);
+        },delay + 200));
+        
     },
     moveLeft: function(amount) {
-        this.move(-1*amount);
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(amount);
+        movementDelays.push(setTimeout(function() {
+            rameses.move(-1*amount,0);
+        },delay + 200));
     },
     moveUp: function(amount) {
-        this.move(0,-1*amount);
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(amount);
+        movementDelays.push(setTimeout(function() {
+            rameses.move(0,-1*amount);
+        },delay + 200));
     },
     moveDown: function(amount) {
-        this.move(0,amount);
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(amount);
+        movementDelays.push(setTimeout(function() {
+            $("#rameses_sprite").addClass("running");
+            rameses.move(0, amount);
+        },delay + 200));
     },
+    alert: function(speak) {
+        $("#bubble").text(speak);
+        $("#speech_wrap").fadeIn();
+        setTimeout(function() {
+            $("#speech_wrap").fadeOut();
+        }, 3000);
+    }
+}
+
+// Cursor
+var cursor = {
+    control: false,
+    pX: 0,
+    pY: 0,
+    bX: 0,
+    bY: 0
+}
+
+// Viewing rectangle
+var render = {
+    offX: 0,
+    offY: 0,
+    height: 0,
+    width: 0
 }

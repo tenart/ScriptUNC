@@ -18,7 +18,10 @@
             </div>
             <div id="minimap" class="shadow">
                 <div id="coords"  class="titleBar">
-                X: 0 | Y: 0</div>
+                X: 0 | Y: 0
+                </div>
+                <div id="view_area"></div>
+                <div id="line"></div>
                 <img id="minimap_buildings" src="img/collision_map.png">
                 <div id="minimap_pointer"></div>
             </div>
@@ -37,8 +40,8 @@
                     <button id="run"><i class="fa fa-play-circle"></i></button>
                 </div>
                 <div id="editorTabs">
-                    <div id="tab1" class="tab"><i class="fa fa-file-code-o"></i> myFunctions.js</div>
-                    <div id="tab2" class="tab activeTab"><i class="fa fa-file-code-o"></i> myScript.js</div>
+                    <div id="tab1" class="tab"><i class="fa fa-file"></i> myFunctions.js</div>
+                    <div id="tab2" class="tab activeTab"><i class="fa fa-file"></i> myScript.js</div>
                 </div>
 <pre id="editor1">
 // You can define your reusable functions here!
@@ -55,7 +58,8 @@
                 <p id="collision_state">isColliding: -</p> 
                 <p id="moving">isMoving: -</p>  
                 <p id="onScreen">onScreen: -</p>
-                <p id="direction">direction: -</p>   
+                <p id="direction">direction: -</p> 
+                <p id="distance">distanceLeft: -</p> 
                 <p id="pxX">pixel X: -</p>   
                 <p id="pxY">pixel Y: -</p>   
                 <p id="blockX">block X: -</p>   
@@ -66,27 +70,54 @@
                 <p id="cpY">pixel Y: -</p>
                 <p id="cbX">block X: -</p>
                 <p id="cbY">block Y: -</p>
+                <p class="cat">render port</p>
+                <p id="osX">offset X:</p>
+                <p id="osY">offset Y:</p>
+                <p id="h">height: </p>
+                <p id="w">width: </p>
             </div>
         </div>
         <div id="game_wrap">
-            <div id="stage1">
-                
-                <div id="x_dir" class="direction"></div>
-                <div id="y_dir" class="direction"></div>
-                
-                <div id="rameses"></div>
-                <div id="rameses_pointer"></div>
-                <div id="rameses_shadow"></div>
-                <div id="rameses_sprite" class=""></div>
-                
-                <img id="ground_detail" class="overlay" src="img/ground_detail.png">
-                <img id="occlusion" class="overlay" src="img/occlusion.png">
-                <img id="shadow_overlay" class="overlay" src="img/shadows.png">
-                <img id="trees" class="overlay" src="img/trees.png">
-                <img id="building_overlay" class="overlay" src="img/building_overlay.png">
-                <img id="lenoir" src="img/lenoir.png" class="overlay">
-                <img id="collision_border" src="img/collision_border.png" class="overlay">
-            </div>        
+            <div id="transform_wrap">
+                <div id="stage1">
+
+                    <div id="x_dir" class="direction"></div>
+                    <div id="y_dir" class="direction"></div>
+
+                    <div id="rameses"></div>
+                    <div id="rameses_pointer"></div>
+                    <div id="rameses_shadow"></div>
+                    <div id="rameses_sprite" class="">
+                        
+                    </div>
+                                        
+                    <div id="speech_wrap">
+                        <div id="bubble"></div>
+                        <div id="caret"></div>
+                    </div>
+
+                    <img id="ground_detail" class="overlay" src="img/ground_detail.png">
+                    
+                    <img id="stairs" src="img/stairs.png" class="overlay">
+                    <img id="pit" src="img/pit.png" class="overlay">
+                    
+                    <img id="occlusion" class="overlay" src="img/occlusion.png">
+                    <img id="shadow_overlay" class="overlay" src="img/shadows.png">
+                    <img id="trees" class="overlay" src="img/trees.png">
+                    <img id="building_overlay" class="overlay" src="img/building_overlay.png">
+                    <img id="lenoir" src="img/lenoir.png" class="overlay">
+                    <img id="stores" src="img/student_stores.png" class="overlay">
+                    <img id="ul" src="img/ul.png" class="overlay">
+                    <img id="union1" src="img/union_01.png" class="overlay">
+                    <img id="union2" src="img/union_02.png" class="overlay">
+                    <img id="union3" src="img/union_03.png" class="overlay">
+                    <img id="union4" src="img/union_04.png" class="overlay">
+                    <img id="greenlaw" src="img/greenlaw.png" class="overlay">
+                    <img id="bingham" src="img/bingham.png" class="overlay">
+
+                    <img id="collision_border" src="img/collision_border.png" class="overlay">
+                </div> 
+            </div>
         </div>
         <img id="collision" src="img/collision_map.png">
     </body>

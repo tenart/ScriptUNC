@@ -1,43 +1,17 @@
-Now it's time to learn some coding!
+<h1>Lesson One: "Hello World"</h1>
+<br>
+"Hello World" is a program that most programmers learn
+before they do any acutal programming. Think of it as a rite of passage into programming!
 <br>
 <br>
-If you haven't already, click on the minimap to recenter yourself on Rameses.
-<br>
-<br>
-The Rameses you see on the screen is a visual representation of a JavaScript object named <code>rameses</code>.
-<br>
-<br>
-Rameses has a few built in methods that you can use to move him around the map:
+For your first program, you are going to make the browser display an alert message. To do that, type the following into <code>myScript.js</code> using the code editor:
 <br>
 <br>
 <pre>
-rameses.moveUp();
-       .moveDown();
-       .moveLeft();
-       .moveRight();
+alert("Hello World");
 </pre>
 <br>
-These methods do what you expect them to, and each take one integer input as the distance in blocks you want Rameses to move. Rameses will stop all movement if he runs into a building or reaches the map's edges.
+The <code>alert()</code> method will display whatever you put between the parenthesis.  After doing this you will have written your first bit of code as a programmer.
 <br>
 <br>
-Try to move Rameses around by using the above methods in the code editor!
-
-<!--
-
-THIS IS A COMMENT
-
-Since the game reads these text files as HTML, you can use HTML tags to format
-your lessons. Some things to remember:
-
-Use <br> tags for linebreaks. Use one to go down a line, use two for a clean
-paragraph break.
-
-Use <i class="fa fa-ICON"><i> for special icons. Look up font-awesome icons
-
-Use <code></code> for very short code-like items such as object and variable
-names.
-
-Use <pre></pre> for long blocks of code (See above for example). All whitespace
-and linebreaks are preserved within these tags;
-
--->
+Click on the <i class="fa fa-chevron-right"></i> button to see the next lesson.

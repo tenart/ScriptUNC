@@ -43,30 +43,67 @@ $("#debug").draggable({
 $("#lessons").draggable({
     scroll: false,
     //containment: "#game_wrap",
-    handle: "#lessonBar"
+    handle: "#lessonBar",
+    start: function() {
+        if( $("#lessons").attr("class").indexOf("docked") >= 0) {
+            $("#game_wrap").css("width", "calc(100%)");
+        }
+        $("#lessons").removeClass("docked");
+        $("#lessons").addClass("resizable");
+        
+        editor.resize();
+        editor2.resize();
+    },
+    stop: function() {
+        if( $("#editorWrap").attr("class").indexOf("docked") < 0 ) {
+           if( collision( $("#lessons"), $("#sideDropZone") ) ) {
+               $("#lessons").addClass("docked");
+               $("#lessons").removeClass("resizable");
+               $("#lessons").css("height", "100%");
+               $("#lessons").css("width", "400px");
+               $("#lessons").css({
+                   "left": "calc(100% - 400px)",
+                   "top": "0",
+               });
+               $("#game_wrap").css("width", "calc(100% - 400px)");
+               editor.resize();
+               editor2.resize();
+           }
+        }
+    }
 });
+
+$(".resizer").draggable();
 
 $("#editorWrap").draggable({
     scroll: false,
     //containment: "#game_wrap",
     handle: "#editorBar",
     start: function() {
+        if( $("#editorWrap").attr("class").indexOf("docked") >= 0) {
+            $("#game_wrap").css("width", "calc(100%)");
+        }
         $("#editorWrap").removeClass("docked");
+        $("#editorWrap").addClass("resizable");
         $("#game_wrap").css("width", "calc(100%)");
         editor.resize();
         editor2.resize();
     },
     stop: function() {
-       if( collision( $("#editorWrap"), $("#sideDropZone") ) ) {
-           $("#editorWrap").addClass("docked");
-           $("#editorWrap").css({
-               "left": "calc(100% - 400px)",
-               "top": "0",
-           });
-           $("#game_wrap").css("width", "calc(100% - 400px)");
-           editor.resize();
-           editor2.resize();
-       }
+        if( $("#lessons").attr("class").indexOf("docked") < 0 ) {
+            if( collision( $("#editorWrap"), $("#sideDropZone") ) ) {
+               $("#editorWrap").addClass("docked");
+               $("#editorWrap").removeClass("resizable");
+               $("#editorWrap").css("height", "100%");
+               $("#editorWrap").css({
+                   "left": "calc(100% - 400px)",
+                   "top": "0",
+               });
+               $("#game_wrap").css("width", "calc(100% - 400px)");
+               editor.resize();
+               editor2.resize();
+           }
+        }
     }
 });
 
@@ -154,9 +191,9 @@ function center(object, callBack) {
 
 // Triggers when Rameses collides with boundaries or obstagles
 function ramesesCollided() {
+    $("#rameses").stop(true,false);
     rameses.distanceLeft = 0;
     clearTimeouts();
-    $("#rameses").stop(true,false);
     $("#rameses_sprite").append("<div id='hit_mark'></div>");
     setTimeout(function() {
         $("#rameses_sprite").empty();
@@ -174,6 +211,30 @@ function ramesesCollided() {
     }
     if(rameses.direction == "E") {
         $("#rameses").css( "left", blockToPx(rameses.bX-1) );
+    }
+}
+
+function getBlockFront() {
+    if(rameses.direction == "N") {
+        return {
+            x: rameses.bX,
+            y: rameses.bY-1,
+        }
+    } else if(rameses.direction == "S") {
+        return {
+            x: rameses.bX,
+            y: rameses.bY+1,
+        }
+    } else if(rameses.direction == "E") {
+        return {
+            x: rameses.bX+1,
+            y: rameses.bY,
+        }
+    } else if(rameses.direction == "W") {
+        return {
+            x: rameses.bX-1,
+            y: rameses.bY,
+        }
     }
 }
 
@@ -301,13 +362,32 @@ function update() {
         ramesesCollided();
     }
         
-    // Checks for building collision
+    // Checks for building collision at Rameses' position
     var pixelData = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY, 1, 1).data;
+    // Checks for walls in the 4 directions around Rameses
+    var pixelDataN = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY-1, 1, 1).data;
+    var pixelDataS = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY+1, 1, 1).data;
+    var pixelDataE = canvas.getContext('2d').getImageData(rameses.bX+1, rameses.bY, 1, 1).data;
+    var pixelDataW = canvas.getContext('2d').getImageData(rameses.bX-1, rameses.bY, 1, 1).data;
+    
+    var pixelDataFront = canvas.getContext('2d').getImageData(getBlockFront().x, getBlockFront().y, 1, 1).data;
     
     if( pixelData[3] != 0 ) {
         rameses.isColliding = true;
     } else {
         rameses.isColliding = false;
+    }
+    
+    if( pixelDataN[3] != 0 || pixelDataS[3] != 0 || pixelDataE[3] != 0 || pixelDataW[3] != 0 ) {
+        rameses.isAgainstWall = true;
+    } else {
+        rameses.isAgainstWall = false;
+    }
+    
+    if( pixelDataFront[3] != 0 ) {
+        rameses.isFacingWall = true;
+    } else {
+        rameses.isFacingWall = false;
     }
     
     if( rameses.isColliding && rameses.collision) {
@@ -358,12 +438,45 @@ function update() {
     })
     */
     
+    $(".resizer").each(function() {
+        var width = parseInt($(this).css("left"))+15;
+        var height = parseInt($(this).css("top"))+15;
+        $(this).closest(".resizable").css("width", width);
+        $(this).closest(".resizable").css("height", height);
+    })
+    
+    if( parseInt($("#lessons_resize").css("left")) <= (400-15) ) {
+        $("#lessons_resize").css("left", (400-15));
+    } 
+    
+    if( parseInt($("#lessons_resize").css("top")) <= (400-15) ) {
+        $("#lessons_resize").css("top", (400-15));
+    } 
+    
+    if( parseInt($("#editor_resize").css("left")) <= (400-15) ) {
+        $("#editor_resize").css("left", (400-15));
+    } 
+    
+    if( parseInt($("#editor_resize").css("top")) <= (400-15) ) {
+        $("#editor_resize").css("top", (400-15));
+    } 
+    
+    $("#editor_resize").mousedown(function() {
+        editor.resize();
+        editor2.resize();
+    })
+    
+    $("#editor_resize").mouseup(function() {
+        editor.resize();
+        editor2.resize();
+    })
+    
     var speechHeight = $("#speech_wrap").outerHeight();
     $("#speech_wrap").css("left", rameses.pX);
     $("#speech_wrap").css("top", rameses.pY - speechHeight - 20);
     
     // Check for dock drop
-    if( collision( $("#editorWrap"), $("#sideDropZone") ) ) {
+    if( collision( $("#editorWrap"), $("#sideDropZone") ) || collision( $("#lessons"), $("#sideDropZone") ) ) {
         $("#sideDropZone").css("opacity", 1);
     } else {
         $("#sideDropZone").css("opacity", 0);
@@ -404,6 +517,8 @@ function update() {
     
     // Displays debug data debug panel
     $("#collision_state").text("isColliding: " + rameses.isColliding);
+    $("#wall").text("isAgainstWall: " + rameses.isAgainstWall);
+    $("#faceWall").text("isFacingWall: " + rameses.isFacingWall);
     $("#moving").text("isMoving: " + rameses.isMoving);
     $("#direction").text("direction: " + rameses.direction);
     $("#distance").text("distanceLeft: " + rameses.distanceLeft);

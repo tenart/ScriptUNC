@@ -5,6 +5,8 @@ var rameses = {
     thought: "What a GDTBATH...",
     direction: "E",
     isColliding: false,
+    isAgainstWall: false,
+    isFacingWall: false,
     collision: true,
     isMoving: false,
     onScreen: true,

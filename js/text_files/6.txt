@@ -14,4 +14,6 @@ rameses.alert("OMG, it's " +add(4,5));
 </pre>
 <br>
 <br>
-If you guessed <code>rameses</code> would move up 2, down 6, and then say it's 9, then you are correct. As you may have noticed, it is also possible to use the same function as an argument for itself. This is possible becuase the innermost functions will always run first in this situation and return values that can be used for the outermost function.
+If you guessed <code>rameses</code> would move up 2, down 6, and then say it's 9, then you are correct.
+<br><br>
+As you may have noticed, it is also possible to use the same function as an argument for itself. This is possible becuase the innermost functions will always run first in this situation and return values that can be used for the outermost function.

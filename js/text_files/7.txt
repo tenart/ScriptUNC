@@ -1,0 +1,28 @@
+<h1>Lesson Six: Functions Inside Functions</h1>
+<br>
+<br>
+Not all functions will have just return values, some of them will contain other functions as well. A good example of this is the Fibonacci sequence.
+<br><br>
+<pre>
+var fib = function(aNumber){
+
+  if(aNumber === 0){
+  return 0;
+  }
+  else if(aNumber === 1){
+  return 1;
+  }
+  else{
+  return fib(aNumber-1) + fib(aNumber-2);
+  }
+}
+</pre>
+<br><br>
+This could also be done if you want to call another function that you have already created. For example, if you wanted to make a function that multiplied a number by 2, you could use the add function to add it twice and return you that value, which you could use for something else.
+<br><br>
+<pre>
+var multby2 = function(aNumber){
+  return add(aNumber,aNumber);
+}
+</pre>
+<br><br>

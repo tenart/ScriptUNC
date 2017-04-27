@@ -108,19 +108,7 @@ $("#editorWrap").draggable({
 });
 
 $(".collapse").click(function() {
-    if( $(this).closest(".collapsible").attr("class").indexOf("docked") >= 0 ) {
-        $("#game_wrap").css("width", "calc(100%)");
-        $(this).closest(".collapsible").removeClass("docked");
-    }
-    $(this).closest(".collapsible").hide();
-})
-
-$("#lessons_open").click(function() {
-    $("#lessons").show();
-})
-
-$("#editor_open").click(function() {
-    $("#editorWrap").show();
+    $(this).closest(".collapsible").toggleClass("collapsed");
 })
 
 $("#tab1").click(function() {
@@ -211,6 +199,7 @@ function ramesesCollided() {
         $("#rameses_sprite").empty();
     },1000)
     thump.play();
+    ramesesCollisionReaction();
 
     if(rameses.direction == "W") {
         $("#rameses").css( "left", blockToPx(rameses.bX+1) );
@@ -414,11 +403,11 @@ function update() {
         rameses.isMoving = false;
     }
     
-    if( rameses.distanceLeft > 0 && !$("#speech_wrap").is(":visible")) {
+    if( rameses.distanceLeft > 0 ) {
         if( $("#rameses_sprite").attr("class").indexOf("running") < 0 ) {
             $("#rameses_sprite").addClass("running");
         }
-    } else if( rameses.distanceLeft <= 0 || movementDelays.length == 0 || $("#speech_wrap").is(":visible") ) {
+    } else if( rameses.distanceLeft <= 0 ) {
         $("#rameses_sprite").removeClass("running");
     }
     

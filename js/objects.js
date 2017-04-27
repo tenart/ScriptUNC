@@ -63,7 +63,7 @@ var rameses = {
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             rameses.move(amount,0);
-        },delay + 200));
+        },delay));
         
     },
     moveLeft: function(amount) {
@@ -71,14 +71,14 @@ var rameses = {
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             rameses.move(-1*amount,0);
-        },delay + 200));
+        },delay));
     },
     moveUp: function(amount) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             rameses.move(0,-1*amount);
-        },delay + 200));
+        },delay));
     },
     moveDown: function(amount) {
         var delay = rameses.distanceLeft * 250;
@@ -86,14 +86,21 @@ var rameses = {
         movementDelays.push(setTimeout(function() {
             $("#rameses_sprite").addClass("running");
             rameses.move(0, amount);
-        },delay + 200));
+        },delay));
     },
     alert: function(speak) {
-        $("#bubble").text(speak);
-        $("#speech_wrap").fadeIn();
-        setTimeout(function() {
-            $("#speech_wrap").fadeOut();
-        }, 3000);
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += 16;
+        movementDelays.push(setTimeout(function() {
+            //var currentDelay = rameses.distanceLeft;
+            //rameses.distanceLeft = 0;
+            $("#bubble").text(speak);
+            $("#speech_wrap").fadeIn(500);
+            setTimeout(function() {
+                $("#speech_wrap").fadeOut(500);
+                rameses.distanceLeft -= 16;
+            }, 3000);
+        },delay));
     }
 }
 

@@ -25,9 +25,16 @@
                 <img id="minimap_buildings" src="img/collision_map.png">
                 <div id="minimap_pointer"></div>
             </div>
-            <div id="icon_tray">
-                <button id="lessons_icon" class="icon"></button>
-                <button id="editor_icon" class="icon"></button>
+            <div id="menu_tray">
+                <div id="menu_open" class="icon shadow">
+                <i class="fa fa-bars"></i> Open Main Menu
+                </div>
+                <div id="lessons_open" class="icon shadow">
+                <i class="fa fa-file-text"></i> Open Lessons Panel
+                </div>
+                <div id="editor_open" class="icon shadow">
+                <i class="fa fa-code"></i> Open Code Editor
+                </div>
             </div>
             <div id="lessons" class="collapsible shadow resizable">
                 <div id="lessonBar" class="titleBar">
@@ -102,6 +109,7 @@
                     <div id="speech_wrap">
                         <div id="bubble"></div>
                         <div id="caret"></div>
+                        <div id="exclamation"><i class="fa fa-bell"></i></div>
                     </div>
 
                     <img id="ground_detail" class="overlay" src="img/ground_detail.png">

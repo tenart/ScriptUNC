@@ -108,7 +108,19 @@ $("#editorWrap").draggable({
 });
 
 $(".collapse").click(function() {
-    $(this).closest(".collapsible").toggleClass("collapsed");
+    if( $(this).closest(".collapsible").attr("class").indexOf("docked") >= 0 ) {
+        $("#game_wrap").css("width", "calc(100%)");
+        $(this).closest(".collapsible").removeClass("docked");
+    }
+    $(this).closest(".collapsible").hide();
+})
+
+$("#lessons_open").click(function() {
+    $("#lessons").show();
+})
+
+$("#editor_open").click(function() {
+    $("#editorWrap").show();
 })
 
 $("#tab1").click(function() {
@@ -402,11 +414,11 @@ function update() {
         rameses.isMoving = false;
     }
     
-    if( rameses.distanceLeft > 0 ) {
+    if( rameses.distanceLeft > 0 && !$("#speech_wrap").is(":visible")) {
         if( $("#rameses_sprite").attr("class").indexOf("running") < 0 ) {
             $("#rameses_sprite").addClass("running");
         }
-    } else if( rameses.distanceLeft <= 0 ) {
+    } else if( rameses.distanceLeft <= 0 || movementDelays.length == 0 || $("#speech_wrap").is(":visible") ) {
         $("#rameses_sprite").removeClass("running");
     }
     

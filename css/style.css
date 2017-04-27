@@ -147,6 +147,35 @@ body {
     z-index: 9;
 }
 
+#exclamation {
+    background: #ff9d00;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: -25px;
+    z-index: 10;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    animation: swing 0.5s infinite;
+}
+
+@keyframes swing {
+    0%{
+        transform: rotate(10deg);
+    }
+    50%{
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(10deg);
+    }
+}
+
+
+
 #rameses_pointer {
     width: 50px;
     height: 50px;
@@ -422,23 +451,47 @@ body {
     z-index: 9;
 }
 
-#icon_tray {
+#menu_tray {
     display: inline-block;
     position: absolute;
-    height: 50px;
     width: 200px;
-    left: 10px;
-    top: 167px;
-    background: rgba(0, 0, 0, 0.54);
-    z-index: 50;
+    left: 220px;
+    top: 10px;
+    z-index: 10;
     border-radius: 3px;
-    text-align: center;
     font-size: 0;
 }
 
 .icon {
-    width: 50%;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    background: #7bafd4;
+    color: white;
+    font-size: 14px;
+    font-family: 'Josefin Slab', sans-serif;
+    text-align: left;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.22);
+    overflow: hidden;
+    transition: width 0.2s;
+    border-radius: 3px;
+}
+
+.icon i {
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+}
+
+.icon:hover {
+    width: 200px;
+    /box-shadow: 0 0 0 2px white;
+}
+
+.icon:active {
+    background: #ff9d00;
 }
 
 #lessons_icon {

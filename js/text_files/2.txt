@@ -1,37 +1,25 @@
+
 <h1>Lesson Two: Data Types Part 1</h1>
 <br>
-There are serveral different data types that can be used in programming. They can be split into two different categories: Primitive and Non-Primitive (or Reference).
+There are five different types of primitive data types in JavaScript. They are numbers, strings, booleans, null, and undefined. These are all just values you can assign to any variable.
 <br><br>
-There are five different types of primitive data types in JavaScript. They are numbers, strings, booleans, null, and undefined. These are all just values you can assign to any variable. For example:
-<br>
-<br>
-<pre>
-1. 15 (number)
-2. "Rameses" (string)
-3. true or false (boolean)
-4. null
-5. undefined
-</pre>
-<br>
 To create a variable do the following:
-<br>
-<br>
+<br><br>
 <pre>
 var myVariable = 40;
 </pre>
 <br>
-In the previous example, we assigned the value <code>40</code> which is a number to <code>myVariable</code>. Which means anytime <code>myVariable</code> is used it is equivalent to <code>40</code>.
+The same process can be used to assign strings, booleans, null values, and undefined values. Do the following and see what happens:
 <br><br>
-Use <code>alert()</code> to display <code>myVariable</code> and see what happens. If you do not remember how to use <code>alert()</code> feel free to look back at lesson one.
-<br><br>
-The same process can be used to assign strings, booleans, null values, and undefined values. Here is an example:
-<br>
-<br>
 <pre>
-var aString = "Hello world";
-var aBoolean = true;
-var aNull = null;
-var undefinedValue;
+var aNumber = 40;
+var aString = "Okay ";
+var aVariable = aString + aNumber;
 </pre>
-<br> 
-JavaScript does not require you to use the name of primitive data types when you are assigning them to variables, but this is not true for other programming languages. It's good to know about these primitive data types because they are pretty much the same in JS as in other programming languages.
+<br>
+<br>
+Use <code>alert()</code> to display <code>aVariable</code> and see what happens. If you do not remember how to use <code>alert()</code> feel free to look back at lesson one.
+<br>
+<br>
+As you have probably seen by now the result is probabaly not what you expected. This is a result of concatination or when the program combines two strings. This will happen anytime you use "+" to combine a string and a number/string.
+<br>

@@ -34,7 +34,7 @@ var rameses = {};
 
     rameses.purchaseAlpine = function() {
         if(rameses.bx != 60 || rameses.bY != 36) {
-            rameses.alert("Oops, it doesnt look like Im at alpine!!");
+            alert("Oops, it doesnt look like Im at alpine!!");
         } else {
             rameses.alert("Got my bagel!");
             if(challengeOneStarted) {

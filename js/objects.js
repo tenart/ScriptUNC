@@ -36,7 +36,7 @@ var rameses = {};
         if(rameses.bx != 60 || rameses.bY != 36) {
             alert("Oops, it doesnt look like Im at alpine!!");
         } else {
-            rameses.alert("Got my bagel!");
+            alert("Got my bagel!");
             if(challengeOneStarted) {
                 gotBagel = true;
             }
@@ -45,10 +45,10 @@ var rameses = {};
 
     rameses.eatAlpine = function() {
         if(rameses.bx != 52 || rameses.bY != 33) {
-            rameses.alert("I probably shouldnt do that here...");
+            alert("I probably shouldnt do that here...");
         } else {
             if(challengeOneStarted) {
-                rameses.alert("Congrats! You completed challenge 1!");
+                alert("Congrats! You completed challenge 1!");
             }
         }
     };

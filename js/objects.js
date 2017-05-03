@@ -9,6 +9,18 @@ function startChallengeOne() {
     challengeOneStarted = true;
 }
 
+var challengeTwoStarted = false;
+var gotPencils = false;
+var gotBluebook = false;
+var texted = false;
+
+function startChallengeTwo() {
+    challengeTwoStarted = true;
+    gotPencils = false;
+    gotBluebook = false;
+    texted = false;
+}
+
 var rameses = {};
     rameses.name = "Rameses";
     rameses.thought= "What a GDTBATH...";
@@ -32,6 +44,62 @@ var rameses = {};
     	ramesesCollisionReaction = colCallback;
     };
 
+    rameses.purchasePencils = function() {
+        if(rameses.bX != 53 || rameses.bY != 46) {
+            alert("I probly should go to the student stores for those!");
+        } else {
+            alert("Got my pencils!");
+            if(challengeTwoStarted) {
+                gotPencils = true;
+            }
+        }
+    }
+
+    rameses.purchaseBluebook = function() {
+        if(rameses.bX != 53 || rameses.bY != 46) {
+            alert("I probly should go to the student stores for those!");
+        } else {
+            alert("Got my bluebooks");
+            if(challengeTwoStarted) {
+                gotBluebook = true;
+            }
+        }
+    }
+
+    rameses.textFriend = function() {
+
+        if(rameses.bX != 41 || rameses.bY != 30) {
+            var chance = Math.random();
+            texted = true;
+            if(chance < 0.1) {
+                alert("Hmm, he isnt responding, maybe I should try calling");
+                return false;
+            } else {
+                alert("Text Recievd: Hey Rameses, I am on my way down!");            
+                alert("You have successfully completed challenge 2!");
+                challengeTwoStarted = false;            
+                return true;
+            }
+        } else {
+            alert("I should probably wait to do that until I reach the library..");
+        }
+    }
+
+    rameses.callFriend = function() {
+        if(rameses.bX != 41 || rameses.bY != 30) {
+
+            if(!texted) {
+                alert("Challenge failed, you disrupted the whole library without trying to text him first!!");
+            } else {
+                alert("Hey Rameses, I am on my way down!");
+                alert("You have successfully completed challenge 2!");
+                challengeTwoStarted = false;
+            }
+        } else {
+            alert("I should probably wait to do that until I reach the library..");
+        }
+    }
+
     rameses.purchaseAlpine = function() {
         if(rameses.bX != 60 || rameses.bY != 36) {
             alert("Oops, it doesnt look like Im at alpine!!");
@@ -49,6 +117,7 @@ var rameses = {};
         } else {
             if(challengeOneStarted) {
                 alert("Congrats! You completed challenge 1!");
+                challengeOneStarted = false;
             }
         }
     };
@@ -192,7 +261,7 @@ var rameses = {};
         },delay));
     };
 
-    rameses.moveRightWithCallback = function(amount, callback) {
+    rameses.moveRightAndDo = function(amount, callback) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
@@ -201,7 +270,7 @@ var rameses = {};
         
     };
 
-    rameses.moveLeftWithCallback = function(amount, callback) {
+    rameses.moveLeftAndDo = function(amount, callback) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
@@ -209,7 +278,7 @@ var rameses = {};
         },delay + 200));
     };
 
-    rameses.moveUpWithCallback = function(amount, callback) {
+    rameses.moveUpAndDo = function(amount, callback) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
@@ -217,7 +286,7 @@ var rameses = {};
         },delay + 200));
     };
 	
-    rameses.moveDownWithCallback = function(amount, callback) {
+    rameses.moveDownAndDo = function(amount, callback) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {

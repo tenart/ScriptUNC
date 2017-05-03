@@ -2,6 +2,13 @@ var movementDelays = [];
 
 var ramesesCollisionReaction = function(){};
 
+var gotBagel = false;
+var challengeOneStarted = false;
+function startChallengeOne() {
+    gotBagel = false;
+    challengeOneStarted = true;
+}
+
 var rameses = {};
     rameses.name = "Rameses";
     rameses.thought= "What a GDTBATH...";
@@ -25,7 +32,26 @@ var rameses = {};
     	ramesesCollisionReaction = colCallback;
     };
 
-    
+    rameses.purchaseAlpine = function() {
+        if(rameses.bx != 60 || rameses.bY != 36) {
+            rameses.alert("Oops, it doesnt look like Im at alpine!!");
+        } else {
+            rameses.alert("Got my bagel!");
+            if(challengeOneStarted) {
+                gotBagel = true;
+            }
+        }
+    };
+
+    rameses.eatAlpine = function() {
+        if(rameses.bx != 52 || rameses.bY != 33) {
+            rameses.alert("I probably shouldnt do that here...");
+        } else {
+            if(challengeOneStarted) {
+                rameses.alert("Congrats! You completed challenge 1!");
+            }
+        }
+    };
 
     rameses.move = function(x,y) {
         

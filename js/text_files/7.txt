@@ -16,6 +16,7 @@ startChallengeTwo();
 <br>
 2) Purchase a bluebook and number 2 pencils using the following commands: 
 <br>
+
 <pre>
 rameses.purchaseBluebook()
 rameses.purchasePencils()

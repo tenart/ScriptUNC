@@ -69,9 +69,12 @@ var rameses = {};
     rameses.textFriend = function() {
 
         if(rameses.bX != 41 || rameses.bY != 30) {
+            alert("I should probably wait to do that until I reach the library..");
+
+        } else {
             var chance = Math.random();
             texted = true;
-            if(chance < 0.1) {
+            if(chance > 0.1) {
                 alert("Hmm, he isnt responding, maybe I should try calling");
                 return false;
             } else {
@@ -80,14 +83,13 @@ var rameses = {};
                 challengeTwoStarted = false;            
                 return true;
             }
-        } else {
-            alert("I should probably wait to do that until I reach the library..");
         }
     }
 
     rameses.callFriend = function() {
         if(rameses.bX != 41 || rameses.bY != 30) {
-
+            alert("I should probably wait to do that until I reach the library..");
+        } else {            
             if(!texted) {
                 alert("Challenge failed, you disrupted the whole library without trying to text him first!!");
             } else {
@@ -95,8 +97,6 @@ var rameses = {};
                 alert("You have successfully completed challenge 2!");
                 challengeTwoStarted = false;
             }
-        } else {
-            alert("I should probably wait to do that until I reach the library..");
         }
     }
 

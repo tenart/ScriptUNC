@@ -1,4 +1,4 @@
-<h1>Lesson Four: Loops and Rameses</h1>
+<h1>Loops and Rameses</h1>
 <br>
 For loops and while loops are two ways that you can get a repeating action to occcur in JavaScript.
 The main differences are the ways that they end. For loops end after a specific amount of repetitions and while loops end when a certain condition is met.

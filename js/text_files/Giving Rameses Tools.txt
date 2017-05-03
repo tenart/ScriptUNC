@@ -1,0 +1,17 @@
+Lesson Two: Giving Rameses Tools
+
+We have also given you the ability to give Rameses tools to use by adding functions to "myFunctions.js". By doing so, Rameses can use these tools without having to actually learning how to do them. 
+
+For example if you wanted to let Rameses calculate sales tax for an item in NC, you could do so adding the following to "myFunctions.js":
+
+var sales_tax_calc = function(item_price){
+	return item_price * 0.0475;
+};
+
+You could then do the following in "myScript.js":
+
+rameses.alert("The sales tax on a $5 Cookout tray is " +
+sales_tax_calc(5));
+
+As you might have noticed, there is no need to assign the sales tax to a variable because return assigns a value to sales_tax_calc(5) which can then be printed.
+If you wanted to go even further you could also add a function that gives you the total price including sales tax.

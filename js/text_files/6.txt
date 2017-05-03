@@ -6,6 +6,14 @@ Its almost exam time and you best eat so you can get that A! You need to run ove
 
 <br>
 
+To begin the challenge, run the following statement: 
+
+<br>
+<pre>
+startChallengeOne();
+</pre>
+<br>
+
 1) Moves rameses over to the student union at coordinates X = 60 Y = 36. 
 
 <br>
@@ -21,6 +29,14 @@ rameses.purchaseAlpine();
 3) After purchasing the bagel, return to the pit at coordinates X = 52 Y = 33. 
 
 <br>
-4) Finally, after returning to the pit, call rameses.eatBagel(); to complete the challenge. 
+4) Finally, after returning to the pit, call:
+<br>
+
+<pre>
+rameses.eatBagel();
+</pre>
+<br>
+
+to complete the challenge. 
 
 

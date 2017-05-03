@@ -4,6 +4,7 @@ You can have Rameses perform specific functions after completing a move by defin
 <br>
 For example:
 <br>
+<br>
 <pre>
 
 var announcement = function() {
@@ -18,9 +19,11 @@ rameses.moveUpAndDo(5, announcement);
 After Rameses moves up 5 spaces, the announcement function will execute and Rameses will announce that he has finished moving!
 
 <br>
+<br>
 
 You can also tell Rameses what to do if he hits a wall. For example: 
 
+<br>
 <br>
 
 <pre>

@@ -1,0 +1,63 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf760
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Challenge 2!\
+\
+Your friend is late for a final! He needs you to run down to the student stores and grab him some number 2 pencils and a bluebook. Try to complete the following steps all in one script!\
+\
+1) Move rameses to the bottom of the student stores. (Coordinates X = 53 Y = 46)\
+\
+2) Purchase a bluebook and number 2 pencils using the following commands: \
+\
+	rameses.purchaseBluebook()\
+	rameses.purchasePencils()\
+\
+3) Run these items back up drop them off at the library entrance (X = 41 Y = 30)\
+\
+4) Uh oh, your friend is inside the library! Text him to let him know you are here. If he doesn\'92t respond, then call him (but ONLY if he doesn\'92t respond, you don\'92t want to disturb the library)!\
+\
+	You can operate your phone using:\
+\
+	rameses.textFriend();\
+	rameses.callFriend();\
+	\
+	hint: You can get the result of the text and store it in a variable with \
+\
+		var response = rameses.textFriend(); \
+	 \
+	If the response is false, then call him. Make sure you try to text him first! If you call him 	before trying to text, you will disrupt the library and fail the challenge. There is only a 10% 	chance he will respond to the text. \
+\
+\
+5) After either successfully calling or texting your friend, you will have completed the challenge!\
+\
+\
+// Type your code here!\
+// Press the orange button to run your code!\
+\
+var func1 = function() \{\
+   rameses.purchasePencils();\
+   rameses.purchaseBluebook();\
+   rameses.moveRight(5);\
+   rameses.moveUp(16);\
+   rameses.moveLeftAndDo(17, func2);\
+\}\
+\
+var func2 = function() \{\
+    var response = rameses.textFriend();\
+    \
+    if(!response) \{\
+        rameses.callFriend();\
+    \}\
+\}\
+\
+startChallengeTwo();\
+\
+rameses.moveRight(6);\
+rameses.moveDown(18);\
+rameses.moveLeft(5);\
+rameses.moveUpAndDo(5, func1);\
+}

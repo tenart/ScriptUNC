@@ -8,4 +8,4 @@ rameses.myName = function () {
 	rameses.alert("My name is " + rameses.name);
 };
 
-This works because rameses had a name property, which allows us to get a string version of his name.
+This works because rameses had a name property, which allows us to get a string version of his name. Try to add some functions of your own and see what you can teach Rameses.

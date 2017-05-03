@@ -1,4 +1,4 @@
-<h1>Giving TESTRameses Tools</h1>
+<h1>Giving Rameses Tools</h1>
 <br><br>
 We have also given you the ability to give Rameses tools to use by adding functions to "myFunctions.js". By doing so, Rameses can use these tools without having to actually learning how to do them. 
 <br>

@@ -77,9 +77,15 @@ var rameses = {};
                 alert("Hmm, he isnt responding, maybe I should try calling");
                 return false;
             } else {
-                alert("Text Recievd: Hey Rameses, I am on my way down!");            
-                alert("You have successfully completed challenge 2!");
-                challengeTwoStarted = false;            
+                alert("Text Recievd: Hey Rameses, I am on my way down!"); 
+		
+		    if(gotPencils && gotBluebook){
+			alert("You have successfully completed challenge 2!");
+		    } else {
+			alert("You forgot the pencils and bluebook...");
+			alert("Challenge Failed");
+		    }
+		challengeTwoStarted = false;            
                 return true;
             }
         }

@@ -18,6 +18,16 @@ rameses.moveUp();
 <br>
 These methods do what you expect them to, and each take one integer input as the distance in blocks you want Rameses to move. Rameses will stop all movement if he runs into a building or reaches the map's edges.
 <br>
+
+<br>
+You can also access Rameses’s current location with: 
+<br>
+
+<pre>
+var x = rameses.bX;
+var y = rameses.bY;
+</pre>
+
 <br>
 Try to move Rameses around by using the above methods in the code editor!
 

@@ -68,9 +68,8 @@ var rameses = {};
 
     rameses.textFriend = function() {
 
-        if(rameses.bX != 41 || rameses.bY != 30) {
+        if(rameses.bX > 42 || rameses.bX < 40 || rameses.bY > 31 || rameses.bY < 29) {
             alert("I should probably wait to do that until I reach the library..");
-
         } else {
             var chance = Math.random();
             texted = true;
@@ -87,7 +86,7 @@ var rameses = {};
     }
 
     rameses.callFriend = function() {
-        if(rameses.bX != 41 || rameses.bY != 30) {
+        if(rameses.bX > 42 || rameses.bX < 40 || rameses.bY > 31 || rameses.bY < 29) {
             alert("I should probably wait to do that until I reach the library..");
         } else {            
             if(!texted) {

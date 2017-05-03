@@ -2,28 +2,32 @@ var movementDelays = [];
 
 var ramesesCollisionReaction = function(){};
 
-var rameses = {
-    name: "Rameses",
-    thought: "What a GDTBATH...",
-    direction: "E",
-    isColliding: false,
-    isAgainstWall: false,
-    isFacingWall: false,
-    collision: true,
-    isMoving: false,
-    onScreen: true,
-    speed: 250,
-    pX: 2600,
-    pY: 1650,
-    bX: 52,
-    bY: 33,
-    distanceLeft: 0,
+var rameses = {};
+    rameses.name = "Rameses";
+    rameses.thought= "What a GDTBATH...";
+    rameses.direction= "E";
+    rameses.isColliding= false;
+    rameses.isAgainstWall= false;
+    rameses.isFacingWall= false;
+    rameses.collision= true;
+    rameses.isMoving= false;
+    rameses.onScreen= true;
+    rameses.speed= 250;
+    rameses.pX= 2600;
+    rameses.pY= 1650;
+    rameses.bX= 52;
+    rameses.bY= 33;
+    rameses.distanceLeft= 0;
 
-    pendingCallback: function(){},
-    setCollisionReaction: function(colCallback) {
+    rameses.pendingCallback= function(){};
+
+    rameses.setCollisionReaction= function(colCallback) {
     	ramesesCollisionReaction = colCallback;
-    },
-    move: function(x,y) {
+    };
+
+    
+
+    rameses.move = function(x,y) {
         
         if(isNaN(x) || isNaN(x)) {
             throw new TypeError("move() only accepts legal numbers");
@@ -64,9 +68,10 @@ var rameses = {
             })
         })
         return null;
-    },
+    };
 
-    moveWithCB: function(x,y, callback) {
+
+	rameses.moveWithCB = function(x,y, callback) {
         
         if(isNaN(x) || isNaN(x)) {
             throw new TypeError("move() only accepts legal numbers");
@@ -110,79 +115,90 @@ var rameses = {
             })
         })
         return null;
-    },
+    };
 
-
-    moveRight: function(amount) {
+    rameses.moveRight = function(amount) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             rameses.move(amount,0);
         },delay + 200));
         
-    },
-    moveLeft: function(amount) {
+    };
+
+    rameses.moveLeft = function(amount) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             rameses.move(-1*amount,0);
         },delay + 200));
-    },
-    moveUp: function(amount) {
+    };
+
+    rameses.moveUp = function(amount) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             rameses.move(0,-1*amount);
         },delay + 200));
-    },
-    moveDown: function(amount) {
+    };
+
+    rameses.moveDown = function(amount) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             $("#rameses_sprite").addClass("running");
             rameses.move(0, amount);
         },delay + 200));
-    },
-    alert: function(speak) {
-        $("#bubble").text(speak);
-        $("#speech_wrap").fadeIn();
-        setTimeout(function() {
-            $("#speech_wrap").fadeOut();
-        }, 3000);
-    }, 
+    };
 
-     moveRightWithCallback: function(amount, callback) {
+    rameses.alert = function(speak){
+       var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += 16;
+        movementDelays.push(setTimeout(function() {
+            //var currentDelay = rameses.distanceLeft;
+            //rameses.distanceLeft = 0;
+            $("#bubble").text(speak);
+            $("#speech_wrap").fadeIn(500);
+            setTimeout(function() {
+                $("#speech_wrap").fadeOut(500);
+                rameses.distanceLeft -= 16;
+            }, 3000);
+        },delay));
+    };
+
+    rameses.moveRightWithCallback = function(amount, callback) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             rameses.moveWithCB(amount,0,callback);
         },delay + 200));
         
-    },
-    moveLeftWithCallback: function(amount, callback) {
+    };
+
+    rameses.moveLeftWithCallback = function(amount, callback) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             rameses.moveWithCB(-1*amount,0,callback);
         },delay + 200));
-    },
-    moveUpWithCallback: function(amount, callback) {
+    };
+
+    rameses.moveUpWithCallback = function(amount, callback) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             rameses.moveWithCB(0,-1*amount,callback);
         },delay + 200));
-    },
+    };
 	
-    moveDownWithCallback: function(amount, callback) {
+    rameses.moveDownWithCallback = function(amount, callback) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             $("#rameses_sprite").addClass("running");
             rameses.moveWithCB(0, amount, callback);
         },delay + 200));
-    }
-}
+    };
 
 // Cursor
 var cursor = {

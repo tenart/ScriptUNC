@@ -49,5 +49,6 @@ var response = rameses.textFriend();
 	If the response is false, then call him. Make sure you try to text him first! If you call him 	before trying to text, you will disrupt the library and fail the challenge. There is only a 10% 	chance he will respond to the text. 
 
 <br>
+
 5) After either successfully calling or texting your friend, you will have completed the challenge!
 <br>

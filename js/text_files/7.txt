@@ -5,14 +5,17 @@ Your friend is late for a final! He needs you to run down to the student stores 
 <br>
 To begin the challenge run: 
 <br>
+<br>
+
 <pre>
 startChallengeTwo();
 </pre>
 <br>
+<br>
 1) Move rameses to the bottom of the student stores. (Coordinates X = 53 Y = 46)
 <br>
 2) Purchase a bluebook and number 2 pencils using the following commands: 
-
+<br>
 <pre>
 rameses.purchaseBluebook()
 rameses.purchasePencils()
@@ -23,19 +26,25 @@ rameses.purchasePencils()
 3) Run these items back up drop them off at the library entrance (X = 41 Y = 30)
 <br>
 
-<br>
 4) Uh oh, your friend is inside the library! Text him to let him know you are here. If he doesn’t respond, then call him (but ONLY if he doesn’t respond, you don’t want to disturb the library)!
-
+<br>
 	You can operate your phone using:
+<br>
+
 <pre>
 rameses.textFriend();
 rameses.callFriend();
 </pre>
+<br>
 
 	hint: You can get the result of the text and store it in a variable with 
+<br>
+
 <pre>
 var response = rameses.textFriend(); 
-</pre> 
+</pre>
+<br>
+
 	If the response is false, then call him. Make sure you try to text him first! If you call him 	before trying to text, you will disrupt the library and fail the challenge. There is only a 10% 	chance he will respond to the text. 
 
 <br>

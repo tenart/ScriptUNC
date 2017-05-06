@@ -484,7 +484,7 @@ function update() {
     }
     
     // Updates minimap
-    $("#coords").text("X: " + rameses.bX + " | Y: " + rameses.bY);
+    $("#coords").html("Mini-Map<br>Rameses is at X: " + rameses.bX + " | Y: " + rameses.bY);
     
     $("#minimap_pointer").css("top", ((rameses.pY/50+1) * 2.083 - 1)+30);
     $("#minimap_pointer").css("left", ((rameses.pX/50+1) * 2.083 - 1));

@@ -771,18 +771,11 @@ body {
 .activeTab i {
     color: #ff9d00;
 }
-
-#editor1 {
-    height: calc(100% - 80px);
-    margin-top: 20px;
-    width: 100%;
-    font-size: 12px;
-    overflow: hidden;
-    position: absolute;
+#editor1, #editor2 {
     display: none;
 }
 
-#editor2 {
+#editor1, #editor2 , #editor3{
     height: calc(100% - 80px);
     margin-top: 20px;
     width: 100%;
@@ -791,7 +784,7 @@ body {
     position: absolute;
 }
 
-#editor.visible, #editor2.visible {
+#editor.visible, #editor2.visible , #editor3.visible {
     display: block;
 }
 

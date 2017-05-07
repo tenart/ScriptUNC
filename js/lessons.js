@@ -37,18 +37,16 @@ $("#run").on("click", function(){
     eval( editor.getValue() + editor2.getValue() );
 });
 
-
-
 $("#editorBar").button({classes:{"toolButtons":"collapse"}}).click(function(){
-        alert("Editor collapse button pressed");
+        $("#editorWrap").hide();
 });
 
-$("#LessonBar").button({classes:{"toolButtons":"collapse"}}).click(function(){
-        alert("Lessons collapse button pressed");
+$("#lessonBar").button({classes:{"toolButtons":"collapse"}}).click(function(){
+        $("lessons").hide();
 });
 
 $("#lessons_open").click(function(){
-    alert("open lessons");
+    $("#lessons").show();
 });
 
 $("#menu_open").click(function(){
@@ -56,5 +54,5 @@ $("#menu_open").click(function(){
 });
 
 $("#editor_open").click(function(){
-    alert("open editor");
+    $("#editorWrap").hide();
 });

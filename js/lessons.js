@@ -57,14 +57,19 @@ $("#lessons_open").click(function(){
 });
 
 $("#menu_open").click(function(){
-    alert("open lessons");
+    alert("open main menu");
 });
 
 $("#editor_open").click(function(){
     if(wasDocked){
         $("#editorWrap").addClass("docked");
         $("#game_wrap").css("width", "calc(100% - 400px)");
-        wasdocked = false;
+        wasDocked = false;
     }
     $("#editorWrap").show();
 });
+
+setInterval(function() {
+  $("#lessons").css({"font-size": "1.925vmax"})
+  $("#editorWrap").css({"font-size": "1.925vmax"})
+}, 15);

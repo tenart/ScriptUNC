@@ -37,11 +37,11 @@ $("#run").on("click", function(){
     eval( editor.getValue() + editor2.getValue() );
 });
 
-$("#editorBar").button({classes:{"toolButton":"collapse"}}).click(function(){
+$("#editorBar").button({classes:{"toolButtons":"collapse"}}).click(function(){
         $("#editorWrap").hide();
 });
 
-$("#lessonBar.collapse").button({classes:{"toolButton":"collapse"}}).click(function(){
+$("#lessonBar.collapse").button({classes:{"toolButtons":"collapse"}}).click(function(){
         $("#lessons").hide();
 });
 

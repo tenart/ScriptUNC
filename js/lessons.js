@@ -38,12 +38,10 @@ $("#run").on("click", function(){
 });
 
 $("#closeE").button().click(function(){
-        alert("close editor");
         $("#editorWrap").hide();
 });
 
 $("#closeL").button().click(function(){
-        alert("close lessons");
         $("#lessons").hide();
 });
 

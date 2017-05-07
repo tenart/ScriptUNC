@@ -42,6 +42,7 @@ var wasDocked;
 $("#closeE").button().click(function(){
     if( $("#editorWrap").hasClass("docked") ){
         $("#editorWrap").removeClass("docked");
+        $("#game_wrap").css("width", "calc(100%)");
         wasDocked = true;       
     }
         $("#editorWrap").hide();
@@ -62,6 +63,7 @@ $("#menu_open").click(function(){
 $("#editor_open").click(function(){
     if(wasDocked){
         $("#editorWrap").addClass("docked");
+        $("#game_wrap").css("width", "calc(100% - 400px)");
         wasdocked = false;
     }
     $("#editorWrap").show();

@@ -36,3 +36,25 @@ $("#prev").on("click", function(){
 $("#run").on("click", function(){
     eval( editor.getValue() + editor2.getValue() );
 });
+
+
+
+$("#editorBar.toolButtons.collapse").click(function(){
+        alert("Editor collapse button pressed");
+});
+
+$("#lessonBar.toolButtons.collapse").click(function(){
+        alert("Lessons collapse button pressed");
+});
+
+$("#lessons_open").click(function(){
+    alert("open lessons");
+});
+
+$("#menu_open").click(function(){
+    alert("open lessons");
+});
+
+$("#editor_open").click(function(){
+    alert("open editor");
+});

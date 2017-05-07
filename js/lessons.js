@@ -87,7 +87,7 @@ setInterval(function() {
     if (fontSize2 > maxScale) fontSize2 = maxScale;
     if (fontSize2 < minScale) fontSize2 = minScale; //Enforce the minimum and maximums 
     
-    lesson.css({"font-size", fontSize1 + '%'});
-    editor.css({"font-size", fontSize2 + '%'});
+    lesson.css({"font-size": fontSize1 + '%'});
+    editor.css({"font-size": fontSize2 + '%'});
     
 }, 15);

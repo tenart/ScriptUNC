@@ -53,6 +53,7 @@ $("#lessons").draggable({
         
         editor1.resize();
         editor2.resize();
+        editor3.resize();
     },
     stop: function() {
         if( $("#editorWrap").attr("class").indexOf("docked") < 0 ) {
@@ -68,6 +69,7 @@ $("#lessons").draggable({
                $("#game_wrap").css("width", "calc(100% - 400px)");
                editor1.resize();
                editor2.resize();
+               editor3.resize();
            }
         }
     }
@@ -88,6 +90,7 @@ $("#editorWrap").draggable({
         $("#game_wrap").css("width", "calc(100%)");
         editor1.resize();
         editor2.resize();
+        editor3.resize();
     },
     stop: function() {
         if( $("#lessons").attr("class").indexOf("docked") < 0 ) {
@@ -102,6 +105,7 @@ $("#editorWrap").draggable({
                $("#game_wrap").css("width", "calc(100% - 400px)");
                editor1.resize();
                editor2.resize();
+               editor3.resize();
            }
         }
     }
@@ -118,6 +122,7 @@ $("#tab1").click(function() {
     $("#editor2").hide();
     editor1.resize();
     editor2.resize();
+    editor3.resize();
 })
 
 $("#tab2").click(function() {
@@ -127,6 +132,7 @@ $("#tab2").click(function() {
     $("#editor1").hide();
     editor1.resize();
     editor2.resize();
+    editor3.resize();
 })
 
 // Creates out of view HTML canvas with collision map to detect collision with buildings
@@ -465,11 +471,13 @@ function update() {
     $("#editor_resize").mousedown(function() {
         editor1.resize();
         editor2.resize();
+        editor3.resize();
     })
     
     $("#editor_resize").mouseup(function() {
         editor1.resize();
         editor2.resize();
+        editor3.resize();
     })
     
     var speechHeight = $("#speech_wrap").outerHeight();

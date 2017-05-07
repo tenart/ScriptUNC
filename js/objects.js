@@ -225,12 +225,28 @@ var rameses = {};
         },delay + 200));
         
     };
+    rameses.moveRight = function() {
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(1);
+        movementDelays.push(setTimeout(function() {
+            rameses.move(1,0);
+        },delay + 200));
+        
+    };
 
     rameses.moveLeft = function(amount) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             rameses.move(-1*amount,0);
+        },delay + 200));
+    };
+
+    rameses.moveLeft = function() {
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(1);
+        movementDelays.push(setTimeout(function() {
+            rameses.move(-1,0);
         },delay + 200));
     };
 
@@ -242,12 +258,29 @@ var rameses = {};
         },delay + 200));
     };
 
+    rameses.moveUp = function() {
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(1);
+        movementDelays.push(setTimeout(function() {
+            rameses.move(0,-1);
+        },delay + 200));
+    };
+
     rameses.moveDown = function(amount) {
         var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += Math.abs(amount);
         movementDelays.push(setTimeout(function() {
             $("#rameses_sprite").addClass("running");
             rameses.move(0, amount);
+        },delay + 200));
+    };
+
+    rameses.moveDown = function() {
+        var delay = rameses.distanceLeft * 250;
+        rameses.distanceLeft += Math.abs(1);
+        movementDelays.push(setTimeout(function() {
+            $("#rameses_sprite").addClass("running");
+            rameses.move(0, 1);
         },delay + 200));
     };
 

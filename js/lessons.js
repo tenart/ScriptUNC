@@ -35,7 +35,7 @@ $("#prev").on("click", function(){
 
 // Evaluates the content of the editors
 $("#run").on("click", function(){
-    eval( editor1.getValue() + editor2.getValue() );
+    eval( editor2.getValue() + editor3.getValue() );
 });
 
 var wasDocked;

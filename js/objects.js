@@ -286,7 +286,7 @@ var rameses = {};
 
     rameses.alert = function(speak){
        var delay = rameses.distanceLeft * 250;
-        rameses.distanceLeft += 16;
+//         rameses.distanceLeft += 16;
        // movementDelays.push(
 	setTimeout(function() {
             //var currentDelay = rameses.distanceLeft;
@@ -295,7 +295,7 @@ var rameses = {};
             $("#speech_wrap").fadeIn(500);
             setTimeout(function() {
                 $("#speech_wrap").fadeOut(500);
-                  rameses.distanceLeft -= 0;
+//                   rameses.distanceLeft -= 0;
             }, 3000);
         },delay);
 	//);

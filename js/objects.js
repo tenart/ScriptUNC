@@ -34,8 +34,8 @@ var rameses = {};
     rameses.speed= 250;
     rameses.pX= 2600;
     rameses.pY= 1650;
-    rameses.bX= 52;
-    rameses.bY= 33;
+    rameses.X= 52; // used to be rameses.bX
+    rameses.Y= 33; // used to be rameses.bY
     rameses.distanceLeft= 0;
 
     rameses.pendingCallback= function(){};
@@ -45,7 +45,7 @@ var rameses = {};
     };
 
     rameses.purchasePencils = function() {
-        if(rameses.bX != 53 || rameses.bY != 46) {
+        if(rameses.X != 53 || rameses.Y != 46) {
             alert("I probly should go to the student stores for those!");
         } else {
             alert("Got my pencils!");
@@ -56,7 +56,7 @@ var rameses = {};
     }
 
     rameses.purchaseBluebook = function() {
-        if(rameses.bX != 53 || rameses.bY != 46) {
+        if(rameses.X != 53 || rameses.Y != 46) {
             alert("I probly should go to the student stores for those!");
         } else {
             alert("Got my bluebooks");
@@ -68,7 +68,7 @@ var rameses = {};
 
     rameses.textFriend = function() {
 
-        if(rameses.bX > 42 || rameses.bX < 40 || rameses.bY > 31 || rameses.bY < 29) {
+        if(rameses.X > 42 || rameses.X < 40 || rameses.Y > 31 || rameses.Y < 29) {
             alert("I should probably wait to do that until I reach the library..");
         } else {
             var chance = Math.random();
@@ -92,7 +92,7 @@ var rameses = {};
     }
 
     rameses.callFriend = function() {
-        if(rameses.bX > 42 || rameses.bX < 40 || rameses.bY > 31 || rameses.bY < 29) {
+        if(rameses.X > 42 || rameses.X < 40 || rameses.Y > 31 || rameses.Y < 29) {
             alert("I should probably wait to do that until I reach the library..");
         } else {            
             if(!texted) {
@@ -106,7 +106,7 @@ var rameses = {};
     }
 
     rameses.purchaseAlpine = function() {
-        if(rameses.bX != 60 || rameses.bY != 36) {
+        if(rameses.X != 60 || rameses.Y != 36) {
             alert("Oops, it doesnt look like Im at alpine!!");
         } else {
             alert("Got my bagel!");
@@ -117,7 +117,7 @@ var rameses = {};
     };
 
     rameses.eatAlpine = function() {
-        if(rameses.bX != 52 || rameses.bY != 33) {
+        if(rameses.X != 52 || rameses.Y != 33) {
             alert("I probably shouldnt do that here...");
         } else {
             if(challengeOneStarted) {
@@ -141,8 +141,8 @@ var rameses = {};
         var speed = this.speed;
                 
         //$("#rameses").stop(true,false);
-        $("#rameses").css("left", blockToPx(rameses.bX));
-        $("#rameses").css("top", blockToPx(rameses.bY));
+        $("#rameses").css("left", blockToPx(rameses.X));
+        $("#rameses").css("top", blockToPx(rameses.Y));
 
         if( moveX > 0 ) {
             rameses.direction = "E";
@@ -185,8 +185,8 @@ var rameses = {};
         var speed = this.speed;
                 
         //$("#rameses").stop(true,false);
-        $("#rameses").css("left", blockToPx(rameses.bX));
-        $("#rameses").css("top", blockToPx(rameses.bY));
+        $("#rameses").css("left", blockToPx(rameses.X));
+        $("#rameses").css("top", blockToPx(rameses.Y));
 
         if( moveX > 0 ) {
             rameses.direction = "E";
@@ -338,8 +338,8 @@ var cursor = {
     control: false,
     pX: 0,
     pY: 0,
-    bX: 0,
-    bY: 0
+    X: 0,
+    Y: 0
 }
 
 // Viewing rectangle

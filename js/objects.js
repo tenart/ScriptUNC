@@ -287,7 +287,8 @@ var rameses = {};
     rameses.alert = function(speak){
        var delay = rameses.distanceLeft * 250;
         rameses.distanceLeft += 16;
-        movementDelays.push(setTimeout(function() {
+       // movementDelays.push(
+	setTimeout(function() {
             //var currentDelay = rameses.distanceLeft;
             //rameses.distanceLeft = 0;
             $("#bubble").text(speak);
@@ -296,7 +297,8 @@ var rameses = {};
                 $("#speech_wrap").fadeOut(500);
                 rameses.distanceLeft -= 16;
             }, 3000);
-        },delay));
+        },delay);
+	//);
     };
 
     rameses.moveRightAndDo = function(amount, callback) {

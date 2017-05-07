@@ -39,11 +39,11 @@ $("#run").on("click", function(){
 
 
 
-$("#editorBar.toolButtons.collapse").click(function(){
+$("#editorBar").button({classes:{"toolButtons":"collapse"}}).click(function(){
         alert("Editor collapse button pressed");
 });
 
-$("#lessonBar.toolButtons.collapse").click(function(){
+$("#LessonBar").button({classes:{"toolButtons":"collapse"}}).click(function(){
         alert("Lessons collapse button pressed");
 });
 

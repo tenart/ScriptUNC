@@ -51,7 +51,7 @@ $("#lessons").draggable({
         $("#lessons").removeClass("docked");
         $("#lessons").addClass("resizable");
         
-        editor.resize();
+        editor1.resize();
         editor2.resize();
     },
     stop: function() {
@@ -66,7 +66,7 @@ $("#lessons").draggable({
                    "top": "0",
                });
                $("#game_wrap").css("width", "calc(100% - 400px)");
-               editor.resize();
+               editor1.resize();
                editor2.resize();
            }
         }
@@ -86,7 +86,7 @@ $("#editorWrap").draggable({
         $("#editorWrap").removeClass("docked");
         $("#editorWrap").addClass("resizable");
         $("#game_wrap").css("width", "calc(100%)");
-        editor.resize();
+        editor1.resize();
         editor2.resize();
     },
     stop: function() {
@@ -100,7 +100,7 @@ $("#editorWrap").draggable({
                    "top": "0",
                });
                $("#game_wrap").css("width", "calc(100% - 400px)");
-               editor.resize();
+               editor1.resize();
                editor2.resize();
            }
         }
@@ -116,7 +116,7 @@ $("#tab1").click(function() {
     $("#tab2").removeClass("activeTab");
     $("#editor1").show();
     $("#editor2").hide();
-    editor.resize();
+    editor1.resize();
     editor2.resize();
 })
 
@@ -125,7 +125,7 @@ $("#tab2").click(function() {
     $("#tab1").removeClass("activeTab");
     $("#editor2").show();
     $("#editor1").hide();
-    editor.resize();
+    editor1.resize();
     editor2.resize();
 })
 
@@ -463,12 +463,12 @@ function update() {
     } 
     
     $("#editor_resize").mousedown(function() {
-        editor.resize();
+        editor1.resize();
         editor2.resize();
     })
     
     $("#editor_resize").mouseup(function() {
-        editor.resize();
+        editor1.resize();
         editor2.resize();
     })
     

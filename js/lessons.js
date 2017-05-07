@@ -33,11 +33,6 @@ $("#prev").on("click", function(){
     getText(currentText);
 });
 
-$("#run").on("click", function(){
-    eval( editor.getValue() + editor2.getValue() );
-});
-
-
 var wasDocked;
 $("#closeE").button().click(function(){
     if( $("#editorWrap").hasClass("docked") ){
@@ -67,6 +62,12 @@ $("#editor_open").click(function(){
         wasDocked = false;
     }
     $("#editorWrap").show();
+});
+
+// Evaluates the content of the editors
+$("#run").on("click", function(){
+    eval( editor1.getValue() + editor2.getValue() );
+    console.log("running");
 });
 
 var lesson = $("#consoleText") // cached for performance

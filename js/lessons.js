@@ -69,7 +69,7 @@ $("#editor_open").click(function(){
     $("#editorWrap").show();
 });
 
-var lesson = $("#lessons") // cached for performance
+var lesson = $("#consoleText") // cached for performance
 var editor = $("#editorWrap")// ditto ^^
 
 setInterval(function() { 

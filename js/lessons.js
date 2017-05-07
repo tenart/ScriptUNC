@@ -37,7 +37,13 @@ $("#run").on("click", function(){
     eval( editor.getValue() + editor2.getValue() );
 });
 
+
+var wasDocked;
 $("#closeE").button().click(function(){
+    if( $("#editorWrap").hasClass("docked") ){
+        $("#editorWrap").removeClass("docked");
+        wasDocked = true;       
+    }
         $("#editorWrap").hide();
 });
 
@@ -54,5 +60,9 @@ $("#menu_open").click(function(){
 });
 
 $("#editor_open").click(function(){
+    if(wasDocked){
+        $("#editorWrap").addClass("docked");
+        wasdocked = false;
+    }
     $("#editorWrap").show();
 });

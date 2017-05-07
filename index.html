@@ -18,7 +18,7 @@
             </div>
             <div id="minimap" class="shadow">
                 <div id="coords"  class="titleBar">
-                X: 0 | Y: 0
+                    <b><u>Mini-Map</u></b><br>Rameses is at X: 0 | Y: 0
                 </div>
                 <div id="view_area"></div>
                 <div id="line"></div>
@@ -38,7 +38,7 @@
             </div>
             <div id="lessons" class="collapsible shadow resizable">
                 <div id="lessonBar" class="titleBar">
-                    <button class="toolButtons collapse"><i class="fa fa-square-o"></i></button>
+                    <button id = "close" class="toolButtons collapse"><i class="fa fa-square-o"></i></button>
                     <button class="lessonNav" id="next"><i class="fa fa-chevron-right"></i></button>
                     <button class="lessonNav" id="prev"><i class="fa fa-chevron-left"></i></button>
                 </div>
@@ -48,23 +48,31 @@
             </div>
             <div id="editorWrap" class="collapsible shadow resizable">
                 <div id="editorBar" class="titleBar">
-                    <button class="toolButtons collapse"><i class="fa fa-square-o"></i></button>
+                    <button id= "close" class="toolButtons collapse"><i class="fa fa-square-o"></i></button>
                     <button id="run"><i class="fa fa-play-circle"></i></button>
                 </div>
                 <div id="editorTabs">
                     <div id="tab1" class="tab"><i class="fa fa-file"></i> myFunctions.js</div>
                     <div id="tab2" class="tab activeTab"><i class="fa fa-file"></i> myScript.js</div>
+                    <div id="tab3" class="tab"><i class="fa fa-file"></i>ramesesFunctions.js</div>
                 </div>
-<pre id="editor1">
-// You can define your reusable functions here!
-// Press the orange button to run your code!
-</pre>
-<pre id="editor2">
-// Type your code here!
-// Press the orange button to run your code!
-</pre>
+                
+                <pre id="editor1">
+                // You can define your reusable functions here!
+                // Press the orange button to run your code!
+                </pre>
+                <pre id="editor2">
+                // Type your code here!
+                // Press the orange button to run your code!
+                </pre>
+                <pre id="editor3">
+                // These all all of the functions you can call on 'rameses'!
+                // add functions here....
+                // dynamically with lessons, or all at once???
+                </pre>
                 <div id="editor_resize" class="resizer"></div>
             </div>
+            
             <div id="debug" >
                 <p>Debug Mode</p>
                 <p class="cat">rameses object</p>

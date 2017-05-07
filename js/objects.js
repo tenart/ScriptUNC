@@ -295,7 +295,7 @@ var rameses = {};
             $("#speech_wrap").fadeIn(500);
             setTimeout(function() {
                 $("#speech_wrap").fadeOut(500);
-//                  rameses.distanceLeft -= 0;
+                  rameses.distanceLeft -= 0;
             }, 3000);
         },delay);
 	//);

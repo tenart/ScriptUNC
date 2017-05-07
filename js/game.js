@@ -118,9 +118,11 @@ $(".collapse").click(function() {
 $("#tab1").click(function() {
     $(this).addClass("activeTab");
     $("#tab2").removeClass("activeTab");
+    $("#tab3").removeClass("activeTab");
     $("#editor1").show();
     $("#editor2").hide();
-    editor1.resize();
+    $("#editor3").hide();
+    editor.resize();
     editor2.resize();
     editor3.resize();
 })
@@ -128,9 +130,23 @@ $("#tab1").click(function() {
 $("#tab2").click(function() {
     $(this).addClass("activeTab");
     $("#tab1").removeClass("activeTab");
+    $("#tab3").removeClass("activeTab");
     $("#editor2").show();
     $("#editor1").hide();
-    editor1.resize();
+    $("#editor3").hide();
+    editor.resize();
+    editor2.resize();
+    editor3.resize();
+})
+
+$("#tab3").click(function() {
+    $(this).addClass("activeTab");
+    $("#tab1").removeClass("activeTab");
+    $("#tab2").removeClass("activeTab");
+    $("#editor3").show();
+    $("#editor1").hide();
+    $("#editor2").hide();
+    editor.resize();
     editor2.resize();
     editor3.resize();
 })

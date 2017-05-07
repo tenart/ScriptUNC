@@ -12,7 +12,7 @@ Click and drag anywhere to pan across the map.
 Click on the minimap in the top left corner to recenter the screen on Rameses.
 <br>
 <br>
-Click the <i class="fa fa-square-o"></i> buttons to collapse these windows and save space on the screen.
+Click the <i class="fa fa-square-o","toolButtons collapse"></i> buttons to collapse these windows and save space on the screen.
 <br>
 <br>
 The code editor can be snapped to the right side of the screen for more editing space.

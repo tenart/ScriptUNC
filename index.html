@@ -52,24 +52,24 @@
                     <button id="run"><i class="fa fa-play-circle"></i></button>
                 </div>
                 <div id="editorTabs">
-                    <div id="tab1" class="tab"><i class="fa fa-file"></i> myFunctions.js</div>
-                    <div id="tab2" class="tab activeTab"><i class="fa fa-file"></i> myScript.js</div>
-<!--                     <div id="tab3" class="tab"><i class="fa fa-file"></i>ramesesFunctions.js</div> -->
+                    <div id="tab1" class="tab"><i class="fa fa-file"></i> ramesesFunctions.js</div>
+                    <div id="tab2" class="tab activeTab"><i class="fa fa-file"></i> myFunctions.js</div>
+                    <div id="tab3" class="tab"><i class="fa fa-file"></i>myScript.js</div>
                 </div>
                 
-<pre id="editor1">
+<pre id="editor2">
 // You can define your reusable functions here!
 // Press the orange button to run your code!
 </pre>
-<pre id="editor2">
+<pre id="editor3">
 // Type your code here!
 // Press the orange button to run your code!
 </pre>
-<!-- <pre id="editor3">
+<pre id="editor1">
 // These all all of the functions you can call on 'rameses'!
 // add functions here....
 // dynamically with lessons, or all at once???
-</pre> -->
+</pre>
                 
                 <div id="editor_resize" class="resizer"></div>
             </div>
@@ -163,6 +163,7 @@
         editor1.renderer.setShowInvisibles(false);
         editor1.renderer.setShowGutter(true);
         editor1.setShowFoldWidgets(false);
+        editor1.setReadOnly(true);
         
         var editor2 = ace.edit("editor2");
         editor2.setTheme("ace/theme/tomorrow_night_eighties");
@@ -170,6 +171,13 @@
         editor2.renderer.setShowInvisibles(false);
         editor2.renderer.setShowGutter(true);
         editor2.setShowFoldWidgets(false);
+        
+        var editor3 = ace.edit("editor3");
+        editor3.setTheme("ace/theme/tomorrow_night_eighties");
+        editor3.session.setMode("ace/mode/javascript");
+        editor3.renderer.setShowInvisibles(false);
+        editor3.renderer.setShowGutter(true);
+        editor3.setShowFoldWidgets(false);
     </script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
     <script src="js/game.js"></script>

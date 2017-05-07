@@ -169,8 +169,8 @@ $("#game_wrap").on( "mousemove", function( event ) {
 $("#game_wrap").click(function() {
     if( cursor.control ) {
         //$("#rameses").stop(true,false);
-        rameses.move(cursor.bX - rameses.bX, cursor.bY - rameses.bY);
-        rameses.distanceLeft += Math.abs(cursor.bX - rameses.bX) + Math.abs(cursor.bY - rameses.bY);
+        rameses.move(cursor.bX - rameses.X, cursor.bY - rameses.Y);
+        rameses.distanceLeft += Math.abs(cursor.bX - rameses.X) + Math.abs(cursor.bY - rameses.Y);
     }
 })
 
@@ -202,39 +202,39 @@ function ramesesCollided() {
     ramesesCollisionReaction();
 
     if(rameses.direction == "W") {
-        $("#rameses").css( "left", blockToPx(rameses.bX+1) );
+        $("#rameses").css( "left", blockToPx(rameses.X+1) );
     }
     if(rameses.direction == "N") {
-        $("#rameses").css( "top", blockToPx(rameses.bY+1) );
+        $("#rameses").css( "top", blockToPx(rameses.Y+1) );
     }
     if(rameses.direction == "S") {
-        $("#rameses").css( "top", blockToPx(rameses.bY-1) );
+        $("#rameses").css( "top", blockToPx(rameses.Y-1) );
     }
     if(rameses.direction == "E") {
-        $("#rameses").css( "left", blockToPx(rameses.bX-1) );
+        $("#rameses").css( "left", blockToPx(rameses.X-1) );
     }
 }
 
 function getBlockFront() {
     if(rameses.direction == "N") {
         return {
-            x: rameses.bX,
-            y: rameses.bY-1,
+            x: rameses.X,
+            y: rameses.Y-1,
         }
     } else if(rameses.direction == "S") {
         return {
-            x: rameses.bX,
-            y: rameses.bY+1,
+            x: rameses.X,
+            y: rameses.Y+1,
         }
     } else if(rameses.direction == "E") {
         return {
-            x: rameses.bX+1,
-            y: rameses.bY,
+            x: rameses.X+1,
+            y: rameses.Y,
         }
     } else if(rameses.direction == "W") {
         return {
-            x: rameses.bX-1,
-            y: rameses.bY,
+            x: rameses.X-1,
+            y: rameses.Y,
         }
     }
 }
@@ -287,8 +287,8 @@ function update() {
     
     rameses.pX = parseInt($("#rameses").css("left"));
     rameses.pY = parseInt($("#rameses").css("top"));
-    rameses.bX = pxToBlock(rameses.pX);
-    rameses.bY = pxToBlock(rameses.pY);
+    rameses.X = pxToBlock(rameses.pX);
+    rameses.Y = pxToBlock(rameses.pY);
     rameses.onScreen = $("#rameses").visible();
     
     render.offX = parseInt($("#stage1").css("left"));
@@ -303,8 +303,8 @@ function update() {
     $("#rameses_sprite").css("left", rameses.pX);
     $("#rameses_sprite").css("top", rameses.pY);
     
-    $("#rameses_pointer").css("left", blockToPx(rameses.bX));
-    $("#rameses_pointer").css("top", blockToPx(rameses.bY));
+    $("#rameses_pointer").css("left", blockToPx(rameses.X));
+    $("#rameses_pointer").css("top", blockToPx(rameses.Y));
     
     $("#rameses_shadow, #rameses_sprite").css("transform", $("#rameses").css("transform"))
     
@@ -321,22 +321,22 @@ function update() {
         $("#x_dir").show();
         $("#y_dir").show();
         
-        var xWidth = ((cursor.bX - rameses.bX)*50);
+        var xWidth = ((cursor.bX - rameses.X)*50);
         $("#x_dir").css("width", Math.abs(xWidth) );
         if( xWidth < 0 ) {
-            $("#x_dir").css("left", blockToPx(rameses.bX) + 25 + xWidth);
+            $("#x_dir").css("left", blockToPx(rameses.X) + 25 + xWidth);
         } else {
-            $("#x_dir").css("left", blockToPx(rameses.bX) + 25);
+            $("#x_dir").css("left", blockToPx(rameses.X) + 25);
         }
-        $("#x_dir").css("top", blockToPx(rameses.bY)+23);
+        $("#x_dir").css("top", blockToPx(rameses.Y)+23);
 
 
-        var yHeight = ((cursor.bY - rameses.bY)*50);
+        var yHeight = ((cursor.bY - rameses.Y)*50);
         $("#y_dir").css("height", Math.abs(yHeight) );
         if( yHeight < 0 ) {
-            $("#y_dir").css("top", blockToPx(rameses.bY) + 25 + yHeight);
+            $("#y_dir").css("top", blockToPx(rameses.Y) + 25 + yHeight);
         } else {
-            $("#y_dir").css("top", blockToPx(rameses.bY) + 25);
+            $("#y_dir").css("top", blockToPx(rameses.Y) + 25);
         }
         $("#y_dir").css("left", blockToPx(cursor.bX)+23);
     } else {
@@ -364,12 +364,12 @@ function update() {
     }
         
     // Checks for building collision at Rameses' position
-    var pixelData = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY, 1, 1).data;
+    var pixelData = canvas.getContext('2d').getImageData(rameses.X, rameses.Y, 1, 1).data;
     // Checks for walls in the 4 directions around Rameses
-    var pixelDataN = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY-1, 1, 1).data;
-    var pixelDataS = canvas.getContext('2d').getImageData(rameses.bX, rameses.bY+1, 1, 1).data;
-    var pixelDataE = canvas.getContext('2d').getImageData(rameses.bX+1, rameses.bY, 1, 1).data;
-    var pixelDataW = canvas.getContext('2d').getImageData(rameses.bX-1, rameses.bY, 1, 1).data;
+    var pixelDataN = canvas.getContext('2d').getImageData(rameses.X, rameses.Y-1, 1, 1).data;
+    var pixelDataS = canvas.getContext('2d').getImageData(rameses.X, rameses.Y+1, 1, 1).data;
+    var pixelDataE = canvas.getContext('2d').getImageData(rameses.X+1, rameses.Y, 1, 1).data;
+    var pixelDataW = canvas.getContext('2d').getImageData(rameses.X-1, rameses.Y, 1, 1).data;
     
     var pixelDataFront = canvas.getContext('2d').getImageData(getBlockFront().x, getBlockFront().y, 1, 1).data;
     
@@ -484,7 +484,7 @@ function update() {
     }
     
     // Updates minimap
-    $("#coords").html("Mini-Map<br>Rameses is at X: " + rameses.bX + " | Y: " + rameses.bY);
+    $("#coords").html("Mini-Map<br>Rameses is at X: " + rameses.X + " | Y: " + rameses.Y);
     
     $("#minimap_pointer").css("top", ((rameses.pY/50+1) * 2.083 - 1)+30);
     $("#minimap_pointer").css("left", ((rameses.pX/50+1) * 2.083 - 1));
@@ -525,8 +525,8 @@ function update() {
     $("#distance").text("distanceLeft: " + rameses.distanceLeft);
     $("#pxX").text("pixel X: " + rameses.pX);
     $("#pxY").text("pixel Y: " + rameses.pY);
-    $("#blockX").text("block X: " + rameses.bX);
-    $("#blockY").text("block Y: " + rameses.bY);
+    $("#blockX").text("block X: " + rameses.X);
+    $("#blockY").text("block Y: " + rameses.Y);
     $("#onScreen").text("onScreen: " + rameses.onScreen);
     //---Rameses above, cursor below----//
     $("#cControl").text("control: " + cursor.control);

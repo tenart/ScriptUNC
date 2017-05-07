@@ -42,7 +42,7 @@ $("#editorBar").button({classes:{"toolButtons":"collapse"}}).click(function(){
 });
 
 $("#lessonBar").button({classes:{"toolButtons":"collapse"}}).click(function(){
-        $("lessons").hide();
+        $("#lessons").hide();
 });
 
 $("#lessons_open").click(function(){
@@ -54,5 +54,5 @@ $("#menu_open").click(function(){
 });
 
 $("#editor_open").click(function(){
-    $("#editorWrap").hide();
+    $("#editorWrap").show();
 });

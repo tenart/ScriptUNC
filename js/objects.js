@@ -58,7 +58,7 @@ var rameses = {};
         if(rameses.X != 53 || rameses.Y != 46) {
             rameses.alert("I probly should go to the student stores for those!");
         } else {
-            rameses.alert("Got my pencils!");
+            rameses.alert("I got my pencils!");
             if(challengeTwoStarted) {
                 gotPencils = true;
             }
@@ -69,7 +69,7 @@ var rameses = {};
         if(rameses.X != 53 || rameses.Y != 46) {
             rameses.alert("I probly should go to the student stores for those!");
         } else {
-            rameses.alert("Got my bluebooks");
+            rameses.alert("I got my bluebooks");
             if(challengeTwoStarted) {
                 gotBluebook = true;
             }
@@ -90,6 +90,7 @@ var rameses = {};
                 dialogue.alert("Text Recieved: \"Hey Rameses, I am on my way down!\""); 
 		
 		    if(gotPencils && gotBluebook){
+            rameses.alert("*Ring Ring* Hey Rameses, I am on my way down!");
 			dialogue.alert("You have successfully completed challenge 2!");
 		    } else {
 			dialogue.alert("You forgot the pencils and bluebook...");

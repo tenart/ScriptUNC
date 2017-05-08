@@ -1011,17 +1011,17 @@ body {
 }
 
 .lessonChooser {
-    background: linear-gradient(to right, #17527c 25px, #7bafd4 25px);
+    background: linear-gradient(to right, #17527c 22px, #7bafd4 22px);
     font-family: "Monaco", monospace;
     color: white;
-    font-size: 14px;
+    font-size: 12px;
     padding: 5px;
     border-radius: 3px;
     margin: 5px 2px;  
 }
 
 .lessonChooser:hover {
-    background: linear-gradient(to right, #a84e00 25px, #ff9d00 25px);
+    background: linear-gradient(to right, #a84e00 22px, #ff9d00 22px);
 }
 
 #creditsScreen {

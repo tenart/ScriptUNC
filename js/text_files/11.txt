@@ -1,2 +1,4 @@
-Congrats! you have completed scriptUNC!<br>
+<h1>Congrats! you have completed scriptUNC!</h1>
+<br>
+<br>
 Please reload the page or click the console prompt to play again!<br>

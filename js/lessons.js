@@ -23,6 +23,17 @@ function getText(index) {
     });
 }
 
+$(".lessonChooser").click(function() {
+    getText(this.dataset.open);
+})
+
+$(".mainMenuButton").click(function() {
+    $(".mainMenuContent").hide();
+    $("#" + this.dataset.open).show();
+})
+
+
+
 $("#next").on("click", function(){
     currentText++;
     getText(currentText)
@@ -56,9 +67,17 @@ $("#lessons_open").click(function(){
     $("#lessons").show();
 });
 
+//$("#game_wrap #transform_wrap *, #blur *").css("filter","blur(3px)");
+
 $("#menu_open").click(function(){
-    alert("open main menu");
+    $("#main_menu").show();
+    //$("#game_wrap #transform_wrap *, #blur *").css("filter","blur(3px)");
 });
+
+$("#closeMenu").click(function() {
+    $("#main_menu").hide();
+    //$("#game_wrap #transform_wrap *, #blur *").css("filter","");
+})
 
 $("#editor_open").click(function(){
     if(wasDocked){

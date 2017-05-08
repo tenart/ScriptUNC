@@ -14,6 +14,7 @@
     </head>
     <body>
         <div id="gui">
+            <div id="blur">
             <div id="sideDropZone">
             </div>
             <div id="minimap" class="shadow">
@@ -57,7 +58,7 @@
                     <button id="run"><i class="fa fa-play-circle"></i></button>
                 </div>
                 <div id="editorTabs">
-                    <div id="tab1" class="tab"><i class="fa fa-file"></i> ramesesFunctions.js</div>
+                    <div id="tab1" class="tab"><i class="fa fa-star"></i></div>
                     <div id="tab2" class="tab activeTab"><i class="fa fa-file"></i> myFunctions.js</div>
                     <div id="tab3" class="tab"><i class="fa fa-file"></i>myScript.js</div>
                 </div>
@@ -120,6 +121,40 @@ rameses.moveDownAndDo(xAmount, aCallbackFunction());
                 <p id="osY">offset Y:</p>
                 <p id="h">height: </p>
                 <p id="w">width: </p>
+            </div>
+            </div>
+            <div id="main_menu">
+                <button id="closeMenu" class="toolButtons collapse"></button>
+                <div id="banner_left">
+                    <img src="img/logo2.png">
+                    <button data-open="lessonsSelectScreen" id="lessonsSelect" class="mainMenuButton">
+                    Lessons Select</button>
+                    <button data-open="creditsScreen" id="credits" class="mainMenuButton">
+                    Credits</button>
+                </div>
+                <div id="content_right">
+                    <div class="mainMenuContent" id="lessonsSelectScreen">
+                        <h1>Lessons Select</h1>
+                        <p>Lessons</p>
+                        <button class="lessonChooser" data-open="1">1. Movements</button>
+                        <button class="lessonChooser" data-open="2">2. Editor</button>
+                        <button class="lessonChooser" data-open="3">3. Tricks</button>
+                        <button class="lessonChooser" data-open="4">4. Reactions</button>
+                        <button class="lessonChooser" data-open="5">5. Tools</button>
+                        <button class="lessonChooser" data-open="6">6. Loops</button>
+                        <p>Challenges</p>
+                        <button class="lessonChooser" data-open="7">1. Challenge 1</button>
+                        <button class="lessonChooser" data-open="8">2. Challenge 2</button>
+                    </div>
+                    <div class="mainMenuContent" id="creditsScreen">
+                        <h1>Credits</h1>
+                        <p>ScriptUNC was created by:</p>
+                        <p><i class="fa fa-gamepad"></i> Tom Nguyen</p>
+                        <p><i class="fa fa-gamepad"></i>  Scott Krawzyk</p>
+                        <p><i class="fa fa-gamepad"></i>  Aaron Mays</p>
+                        <p><i class="fa fa-gamepad"></i>  Manuel Castillo</p>
+                    </div>
+                </div>
             </div>
         </div>
         <div id="game_wrap">

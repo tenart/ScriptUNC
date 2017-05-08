@@ -15,7 +15,7 @@ startChallengeTwo();
 1) Move rameses to the bottom of the student stores. (Coordinates X = 53 Y = 46)
 <br>
 2) Purchase a bluebook and number 2 pencils using the following commands: 
-<br>
+<br><br>
 
 <pre>
 rameses.purchaseBluebook()
@@ -30,21 +30,21 @@ rameses.purchasePencils()
 4) Uh oh, your friend is inside the library! Text him to let him know you are here. If he doesn’t respond, then call him (but ONLY if he doesn’t respond, you don’t want to disturb the library)!
 <br>
 	You can operate your phone using:
-<br>
+<br><br>
 
 <pre>
 rameses.textFriend();
 rameses.callFriend();
 </pre>
-<br>
+<br><br>
 
 	hint: You can get the result of the text and store it in a variable with 
-<br>
+<br><br>
 
 <pre>
 var response = rameses.textFriend(); 
 </pre>
-<br>
+<br><br>
 
 	If the response is false, then call him. Make sure you try to text him first! If you call him 	before trying to text, you will disrupt the library and fail the challenge. There is only a 10% 	chance he will respond to the text. 
 

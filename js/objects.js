@@ -46,9 +46,9 @@ var rameses = {};
 
     rameses.purchasePencils = function() {
         if(rameses.X != 53 || rameses.Y != 46) {
-            alert("I probly should go to the student stores for those!");
+            rameses.alert("I probly should go to the student stores for those!");
         } else {
-            alert("Got my pencils!");
+            rameses.alert("Got my pencils!");
             if(challengeTwoStarted) {
                 gotPencils = true;
             }
@@ -57,9 +57,9 @@ var rameses = {};
 
     rameses.purchaseBluebook = function() {
         if(rameses.X != 53 || rameses.Y != 46) {
-            alert("I probly should go to the student stores for those!");
+            rameses.alert("I probly should go to the student stores for those!");
         } else {
-            alert("Got my bluebooks");
+            rameses.alert("Got my bluebooks");
             if(challengeTwoStarted) {
                 gotBluebook = true;
             }
@@ -69,15 +69,15 @@ var rameses = {};
     rameses.textFriend = function() {
 
         if(rameses.X > 42 || rameses.X < 40 || rameses.Y > 31 || rameses.Y < 29) {
-            alert("I should probably wait to do that until I reach the library..");
+            rameses.alert("I should probably wait to do that until I reach the library..");
         } else {
             var chance = Math.random();
             texted = true;
             if(chance > 0.1) {
-                alert("Hmm, he isnt responding, maybe I should try calling");
+                rameses.alert("Hmm, he isnt responding, maybe I should try calling");
                 return false;
             } else {
-                alert("Text Recievd: Hey Rameses, I am on my way down!"); 
+                alert("Text Recieved: \"Hey Rameses, I am on my way down!\""); 
 		
 		    if(gotPencils && gotBluebook){
 			alert("You have successfully completed challenge 2!");
@@ -93,7 +93,7 @@ var rameses = {};
 
     rameses.callFriend = function() {
         if(rameses.X > 42 || rameses.X < 40 || rameses.Y > 31 || rameses.Y < 29) {
-            alert("I should probably wait to do that until I reach the library..");
+            rameses.alert("I should probably wait to do that until I reach the library..");
         } else {            
             if(!texted) {
                 alert("Challenge failed, you disrupted the whole library without trying to text him first!!");
@@ -107,9 +107,9 @@ var rameses = {};
 
     rameses.purchaseAlpine = function() {
         if(rameses.X != 60 || rameses.Y != 36) {
-            alert("Oops, it doesnt look like Im at alpine!!");
+            rameses.alert("Oops, it doesnt look like Im at alpine!!");
         } else {
-            alert("Got my bagel!");
+            rameses.alert("Got my bagel!");
             if(challengeOneStarted) {
                 gotBagel = true;
             }
@@ -118,7 +118,7 @@ var rameses = {};
 
     rameses.eatAlpine = function() {
         if(rameses.X != 52 || rameses.Y != 33) {
-            alert("I probably shouldnt do that here...");
+            rameses.alert("I probably shouldnt do that here...");
         } else {
             if(challengeOneStarted) {
                 alert("Congrats! You completed challenge 1!");

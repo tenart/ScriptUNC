@@ -3,12 +3,12 @@
 To teach Rameses how to do other things besides moving we can use functions. We can add functions to Rameses and make him do other things like saying his name or running in circles.
 <br>
 For example:
-<br>
+<br><br>
 <pre>
 rameses.myName = function () {
 	rameses.alert("My name is " + rameses.name);
 };
 </pre>
-<br>
+<br><br>
 This works because Rameses has a name property and an alert property, which allows us to get a string version of his name and allows Rameses to alert us of what he is thinking. Try to add some functions of your own and see what you can teach Rameses.
 

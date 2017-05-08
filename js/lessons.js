@@ -115,10 +115,10 @@ setInterval(function() {
     editor.css({"font-size": fontSize2 + '%'});
  
     for (i = 0; i < preLesson.length; i++) {
-        preLesson[i].style.fontSize = fontSize1 + '%';
+        preLesson[i].style.fontSize = fontSize1*.9 + '%';
 }
     for (i = 0; i < codeLesson.length; i++) {
-        codeLesson[i].style.fontSize = fontSize1 + '%';
+        codeLesson[i].style.fontSize = fontSize1*.9 + '%';
 }
     for (i = 0; i < headerLesson.length; i++) {
         headerLesson[i].style.fontSize = fontSize1 + '%';

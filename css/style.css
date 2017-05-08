@@ -318,7 +318,7 @@ body {
 #shadow_overlay {
     z-index: 7;
     image-rendering: initial;
-    display:;
+    opacity: 0.4;
 }
 
 #trees {

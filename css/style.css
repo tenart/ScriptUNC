@@ -742,7 +742,8 @@ body {
     font-size: 12px;
     border-radius: px;
     padding: 10px;
-    border-left: 4px solid;
+    border-left: 4px solid;;
+    display: inline-block
 }
 
 

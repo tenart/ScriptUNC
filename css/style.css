@@ -941,7 +941,7 @@ body {
     z-index: 9999999;
     left: calc(50% - 250px);
     top: calc(50% - 175px);
-    box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0 999px rgba(0, 0, 0, 0.8);
     border-radius: 3px;
     overflow: hidden;
 }

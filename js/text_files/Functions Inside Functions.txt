@@ -1,24 +1,9 @@
 <h1>Using Several Tools at the Same Time</h1>
 <br>
 <br>
-Not all functions will have just return values, some of them will contain other functions as well. A good example of this is the Fibonacci sequence.
+Return values allow us to use functions as parameters for other functions. This means we have an extra tool to use when writing functions. The reason this works is because parameters allow us to gain access to values we normally would not have access to. Return values are so important because, they make the result of the function's calculations available for us to use in other calculations.
 <br><br>
-<pre>
-var fib = function(aNumber){
-
-  if(aNumber === 0){
-  return 0;
-  }
-  else if(aNumber === 1){
-  return 1;
-  }
-  else{
-  return fib(aNumber-1) + fib(aNumber-2);
-  }
-}
-</pre>
-<br><br>
-This could also be done if you want to call another function that you have already created. For example, if you wanted to make a function that multiplied a number by 2, you could use the add function to add it twice and return you that value, which you could use for something else.
+This can be done if you have another function that you have already created. For example, if you wanted to make a function that multiplied a number by 2, you could use an add function to add it twice and return you that value, which you could use for something else.
 <br><br>
 <pre>
 var multby2 = function(aNumber){

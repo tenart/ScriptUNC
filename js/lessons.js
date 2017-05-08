@@ -93,7 +93,7 @@ var editor = $("#editorWrap")// ditto ^^
 var preLesson = document.getElementById("consoleText").getElementsByTagName('pre');
 var codeLesson = document.getElementById("consoleText").getElementsByTagName('code');
 var headerLesson = document.getElementById("consoleText").getElementsByTagName('h1');
-
+var imageLesson = document.getElementById("consoleText").getElementsByTagName('i');
 setInterval(function() { 
     var scaleSource1 = lesson.width(),
         scaleSource2 = editor.width(),
@@ -122,6 +122,9 @@ setInterval(function() {
 }
     for (i = 0; i < headerLesson.length; i++) {
         headerLesson[i].style.fontSize = fontSize1 + '%';
+}
+      for (i = 0; i < imageLesson.length; i++) {
+        imageLesson[i].style.fontSize = fontSize1 + '%';
 }
     
 }, 15);

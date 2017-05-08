@@ -87,13 +87,13 @@ var rameses = {};
                 rameses.alert("Hmm, he isnt responding, maybe I should try calling");
                 return false;
             } else {
-                alert("Text Recieved: \"Hey Rameses, I am on my way down!\""); 
+                dialogue.alert("Text Recieved: \"Hey Rameses, I am on my way down!\""); 
 		
 		    if(gotPencils && gotBluebook){
-			alert("You have successfully completed challenge 2!");
+			dialogue.alert("You have successfully completed challenge 2!");
 		    } else {
-			alert("You forgot the pencils and bluebook...");
-			alert("Challenge Failed");
+			dialogue.alert("You forgot the pencils and bluebook...");
+			dialogue.alert("Challenge Failed");
 		    }
 		challengeTwoStarted = false;            
                 return true;
@@ -106,10 +106,10 @@ var rameses = {};
             rameses.alert("I should probably wait to do that until I reach the library..");
         } else {            
             if(!texted) {
-                alert("Challenge failed, you disrupted the whole library without trying to text him first!!");
+               dialogue.alert("Challenge failed, you disrupted the whole library without trying to text him first!!");
             } else {
-                alert("Hey Rameses, I am on my way down!");
-                alert("You have successfully completed challenge 2!");
+                dialogue.alert("Hey Rameses, I am on my way down!");
+                dialogue.alert("You have successfully completed challenge 2!");
                 challengeTwoStarted = false;
             }
         }
@@ -131,7 +131,7 @@ var rameses = {};
             rameses.alert("I probably shouldnt do that here...");
         } else {
             if(challengeOneStarted) {
-                alert("Congrats! You completed challenge 1!");
+                dialogue.alert("Congrats! You completed challenge 1!");
                 challengeOneStarted = false;
             }
         }

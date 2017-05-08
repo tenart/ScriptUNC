@@ -1,4 +1,4 @@
-<h1>Lesson Six: Functions Inside Functions</h1>
+<h1>Using Several Tools at the Same Time</h1>
 <br>
 <br>
 Not all functions will have just return values, some of them will contain other functions as well. A good example of this is the Fibonacci sequence.

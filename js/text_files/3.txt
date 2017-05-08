@@ -14,7 +14,7 @@ var announcement = function() {
 rameses.moveUpAndDo(5, announcement);
 
 </pre>
-<br>
+<br><br>
 
 After Rameses moves up 5 spaces, the announcement function will execute and Rameses will announce that he has finished moving!
 
@@ -35,7 +35,7 @@ var hitWall = function() {
 rameses.setCollisionReaction(hitWall);
 
 </pre>
-<br>
+<br><br>
 
 Now, every time Rameses runs into a wall, he will alert that he hit a wall. 
 

@@ -8,34 +8,34 @@ Its almost exam time and you best eat so you can get that A! You need to run ove
 
 To begin the challenge, run the following statement: 
 
-<br>
+<br><br>
 <pre>
 startChallengeOne();
 </pre>
-<br>
+<br><br>
 
 1) Moves rameses over to the student union at coordinates X = 60 Y = 36. 
 
 <br>
 
 2) After reaching the student union, purchase a bagel using the function: 
-<br>
+<br><br>
 
 <pre>
 rameses.purchaseAlpine();
 </pre>
 
-<br>
+<br><br>
 3) After purchasing the bagel, return to the pit at coordinates X = 52 Y = 33. 
 
 <br>
 4) Finally, after returning to the pit, call:
-<br>
+<br><br>
 
 <pre>
 rameses.eatBagel();
 </pre>
-<br>
+<br><br>
 
 to complete the challenge. 
 

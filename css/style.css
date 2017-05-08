@@ -492,6 +492,42 @@ body {
     z-index: 10;
 }
 
+#davis1.overlay {
+    position: absolute;
+    height: calc(9.5 * 50px);
+    width: calc(13.5 * 50px);
+    top: calc(11 * 50px);
+    left: calc(60 * 50px);
+    z-index: 10;
+}
+
+#davis2.overlay {
+    position: absolute;
+    height: calc(9.5 * 50px);
+    width: calc(13.5 * 50px);
+    top: calc(11 * 50px);
+    left: calc(73.5 * 50px);
+    z-index: 10;
+}
+
+#davis3.overlay {
+    position: absolute;
+    height: calc(9.5 * 50px);
+    width: calc(13.5 * 50px);
+    top: calc(20.5 * 50px);
+    left: calc(60 * 50px);
+    z-index: 10;
+}
+
+#davis4.overlay {
+    position: absolute;
+    height: calc(9.5 * 50px);
+    width: calc(13.5 * 50px);
+    top: calc(20.5 * 50px);
+    left: calc(73.5 * 50px);
+    z-index: 10;
+}
+
 #minimap {
     width: 200px;
     height: 117px;

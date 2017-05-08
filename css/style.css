@@ -425,6 +425,15 @@ body {
     z-index: 10;
 }
 
+#gardner.overlay {
+    position: absolute;
+    height: calc(7 * 50px);
+    width: calc(13 * 50px);
+    top: calc(7 * 50px);
+    left: calc(6 * 50px);
+    z-index: 10;
+}
+
 #minimap {
     width: 200px;
     height: 117px;

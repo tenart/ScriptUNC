@@ -5,7 +5,7 @@ $.get('js/text_files/start.txt', function(results){
 });
 
 // Files are numbered 1-n, so initializing with 0 will make the first file 1
-var numberOfFiles = 8;
+var numberOfFiles = 11;
 var currentText = 0;
 
 // Get txt file

@@ -450,6 +450,12 @@ function update() {
         gallop.volume(0);
     }
     
+    
+    $("#speech_wrap2").css("left", render.width/2-25 + "px")
+    
+    $("#speech_wrap2").css("top", "calc(100% - " + ($("#speech_wrap2").outerHeight()+20) + "px)");
+    
+    
     /*
     // Collapses windows
     $(".collapsible").each(function() {

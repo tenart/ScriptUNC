@@ -21,6 +21,16 @@ function startChallengeTwo() {
     texted = false;
 }
 
+var dialogue = {
+    alert : function(speak){
+        $("#bubble2").text(speak);
+        $("#speech_wrap2").fadeIn(500);
+        setTimeout(function() {
+            $("#speech_wrap2").fadeOut(500);
+        }, 3000);
+    }
+}
+
 var rameses = {};
     rameses.name = "Rameses";
     rameses.thought= "What a GDTBATH...";

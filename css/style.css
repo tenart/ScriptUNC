@@ -162,6 +162,55 @@ body {
     animation: swing 0.5s infinite;
 }
 
+#speech_wrap2 {
+    position: absolute;
+    width: 200px;
+    left: calc(50% - 20px);
+    top: calc(100% - 100px);
+    z-index: 11;
+    display: none;
+}
+
+#bubble2 {
+    width: 100%;
+    padding: 10px;
+    margin-left: calc(-100px + 15px);
+    border-radius: 5px;
+    background: white;
+    position: relative;
+    z-index: 10;
+    font-family: serif;
+    line-height: 1.2;
+    color: gray;
+    text-align: center;
+}
+
+#caret2 {
+    width: 20px;
+    height: 20px;
+    background: white;
+    margin-top: -10px;
+    margin-left: 15px;
+    transform: rotate(45deg);
+    position: relative;
+    z-index: 9;
+}
+
+#exclamation2 {
+    background: #7BAFD4;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 10px;
+    top: -25px;
+    z-index: 10;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    animation: swing 0.5s infinite;
+}
+
 @keyframes swing {
     0%{
         transform: rotate(10deg);

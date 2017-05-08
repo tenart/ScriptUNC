@@ -3,7 +3,9 @@
 
 The myScript.js tab is the place for you to run all the code that you want to run.
 <br>
+<br>
 Once you start making your own functions, the myFunctions.js tab is where you can put them to make your code look cleaner. You can then call your functions in the myScript.js tab.
+<br>
 <br>
 The ramesesFunctions.js tab contains all of the built-in methods you can use with Rameses. Some of them may be too advanced for you right now but hopefully by the end of the game you'll be able to use and understand them. Feel free to copy and paste these into the myScript.js tab, just make sure you change the parameters to appropriate values.
 

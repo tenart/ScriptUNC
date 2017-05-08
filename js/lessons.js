@@ -124,7 +124,7 @@ setInterval(function() {
         headerLesson[i].style.fontSize = fontSize1 + '%';
 }
       for (i = 0; i < imageLesson.length; i++) {
-        imageLesson[i].style.fontSize = fontSize1 + '%';
+        imageLesson[i].style.fontSize = fontSize1*.5 + '%';
 }
     
 }, 15);

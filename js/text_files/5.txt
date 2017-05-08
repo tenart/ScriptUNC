@@ -1,6 +1,6 @@
 <h1>Giving Rameses Tools</h1>
 <br><br>
-We have also given you the ability to give Rameses tools to use by adding functions to "myFunctions.js". By doing so, Rameses can use these tools without having to actually learning how to do them. 
+We have also given you the ability to give Rameses tools to use by adding functions to "myFunctions.js". Rameses can use these tools without having to learn how they work. 
 <br>
 For example if you wanted to let Rameses calculate sales tax for an item in NC, you could do so by adding the following to "myFunctions.js":
 <br><br>

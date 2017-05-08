@@ -1,0 +1,15 @@
+<h1>Tools and Tricks</h1>
+<br>
+<br>
+A function is a set of statements that performs a task or calculates a value. You can think of a function as a tool or trick that you can use to manipulate objects. To use a function, you must define it somewhere in the scope from which you wish to call it.This is a way you define a function:
+<br>
+<br>
+<pre>
+var add = function(a,b){
+	return a + b;
+};
+</pre>
+<br>
+<br>
+By defining a function, you can then invoke or call the function by using it's variable name. To invoke the function means, to use it somewhere in the code to make a calculation or perform some task.
+

@@ -71,6 +71,9 @@ $("#editor_open").click(function(){
 
 var lesson = $("#consoleText") // cached for performance
 var editor = $("#editorWrap")// ditto ^^
+var preLesson = document.getElementById("consoleText").getElementsByTagName('pre');
+var codeLesson = document.getElementById("consoleText").getElementsByTagName('code');
+var headerLesson = document.getElementById("consoleText").getElementsByTagName('h1');
 
 setInterval(function() { 
     var scaleSource1 = lesson.width(),
@@ -87,7 +90,19 @@ setInterval(function() {
     if (fontSize2 > maxScale) fontSize2 = maxScale;
     if (fontSize2 < minScale) fontSize2 = minScale; //Enforce the minimum and maximums 
     
+    var i;
+    
     lesson.css({"font-size": fontSize1 + '%'});
     editor.css({"font-size": fontSize2 + '%'});
+ 
+    for (i = 0; i < preLesson.length; i++) {
+        preLesson[i].style.fontSize = fontSize1 + '%';
+}
+    for (i = 0; i < codeLesson.length; i++) {
+        codeLesson[i].style.fontSize = fontSize1 + '%';
+}
+    for (i = 0; i < headerLesson.length; i++) {
+        headerLesson[i].style.fontSize = fontSize1 + '%';
+}
     
 }, 15);

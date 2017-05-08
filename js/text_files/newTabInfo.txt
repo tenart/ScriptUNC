@@ -1,1 +1,29 @@
+<h1>Info About Code Editor</h1>
+<br><br>
+
+The myScript.js tab is the place for you to run all the code that you want to run.
+<br>
+Once you start making your own functions, the myFunctions.js tab is where you can put them to make your code look cleaner. You can then call your functions in the myScript.js tab.
+<br>
+The ramesesFunctions.js tab contains all of the built-in methods you can use with Rameses. Some of them may be too advanced for you right now but hopefully by the end of the game you'll be able to use and understand them. Feel free to copy and paste these into the myScript.js tab, just make sure you change the parameters to appropriate values.
+
+<!--
+
+THIS IS A COMMENT
+
+Since the game reads these text files as HTML, you can use HTML tags to format
+your lessons. Some things to remember:
+
+Use <br> tags for linebreaks. Use one to go down a line, use two for a clean
+paragraph break.
+
+Use <i class="fa fa-ICON"><i> for special icons. Look up font-awesome icons
+
+Use <code></code> for very short code-like items such as object and variable
+names.
+
+Use <pre></pre> for long blocks of code (See above for example). All whitespace
+and linebreaks are preserved within these tags;
+
+-->
 

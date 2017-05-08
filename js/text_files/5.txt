@@ -4,12 +4,13 @@ We have also given you the ability to give Rameses tools to use by adding functi
 <br>
 For example if you wanted to let Rameses calculate sales tax for an item in NC, you could do so by adding the following to "myFunctions.js":
 <br><br>
+
 <pre>
 var sales_tax_calc = function(item_price){
 	return item_price * 0.0475;
 };
 </pre>
-<br><br>
+<br><br> 
 You could then do the following in "myScript.js":
 <br><br>
 <pre>
@@ -17,4 +18,6 @@ rameses.alert("The sales tax on a $5 Cookout tray is " +
 sales_tax_calc(5));
 </pre>
 <br><br>
-As you might have noticed, there is no need to assign the sales tax to a variable because <code>return</code> assigns a value to <code>sales_tax_calc(5)</code> which can then be printed. If you wanted to go even further you could also add a function that gives you the total price including sales tax.
+As you can see <code>item_price</code> is needed to make the calculation work. This value is known as a parameter. It is an additional value you can give to the function to make sure it has access to all the things it needs to work correctly, however parameters are not always necessary.
+<br><br>
+There is no need to assign the sales tax to a variable because <code>return</code> assigns a value to <code>sales_tax_calc(5)</code> which can then be printed. If you wanted to go even further you could also add a function that gives you the total price including sales tax.

@@ -1,4 +1,4 @@
 <h1>Congrats! you have completed scriptUNC!</h1>
 <br>
 <br>
-Please reload the page or click the console prompt to play again!<br>
+Please reload the page or click the forward arrow to play again!<br>
